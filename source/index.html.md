@@ -19,16 +19,18 @@ search: true
 Welcome to the Rendement Locatif APIs documentation. 
 This documentation is stricly confidential.
 
-# API Access
+# API Principles
 
-> To authenticate a user use this code:
+## Dev Authentication
+
+> To authenticate against the api:
 
 ```shell
 curl "https://www.rendementlocatif.com/api/login"
   -H "X-API-KEY: secretkey"
 ```
 
-> Remplacez secretkey avec votre clef.
+> Replace secretkey with your assigned dev key.
 
 The Rendement locatif API expects an authentication key.
 
@@ -38,6 +40,14 @@ Just add the key to every request as a header like this:
 
 <aside class="notice">
 Replace <code>secretkey</code> with your personal key.
+</aside>
+
+## Versionning
+
+The endpoint accepts the version like this https://www.rendementlocatif.com/api/gestion/version/.
+<aside class="notice">
+Currently only version = 2 is supported. So please use the following endpoint:<br/>
+https://www.rendementlocatif.com/api/gestion/2/immeubles
 </aside>
 
 # Authentificating a user
