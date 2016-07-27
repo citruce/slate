@@ -3,13 +3,10 @@ title: API Reference
 
 language_tabs:
   - shell
-  - ruby
-  - python
-  - javascript
 
 toc_footers:
-  - <a href='#'>Sign Up for a Developer Key</a>
-  - <a href='https://github.com/tripit/slate'>Documentation Powered by Slate</a>
+  - <a href='mailto:bassel@citruce.com'>bassel@citruce.com</a>
+  - <a href='https://www.rendementlocatif.com'>Rendement Locatif</a>
 
 includes:
   - errors
@@ -19,171 +16,227 @@ search: true
 
 # Introduction
 
-Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.
+Welcome to the Rendement Locatif APIs documentation. 
+This documentation is stricly confidential.
 
-We have language bindings in Shell, Ruby, and Python! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.
+# API Access
 
-This example API documentation page was created with [Slate](https://github.com/tripit/slate). Feel free to edit it and use it as a base for your own API's documentation.
-
-# Authentication
-
-> To authorize, use this code:
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-```
+> To authenticate a user use this code:
 
 ```shell
-# With shell, you can just pass the correct header with each request
-curl "api_endpoint_here"
-  -H "Authorization: meowmeowmeow"
+curl "https://www.rendementlocatif.com/api/login"
+  -H "X-API-KEY: secretkey"
 ```
 
-```javascript
-const kittn = require('kittn');
+> Remplacez secretkey avec votre clef.
 
-let api = kittn.authorize('meowmeowmeow');
-```
+The Rendement locatif API expects an authentication key.
 
-> Make sure to replace `meowmeowmeow` with your API key.
+Just add the key to every request as a header like this:
 
-Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our [developer portal](http://example.com/developers).
-
-Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:
-
-`Authorization: meowmeowmeow`
+`X-API-KEY: secretkey`
 
 <aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
+Replace <code>secretkey</code> with your personal key.
 </aside>
 
-# Kittens
+# Authentificating a user
 
-## Get All Kittens
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get()
-```
+## Login
 
 ```shell
-curl "http://example.com/api/kittens"
-  -H "Authorization: meowmeowmeow"
+curl --data "username=username&password=password" 
+  "https://www.rendementlocatif.com/api/login"
+  -H "X-API-KEY: secretkey"
 ```
 
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let kittens = api.kittens.get();
-```
-
-> The above command returns JSON structured like this:
+> Returns the following JSON:
 
 ```json
-[
-  {
-    "id": 1,
-    "name": "Fluffums",
-    "breed": "calico",
-    "fluffiness": 6,
-    "cuteness": 7
-  },
-  {
-    "id": 2,
-    "name": "Max",
-    "breed": "unknown",
-    "fluffiness": 5,
-    "cuteness": 10
-  }
-]
-```
-
-This endpoint retrieves all kittens.
-
-### HTTP Request
-
-`GET http://example.com/api/kittens`
-
-### Query Parameters
-
-Parameter | Default | Description
---------- | ------- | -----------
-include_cats | false | If set to true, the result will also include cats.
-available | true | If set to false, the result will include kittens that have already been adopted.
-
-<aside class="success">
-Remember — a happy kitten is an authenticated kitten!
-</aside>
-
-## Get a Specific Kitten
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get(2)
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get(2)
-```
-
-```shell
-curl "http://example.com/api/kittens/2"
-  -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let max = api.kittens.get(2);
-```
-
-> The above command returns JSON structured like this:
-
-```json
-{
-  "id": 2,
-  "name": "Max",
-  "breed": "unknown",
-  "fluffiness": 5,
-  "cuteness": 10
+{   
+    "auth": true,
+    "userid": "2",
+    "Code": "0",
+    "Message": "Bienvenue!",
+    "premium_end": "2016-06-30T23:06:06+02:00",
+    "username": "osamu"
 }
 ```
 
-This endpoint retrieves a specific kitten.
-
-<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
+This endpoint logs in a user and returns if the user is premium or not.
 
 ### HTTP Request
 
-`GET http://example.com/kittens/<ID>`
+`POST https://www.rendementlocatif.com/api/login`
 
-### URL Parameters
+### Query Parameters
 
 Parameter | Description
---------- | -----------
-ID | The ID of the kitten to retrieve
+--------- | -------
+username | The user name or email address
+password | The user password
 
+
+### Returned parameters
+
+Parameter | Type | Description
+--------- | ------- | -------
+Auth | boolean | true if the user is authenticated ok and premium
+userid | string | the is of the user (use this as the unique and permanent id)
+Code | string | 0 : user is premium, -1 : unknown username, -2 : wrong password, -3 : free access granted
+Message | string | a message that could be displayed to user (optionnal)
+premium_end | date | end of current premium subscription period
+
+<aside class="success">
+The user should be authenticated if auth=true only (when premium access only is allowed).
+If non premium access is allowed, check Auth=false and code=-3.
+</aside>
+
+## User authenticated requests
+
+When requesting the API for user related content the username and password should always be passed as POST parameters with the request.
+
+# Gestion
+
+## Get Immeubles
+
+Gets all the "immeubles" of a user and their associated "biens".
+
+> Code to get the immeubles of a user
+
+```shell
+curl --data "username=username&password=password"
+"https://www.rendementlocatif.com/api/gestion/2/immeubles"
+  -H "X-API-KEY: secretkey"
+```
+
+> Returns the following JSON:
+
+```json
+{
+    "count": 3,
+    "immeubles": [
+        {
+            "id": "56b7b15a48177ea7085932cd",
+            "name": "Pasteur Double Appart",
+            "address": "100 avenue Pasteur",
+            "biens": [
+                {
+                    "active": true,
+                    "annnonceDesc": "Appartement lumineux à visiter le plus tôt possible.\n\nIl t'appartient de venir pour le voir ;)                        \n\nmodifié",
+                    "annonceDesc": "Appartement lumineux à visiter le plus tôt possible.\n\nIl t'appartient de venir pour le voir ;)",
+                    "annonceTitle": "Beau studio titre",
+                    "chambres": 0,
+                    "dateCreated": {
+                        "sec": 1454879066,
+                        "usec": 59000
+                    },
+                    "dateLastModified": {
+                        "sec": 1459891643,
+                        "usec": 26000
+                    },
+                    "energy": "b",
+                    "etage": 1,
+                    "ges": "c",
+                    "immeubleId": "56b7b15a48177ea7085932cd",
+                    "milliemes": 422,
+                    "nom": "Studio porte droite",
+                    "pieces": "T1",
+                    "surface": 23.49,
+                    "type": "studio",
+                    "user_id": "2",
+                    "id": "56b7b15a48177ea7085932ce"
+                },
+                {
+                    "active": true,
+                    "chambres": 1,
+                    "dateCreated": {
+                        "sec": 1454879205,
+                        "usec": 55000
+                    },
+                    "dateLastModified": {
+                        "sec": 1459605973,
+                        "usec": 888000
+                    },
+                    "etage": 1,
+                    "immeubleId": "56b7b15a48177ea7085932cd",
+                    "milliemes": 578,
+                    "nom": "2 pièces gauche",
+                    "pieces": "T2",
+                    "surface": 32.11,
+                    "type": "appartement",
+                    "user_id": "2",
+                    "id": "56b7b1e548177eab085932c6"
+                }
+            ]
+        },
+        {
+            "id": "5723cd6848177e7f298b4567",
+            "name": "dsfdsf",
+            "address": "sdfdsf",
+            "biens": [
+                {
+                    "nom": "Bien Principal",
+                    "immeubleId": "5723cd6848177e7f298b4567",
+                    "surface": 23,
+                    "milliemes": 1000,
+                    "pieces": "",
+                    "type": "appartement",
+                    "user_id": "2",
+                    "active": true,
+                    "dateCreated": {
+                        "sec": 1461964136,
+                        "usec": 939000
+                    },
+                    "robot": true,
+                    "id": "5723cd6848177e7f298b4568"
+                }
+            ]
+        },
+        {
+            "id": "56a7766748177e22348b4567",
+            "name": "Studio rue Iena",
+            "address": "24, rue d'iena",
+            "biens": [
+                {
+                    "active": true,
+                    "chambres": 0,
+                    "dateCreated": {
+                        "sec": 1453815399,
+                        "usec": 517000
+                    },
+                    "dateLastModified": {
+                        "sec": 1461096415,
+                        "usec": 746000
+                    },
+                    "energy": "",
+                    "etage": 2,
+                    "ges": "",
+                    "immeubleId": "56a7766748177e22348b4567",
+                    "milliemes": 1000,
+                    "nom": "Bien Principal",
+                    "pieces": "T1",
+                    "robot": false,
+                    "surface": 23,
+                    "type": "studio",
+                    "user_id": "2",
+                    "id": "56a7766748177e22348b4568"
+                }
+            ]
+        }
+    ],
+    "result": true,
+    "code": "0"
+}
+```
+
+### HTTP Request
+
+`POST https://www.rendementlocatif.com/api/gestion/2/immeubles`
+
+### Query Parameters
+
+Parameter | Description
+--------- | -------
+username | The user name or email address
+password | The user password
