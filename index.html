@@ -2357,7 +2357,7 @@ If &ldquo;operationId&rdquo; is incorrect or empty, the operation will be added 
 <tr>
 <td>operationDate</td>
 <td>The date of the operation (format should be the french one: dd/mm/YYYY)</td>
-<td>string</td>
+<td>string (dd/mm/YYYY)</td>
 </tr>
 <tr>
 <td>operationPaid</td>
@@ -2366,8 +2366,38 @@ If &ldquo;operationId&rdquo; is incorrect or empty, the operation will be added 
 </tr>
 <tr>
 <td>operationAuto</td>
-<td>Operations has to be repeated automatically in the future ( &ldquo;on&rdquo; to set as paid, anything else would mark it not paid)</td>
+<td>Operations has to be repeated automatically in the future ( &ldquo;on&rdquo; to set as enabled, anything else would mark it not enabled)</td>
 <td>string</td>
+</tr>
+<tr>
+<td>operationDesc</td>
+<td>A description the user can freely add to the operation</td>
+<td>string</td>
+</tr>
+<tr>
+<td>operationMontantPC</td>
+<td>In the case the type of the operation (operationName) is &lsquo;recetteLoyer&rsquo; then this can be added so to create an operation of type &#39;recetteLoyerProvision&rsquo; at the same time. The reason is that a &ldquo;locataire&rdquo; will usually pay both recetteLoyer and recetteLoyerProvision at the same time. The UI of the client app should allow the user to fill in both things at the same time and help the user split the amount reveived from the &ldquo;locataire&rdquo; in both &#39;recetteLoyer&rsquo; and &#39;recetteLoyerProvision&rsquo;</td>
+<td>string</td>
+</tr>
+<tr>
+<td>operationMontantTEOM</td>
+<td>The amount of &ldquo;Taxe ordure menagère&rdquo; (TEOM) to be added as new field in the case the operation is of type &ldquo;chargeTF&rdquo; (charge taxe foncière)</td>
+<td>float</td>
+</tr>
+<tr>
+<td>operationRepeatDate</td>
+<td>A max date for repeating the operation creation several time until that date. This date should be at the minimum equal to (operationDate + 1 month) and has no maximum. This field should be displayed only if operationDate is set and at the maximum 1 month in the past compared to current dateTime</td>
+<td>string (dd/mm/YYYY)</td>
+</tr>
+<tr>
+<td>dateDebut</td>
+<td>start date for the regularisation of charges. Should be displayed and used only if (operationName (type) = recetteReguLocataire) or (operationName (type) = chargeReguLocataire)</td>
+<td>string (dd/mm/YYYY)</td>
+</tr>
+<tr>
+<td>dateFin</td>
+<td>end date for the regularisation of charges. Should be displayed and used only if (operationName (type) = recetteReguLocataire) or (operationName (type) = chargeReguLocataire)</td>
+<td>string (dd/mm/YYYY)</td>
 </tr>
 </tbody></table>
 
@@ -2381,6 +2411,121 @@ locataireId:56a7b72548177e22348b4569<br/>
 operationDate:17/08/2016<br/>
 operationPaid:on<br/>
 operationAuto:off<br/></p>
+
+<h2 id="split-loyer">Split Loyer</h2>
+
+<p>Splits a loyer paid by a &ldquo;locataire&rdquo; in loyer Hors Charges and Provision pour charge for a locataire.</p>
+
+<blockquote>
+<p>Code to split a loyer in 2 operations for a locataire</p>
+</blockquote>
+<pre class="highlight shell"><code>curl --data <span class="s2">"username=username&amp;password=password"</span>
+<span class="s2">"https://www.rendementlocatif.com/api/gestion/2/ventilationLoyer/&lt;locataireId&gt;/&lt;montantTotal&gt;"</span>
+  -H <span class="s2">"X-API-KEY: secretkey"</span>
+</code></pre>
+
+<blockquote>
+<p>Returns the following JSON:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"currentLoyer"</span><span class="p">:</span><span class="w"> </span><span class="mi">300</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"currentProvision"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"restantAPayer"</span><span class="p">:</span><span class="w"> </span><span class="mi">150</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"caf"</span><span class="p">:</span><span class="w"> </span><span class="mi">165</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"montantTotal"</span><span class="p">:</span><span class="w"> </span><span class="mi">400</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"loyerHC"</span><span class="p">:</span><span class="w"> </span><span class="mi">385</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"provision"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"result"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">POST https://www.rendementlocatif.com/api/gestion/2/ventilationLoyer/&lt;locataireId&gt;/&lt;montantTotal&gt;</code></p>
+
+<p>&ldquo;locataireId&rdquo; is mandatory and is the id of the locataire from which the &ldquo;montantTotal&rdquo; was received.</p>
+
+<p>&ldquo;montantTotal&rdquo; is the amount of money received from a locataire for a loyer. This API method will split that amount into loyer hors charges and provision pour charges for this locataire depending on his contract (bail).</p>
+
+<h3 id="parameters">Parameters</h3>
+
+<p>Should be sent with the request in the body as &ldquo;application/x-www-form-urlencoded&rdquo;.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>username</td>
+<td>The user name or email address</td>
+<td>string</td>
+</tr>
+<tr>
+<td>password</td>
+<td>The user password</td>
+<td>string</td>
+</tr>
+</tbody></table>
+
+<h3 id="returned-parameters">Returned parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>result</td>
+<td>boolean</td>
+<td>true if operation was marked successfully otherwise false</td>
+</tr>
+<tr>
+<td>code</td>
+<td>integer</td>
+<td>0 if ok otherwise error code of error</td>
+</tr>
+<tr>
+<td>loyerHC</td>
+<td>float</td>
+<td><b>result of the split:</b> the loyer HC to be used for the operationMontant field</td>
+</tr>
+<tr>
+<td>provision</td>
+<td>float</td>
+<td><b>result of the split:</b> the provision to be used for the operationMontant field</td>
+</tr>
+<tr>
+<td>currentLoyer</td>
+<td>float</td>
+<td>the current loyer owned by the locataire (hors charge)</td>
+</tr>
+<tr>
+<td>currentProvision</td>
+<td>float</td>
+<td>the current provision pour charges owned by the locataire</td>
+</tr>
+<tr>
+<td>caf</td>
+<td>float</td>
+<td>the amount of caf received by the &ldquo;proprietaire&rdquo; that should not be paid by the locataire</td>
+</tr>
+<tr>
+<td>montantTotal</td>
+<td>float</td>
+<td>the total amount paid by the locataire as provided the API call url path</td>
+</tr>
+<tr>
+<td>message</td>
+<td>string</td>
+<td>error message if error</td>
+</tr>
+</tbody></table>
 
 <h2 id="mark-operation-paid">Mark Operation Paid</h2>
 
