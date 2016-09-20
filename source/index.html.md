@@ -1540,311 +1540,97 @@ curl --data "username=username&password=password"
 
 ```json
 {
-    "countAll": 157,
-    "count": 10,
-    "operations": [
-        {
-            "dateCreated": {
-                "sec": 1470305101,
-                "usec": 828000
-            },
-            "dateLastModified": {
-                "sec": 1462378891,
-                "usec": 107000
-            },
-            "immeubleId": "56b7b15a48177ea7085932cd",
-            "locataireId": "56b7b6e048177e9e085932cc",
-            "operationAuto": true,
-            "operationDate": {
-                "sec": 1470261600,
-                "usec": 0
-            },
-            "operationDesc": "",
-            "operationMontant": 224,
-            "operationPaid": false,
-            "robot": true,
-            "user_id": "2",
-            "markPaidCode": "57a3134dc9eb3",
-            "markNonAutoCode": "57a3134dc9f34",
-            "id": "57a3134d48177e8e1875c3cf",
-            "operationType": {
-                "id": "recetteCaf",
-                "name": "Recette CAF (APL/ACL)",
-                "positive": true
-            }
-        },
-        {
-            "dateCreated": {
-                "sec": 1470035102,
-                "usec": 20000
-            },
-            "dateLastModified": {
-                "sec": 1462378891,
-                "usec": 636000
-            },
-            "immeubleId": "56b7b15a48177ea7085932cd",
-            "locataireId": "56b7b6e048177e9e085932cc",
-            "operationAuto": true,
-            "operationDate": {
-                "sec": 1470002400,
-                "usec": 0
-            },
-            "operationDesc": "",
-            "operationMontant": 126.16,
-            "operationMontantPC": 25,
-            "operationPaid": false,
-            "robot": true,
-            "user_id": "2",
-            "markPaidCode": "579ef49e04a3b",
-            "markNonAutoCode": "579ef49e04bf6",
-            "id": "579ef49e48177e37118b4567",
-            "operationType": {
-                "id": "recetteLoyer",
-                "name": "Recette Loyers Hors Charges",
-                "positive": true
-            }
-        },
-        {
-            "dateCreated": {
-                "sec": 1470035102,
-                "usec": 90000
-            },
-            "dateLastModified": {
-                "sec": 1459873779,
-                "usec": 533000
-            },
-            "immeubleId": "56b7b15a48177ea7085932cd",
-            "locataireId": "56b7b6e048177e9e085932cc",
-            "operationAuto": true,
-            "operationDate": {
-                "sec": 1470002400,
-                "usec": 0
-            },
-            "operationDesc": "Créé avec loyer 126.16€ (total: 151.16€).",
-            "operationMontant": 25,
-            "operationPaid": false,
-            "robot": true,
-            "user_id": "2",
-            "markPaidCode": "579ef49e15799",
-            "markNonAutoCode": "579ef49e15832",
-            "id": "579ef49e48177e37118b4568",
-            "operationType": {
-                "id": "recetteLoyerProvision",
-                "name": "Recette Provision Charges Locataire",
-                "positive": true
-            }
-        },
-        {
-            "operationDate": {
-                "sec": 1468360800,
-                "usec": 0
-            },
-            "operationMontant": 163,
-            "operationAuto": false,
-            "operationPaid": true,
-            "locataireId": "56b7b52348177ea2085932cc",
-            "operationDesc": "Créée du compte bancaire BOURSORAMA ESSENTIEL",
-            "sourceBankAccountId": 28,
-            "sourceTransactionId": 732,
-            "sourceTransactionMongoId": "57a1c10548177e741775c3d0",
-            "user_id": "2",
-            "immeubleId": "56b7b15a48177ea7085932cd",
-            "dateCreated": {
-                "sec": 1470218513,
-                "usec": 870000
-            },
-            "robot": true,
-            "id": "57a1c11148177ec21675c3ce",
-            "operationType": {
-                "id": "recetteCaf",
-                "name": "Recette CAF (APL/ACL)",
-                "positive": true
-            }
-        },
-        {
-            "dateCreated": {
-                "sec": 1467878701,
-                "usec": 882000
-            },
-            "dateLastModified": {
-                "sec": 1470139384,
-                "usec": 886000
-            },
-            "immeubleId": "56b7b15a48177ea7085932cd",
-            "locataireId": "56b7b52348177ea2085932cc",
-            "operationAuto": true,
-            "operationDate": {
-                "sec": 1467842400,
-                "usec": 0
-            },
-            "operationDesc": "",
-            "operationMontant": 57,
-            "operationMontantPC": 15,
-            "operationMontantTotal": "72",
-            "operationPaid": false,
-            "robot": true,
-            "user_id": "2",
-            "markPaidCode": "577e0d2dd7251",
-            "markNonAutoCode": "577e0d2dd730b",
-            "id": "577e0d2d48177e070a8b4567",
-            "operationType": {
-                "id": "recetteLoyer",
-                "name": "Recette Loyers Hors Charges",
-                "positive": true
-            }
-        },
-        {
-            "dateCreated": {
-                "sec": 1467878701,
-                "usec": 908000
-            },
-            "dateLastModified": {
-                "sec": 1460013926,
-                "usec": 343000
-            },
-            "immeubleId": "56b7b15a48177ea7085932cd",
-            "locataireId": "56b7b52348177ea2085932cc",
-            "operationAuto": true,
-            "operationDate": {
-                "sec": 1467842400,
-                "usec": 0
-            },
-            "operationDesc": "Créé avec loyer 57€ (total: 72€).",
-            "operationMontant": 15,
-            "operationMontantTotal": "72",
-            "operationPaid": false,
-            "robot": true,
-            "user_id": "2",
-            "markPaidCode": "577e0d2ddd764",
-            "markNonAutoCode": "577e0d2ddd7e9",
-            "id": "577e0d2d48177e070a8b4568",
-            "operationType": {
-                "id": "recetteLoyerProvision",
-                "name": "Recette Provision Charges Locataire",
-                "positive": true
-            }
-        },
-        {
-            "operationDate": {
-                "sec": 1467669600,
-                "usec": 0
-            },
-            "operationMontant": 165,
-            "operationAuto": false,
-            "operationPaid": true,
-            "locataireId": "56b7b52348177ea2085932cc",
-            "operationDesc": "Créée du compte bancaire BOURSORAMA ESSENTIEL",
-            "sourceBankAccountId": 28,
-            "sourceTransactionId": 741,
-            "sourceTransactionMongoId": "57a1c10548177e741775c3d3",
-            "user_id": "2",
-            "immeubleId": "56b7b15a48177ea7085932cd",
-            "dateCreated": {
-                "sec": 1470218513,
-                "usec": 873000
-            },
-            "robot": true,
-            "id": "57a1c11148177ec21675c3cf",
-            "operationType": {
-                "id": "recetteCaf",
-                "name": "Recette CAF (APL/ACL)",
-                "positive": true
-            }
-        },
-        {
-            "dateCreated": {
-                "sec": 1467612301,
-                "usec": 788000
-            },
-            "dateLastModified": {
-                "sec": 1470305101,
-                "usec": 828000
-            },
-            "immeubleId": "56b7b15a48177ea7085932cd",
-            "locataireId": "56b7b6e048177e9e085932cc",
-            "operationAuto": false,
-            "operationDate": {
-                "sec": 1467583200,
-                "usec": 0
-            },
-            "operationDesc": "",
-            "operationMontant": 224,
-            "operationPaid": false,
-            "robot": true,
-            "user_id": "2",
-            "markPaidCode": "5779fc8dc0589",
-            "markNonAutoCode": "5779fc8dc05d4",
-            "id": "5779fc8d48177edc158b4568",
-            "operationType": {
-                "id": "recetteCaf",
-                "name": "Recette CAF (APL/ACL)",
-                "positive": true
-            }
-        },
-        {
-            "dateCreated": {
-                "sec": 1467324301,
-                "usec": 774000
-            },
-            "dateLastModified": {
-                "sec": 1470035102,
-                "usec": 87000
-            },
-            "immeubleId": "56b7b15a48177ea7085932cd",
-            "locataireId": "56b7b6e048177e9e085932cc",
-            "operationAuto": false,
-            "operationDate": {
-                "sec": 1467324000,
-                "usec": 0
-            },
-            "operationDesc": "",
-            "operationMontant": 126.16,
-            "operationMontantPC": 25,
-            "operationPaid": false,
-            "robot": true,
-            "user_id": "2",
-            "markPaidCode": "5775978dbc93d",
-            "markNonAutoCode": "5775978dbcda3",
-            "id": "5775978d48177e961d8b4567",
-            "operationType": {
-                "id": "recetteLoyer",
-                "name": "Recette Loyers Hors Charges",
-                "positive": true
-            }
-        },
-        {
-            "dateCreated": {
-                "sec": 1467324301,
-                "usec": 785000
-            },
-            "dateLastModified": {
-                "sec": 1470035102,
-                "usec": 90000
-            },
-            "immeubleId": "56b7b15a48177ea7085932cd",
-            "locataireId": "56b7b6e048177e9e085932cc",
-            "operationAuto": false,
-            "operationDate": {
-                "sec": 1467324000,
-                "usec": 0
-            },
-            "operationDesc": "Créé avec loyer 126.16€ (total: 151.16€).",
-            "operationMontant": 25,
-            "operationPaid": false,
-            "robot": true,
-            "user_id": "2",
-            "markPaidCode": "5775978dbf63d",
-            "markNonAutoCode": "5775978dbf7d1",
-            "id": "5775978d48177e961d8b4568",
-            "operationType": {
-                "id": "recetteLoyerProvision",
-                "name": "Recette Provision Charges Locataire",
-                "positive": true
-            }
-        }
-    ],
-    "result": true,
-    "code": 0
+  "countAll": 3,
+  "count": 3,
+  "operations": [
+    {
+      "dateCreated": {
+        "sec": 1473612496,
+        "usec": 372000
+      },
+      "immeubleId": "56b7b15a48177ea7085932cd",
+      "locataireId": "56b7b52348177ea2085932cc",
+      "operationAuto": false,
+      "operationDate": {
+        "sec": 1473026400,
+        "usec": 0
+      },
+      "operationDesc": "Créée du compte bancaire BOURSORAMA ESSENTIEL",
+      "operationMontant": 135,
+      "operationPaid": true,
+      "robot": true,
+      "user_id": "2",
+      "id": "57d58ad048177e4f1b8b4567",
+      "operationType": {
+        "id": "recetteLoyer",
+        "name": "Recette Loyers Hors Charges",
+        "positive": true
+      },
+      "locataire": {
+        "id": "56b7b52348177ea2085932cc",
+        "nom": "Faral",
+        "prenom": "Jordan"
+      }
+    },
+    {
+      "dateCreated": {
+        "sec": 1473612496,
+        "usec": 373000
+      },
+      "immeubleId": "56b7b15a48177ea7085932cd",
+      "locataireId": "56b7b52348177ea2085932cc",
+      "operationAuto": false,
+      "operationDate": {
+        "sec": 1473026400,
+        "usec": 0
+      },
+      "operationDesc": "Créée du compte bancaire BOURSORAMA ESSENTIEL",
+      "operationMontant": 15,
+      "operationPaid": true,
+      "robot": true,
+      "user_id": "2",
+      "id": "57d58ad048177e4f1b8b4568",
+      "operationType": {
+        "id": "recetteLoyerProvision",
+        "name": "Recette Provision Charges Locataire",
+        "positive": true
+      },
+      "locataire": {
+        "id": "56b7b52348177ea2085932cc",
+        "nom": "Faral",
+        "prenom": "Jordan"
+      }
+    },
+    {
+      "dateCreated": {
+        "sec": 1473612496,
+        "usec": 375000
+      },
+      "immeubleId": "56b7b15a48177ea7085932cd",
+      "locataireId": "56b7b52348177ea2085932cc",
+      "operationAuto": false,
+      "operationDate": {
+        "sec": 1473026400,
+        "usec": 0
+      },
+      "operationDesc": "Créée du compte bancaire BOURSORAMA ESSENTIEL",
+      "operationMontant": 165,
+      "operationPaid": true,
+      "robot": true,
+      "user_id": "2",
+      "id": "57d58ad048177e4f1b8b4569",
+      "operationType": {
+        "id": "recetteCaf",
+        "name": "Recette CAF (APL/ACL)",
+        "positive": true
+      },
+      "locataire": {
+        "id": "56b7b52348177ea2085932cc",
+        "nom": "Faral",
+        "prenom": "Jordan"
+      }
+    }
+  ]
 }
 ```
 
