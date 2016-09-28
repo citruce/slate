@@ -7365,36 +7365,76 @@ Parameter | Description | Type | Default
 prix | The price (mandatory) | float | N/A
 username | The user name or email address | string | N/A
 password | The user password | string | N/A
-type | The type of bien | enum (“Appartement”, “maison”, “parking”, “immeuble”) | 
-neuf | New | “0” (ancien), “1” (neuf) | 0
+type | The type of bien | string enum (“Appartement”, “maison”, “parking”, “immeuble”) | 
+neuf | New | integer “0” (ancien), “1” (neuf) | 0
 ville | City | string “nomdeville|codepostal” | “Angers|49000”
 loyer | Rent | string | loyer
-agence | % agency fee  |  |
-surface |  |  |
-tf |  |  | 
-chargest |  |  |
-chargesr |  |  |
-creditlogement |  |  |
-fraisdossier |  |  |
-apport |  |  |
-travauxa |  |  |
-tauxmi |  |  |
-tauxps |  |  |
+agence | % agency fee  | float |
+surface | Surface du bien |  |
+tf | Taxe foncière | float | 
+chargest |  | float |
+chargesr |  | float |
+creditlogement |  | float |
+fraisdossier |  | float |
+apport |  | float |
+travauxa |  | float |
+tauxmi |  | float |
+tauxps |  | float |
 regime |  |  |
-duree  |  |  |
+duree  | years | integer) |
 assurance |  |  |
-tauxemprunt |  |  |
-fraisg |  |  |
-assuranceli |  |  |
-valorisation |  |  |
-valorisationc |  |  |
-pno |  |  |
+tauxemprunt |  | float |
+fraisg |  | float |
+assuranceli |  | float |
+valorisation |  | float |
+valorisations |  |  |
+valorisationc |  | float |
+pno |  | float |
+origin |  |  |
+emprunt |  |  |
+enfants |  |  |
+mbles |  |  |
+revenus |  |  |
+revenus2 |  |  |
+parts |  |  |
+emprunt110 |  |  |
+fraisnotaire |  |  |
+regServer |  |  |
+revente |  |  |
+reventeannee |  |  |
+reventeprix |  |  |
+typeemprunt |  |  |
+fonciers2 |  |  |
+fraisrecherche |  |  |
+tauxan |  |  |
+tauxmois |  |  |
+appVersion |  |  |
+registration_id |  |  |
+travauxr |  |  |
+dpt |  |  |
+dureeanah |  |  |
+prime |  |  |
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 ### Returned parameters
 
 Parameter | Type | Description
 --------- | ------- | -------
-result | boolean | true if operation was marked successfully otherwise false
-code | integer | 0 if ok otherwise error code of error
-message | string | error message if error
+
