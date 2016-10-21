@@ -1669,6 +1669,7 @@ curl --data "username=username&password=password"
 {
   "message": "Operation added",
   "result": true,
+  "operationId": "5809db0b48177ed5098b4568",
   "code": 0
 }
 ```
