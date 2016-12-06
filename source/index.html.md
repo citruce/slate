@@ -1718,6 +1718,109 @@ operationDate:17/08/2016<br/>
 operationPaid:on<br/>
 operationAuto:off<br/>
 
+
+## Save a Locataire
+
+Creates a new locataire or update an existing locataire (if locataireId is given in the path).
+
+> Code to get the bien of a user
+
+```shell
+curl --data "username=username&password=password"
+"https://www.rendementlocatif.com/api/gestion/2/saveLocataire/<bienId>/<locataireId>"
+  -H "X-API-KEY: secretkey"
+```
+
+> <bienId> is mandatory and is the id of the bien to which the locataire will be attached
+> <locataireId> is optional and is the id of the locataire if
+> Returns the following JSON:
+
+>success
+
+```json
+{
+  "result": true,
+  "locataireId": "5846e1e948177e30128b4567",
+  "code": 0
+}
+```
+
+>error
+
+```json
+{
+  "result": false,
+  "code": -21,
+  "message": "Some fields are incorrect or missing (see error for more details).",
+  "error": "\"Date d'entreé\" est obligatoire.\n"
+}
+```
+
+### HTTP Request
+
+`POST https://www.rendementlocatif.com/api/gestion/2/saveLocataire/<bienId>/<locataireId>`
+
+"bienId" is mandatory and should correspond to the id of the bien to which the locataire will be attached.
+
+"locataireId" is optional. If given, it tells the API to update the locataire with id <locataireId> instead of adding a new locataire.
+If "locataireId" is incorrect or empty, the operation will be added as a new one by default.
+
+### Parameters
+
+Should be sent with the request in the body as "application/x-www-form-urlencoded".
+
+Parameter | Mandatory | Description | Type
+--------- | ------- | ------- | -------
+username | yes | The user name or email address | string
+password | yes | The user password | string
+nom | yes | Last name of locataire | string
+prenom | yes | first name of locataire | string
+precision| no | More details about the locataire | string
+email | no | Email of the locataire | string (email format)
+loyer | yes | Loyer to be paid by the locataire | float
+provision | yes | Provision pour charges to be paid by the locataire | float
+indiceRevision | yes | Numéro du trimestre de révision pour charges | enum (0=>'Non précisé',1=>'1er trimestre', 2=>'2ème trimestre', 3=>'3ème trimestre', 4=>'4ème trimestre')
+signatureDate | yes | Date of contract signature (signature bail) | string (dd/mm/yyyy)
+entryDate | yes| Date of entry of the locataire | string (dd/mm/yyyy)
+quitDate | no | Date of leaving the bien | string (dd/mm/yyyy)
+dayLoyer | yes | Month day at which the loyer should be paid | integer (1 to 28)
+phone | no | phone number of the locataire | string (+33xxxxxxxxx)
+typeLocation | yes | type of the location (nu ou meublé) | integer (0=nu, 1=meublé)
+depotGarantie | yes | Durée en mois du dépot de garantie | integer (1="1 mois", 2="2 mois (possible en meublé)")
+address1 | no | First line of locataire adresse | string
+address2 | no | Second line of locataire adresse | string
+ville | no | Ville of the locataire | string
+codepostal | no | Code postal of the locataire | string
+country | no | Country of the locataire | string
+bornDate | no | born date of the locataire | string (dd/mm/yyyy)
+bornLocation | no | born location of the locataire | string
+nationality | no | Nationality of the locataire | string
+
+
+Example of body with parameters:
+
+username:bob<br/>
+password:bobpassword<br/>
+nom:Dupont<br/>
+prenom:Jean<br/>
+loyer:666<br/>
+provision:20<br/>
+indiceRevision:0<br/>
+signatureDate:12/08/2014<br/>
+entryDate:12/08/2014<br/>
+dayLoyer:3<br/>
+typeLocation:0<br/>
+depotGarantie:1<br/>
+
+```shell
+curl --request POST \
+  --url https://www.rendementlocatif.com/api/gestion/2/saveLocataire/580a81d348177eb0128b4568 \
+  --header 'cache-control: no-cache' \
+  --header 'content-type: application/x-www-form-urlencoded' \
+  --header 'x-api-key: secretkey' \
+  --data 'username=boss&password=6407&nom=Dupont&prenom=jean&loyer=666&provision=20&indiceRevision=0&signatureDate=12%2F08%2F2014&entryDate=12%2F08%2F2014&dayLoyer=3&typeLocation=0&depotGarantie=1'
+```
+
 ## Split Loyer
 
 Splits a loyer paid by a "locataire" in loyer Hors Charges and Provision pour charge for a locataire.
@@ -1909,3 +2012,76 @@ Parameter | Type | Description
 result | boolean | true if operation was deleted successfully otherwise false
 code | integer | 0 if ok otherwise error code of error
 message | string | error message if error
+
+## Quittance
+
+Gets a "quittance de loyer"
+
+> Code to get the bien of a user
+
+```shell
+curl --data "username=username&password=password"
+"https://www.rendementlocatif.com/api/gestion/2/quittance/<locataireId>/<anythingOnlyToSendEmail>"
+  -H "X-API-KEY: secretkey"
+```
+
+> If success, it returns the PDF file (streamed over HTTP)
+> Otherwise it returns an error as a json
+
+```json
+{
+  "result": false,
+  "code": -10,
+  "message": "Missing or invalid locataireId (in url path)"
+}
+```
+
+> If success and email send mode, it always returns a json
+
+```json
+{
+  "result": true,
+  "code": 0,
+  "message": "Un email avec la quittance a été envoyé à votre locataire."
+}
+```
+
+> if error when seding email
+
+
+```json
+{
+  "result": false,
+  "code": -15,
+  "message": "Message non envoyé. Vous devez renseigner une adresse email pour votre locataire."
+}
+```
+
+### HTTP Request
+
+`POST https://www.rendementlocatif.com/api/gestion/2/quittance/<locataireId>/<anythingToSendEmail>`
+
+"locataireId" is mandatory and should correspond to the id of the operation to delete.
+
+"anythingOnlyToSendEmail" is optional.  Can be any non empty string. If given, the server will send an email to the locataire with the quittance PDF attached.
+
+### Parameters
+
+Should be sent with the request in the body as "application/x-www-form-urlencoded".
+
+Parameter | Mandatory | Description | Type | default
+--------- | ------- | ------- | ------- | -------
+username | yes | The user name or email address | string |
+password | yes | The user password | string |
+startDate | no | The start date for the quittance (dd/mm/yyyy) | string | first day of current month
+endDate | no | The end date for the quittance (dd/mm/yyyy) | string | last day of current month
+startSolde | no | The start date for the solde(dd/mm/yyyy) | string | first day of month of locataire entry
+ignoreSolde | no | Tells to ignore the solde calculation if equals "on" | string | ''
+
+### Returned parameters
+
+Parameter | Type | Description
+--------- | ------- | -------
+result | boolean | true if quittance is generated ok or if email send ok, otherwise false
+code | integer | 0 if ok otherwise error code of error
+message | string | error message if error, ok message of code=0 (success)
