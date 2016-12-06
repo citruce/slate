@@ -2018,6 +2018,232 @@ operationDate:17/08/2016<br/>
 operationPaid:on<br/>
 operationAuto:off<br/></p>
 
+<h2 id="save-a-locataire">Save a Locataire</h2>
+
+<p>Creates a new locataire or update an existing locataire (if locataireId is given in the path).</p>
+
+<blockquote>
+<p>Code to get the bien of a user</p>
+</blockquote>
+<pre class="highlight shell"><code>curl --data <span class="s2">"username=username&amp;password=password"</span>
+<span class="s2">"https://www.rendementlocatif.com/api/gestion/2/saveLocataire/&lt;bienId&gt;/&lt;locataireId&gt;"</span>
+  -H <span class="s2">"X-API-KEY: secretkey"</span>
+</code></pre>
+
+<blockquote>
+<p><bienId> is mandatory and is the id of the bien to which the locataire will be attached
+<locataireId> is optional and is the id of the locataire if
+Returns the following JSON:</p>
+
+<p>success</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"result"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"locataireId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5846e1e948177e30128b4567"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<blockquote>
+<p>error</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"result"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">-21</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Some fields are incorrect or missing (see error for more details)."</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"\"Date d'entreé\" est obligatoire.\n"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">POST https://www.rendementlocatif.com/api/gestion/2/saveLocataire/&lt;bienId&gt;/&lt;locataireId&gt;</code></p>
+
+<p>&ldquo;bienId&rdquo; is mandatory and should correspond to the id of the bien to which the locataire will be attached.</p>
+
+<p>&ldquo;locataireId&rdquo; is optional. If given, it tells the API to update the locataire with id <locataireId> instead of adding a new locataire.
+If &ldquo;locataireId&rdquo; is incorrect or empty, the operation will be added as a new one by default.</p>
+
+<h3 id="parameters">Parameters</h3>
+
+<p>Should be sent with the request in the body as &ldquo;application/x-www-form-urlencoded&rdquo;.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Mandatory</th>
+<th>Description</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>username</td>
+<td>yes</td>
+<td>The user name or email address</td>
+<td>string</td>
+</tr>
+<tr>
+<td>password</td>
+<td>yes</td>
+<td>The user password</td>
+<td>string</td>
+</tr>
+<tr>
+<td>nom</td>
+<td>yes</td>
+<td>Last name of locataire</td>
+<td>string</td>
+</tr>
+<tr>
+<td>prenom</td>
+<td>yes</td>
+<td>first name of locataire</td>
+<td>string</td>
+</tr>
+<tr>
+<td>precision</td>
+<td>no</td>
+<td>More details about the locataire</td>
+<td>string</td>
+</tr>
+<tr>
+<td>email</td>
+<td>no</td>
+<td>Email of the locataire</td>
+<td>string (email format)</td>
+</tr>
+<tr>
+<td>loyer</td>
+<td>yes</td>
+<td>Loyer to be paid by the locataire</td>
+<td>float</td>
+</tr>
+<tr>
+<td>provision</td>
+<td>yes</td>
+<td>Provision pour charges to be paid by the locataire</td>
+<td>float</td>
+</tr>
+<tr>
+<td>indiceRevision</td>
+<td>yes</td>
+<td>Numéro du trimestre de révision pour charges</td>
+<td>enum (0=&gt;&#39;Non précisé&rsquo;,1=&gt;&#39;1er trimestre&rsquo;, 2=&gt;&#39;2ème trimestre&rsquo;, 3=&gt;&#39;3ème trimestre&rsquo;, 4=&gt;&#39;4ème trimestre&rsquo;)</td>
+</tr>
+<tr>
+<td>signatureDate</td>
+<td>yes</td>
+<td>Date of contract signature (signature bail)</td>
+<td>string (dd/mm/yyyy)</td>
+</tr>
+<tr>
+<td>entryDate</td>
+<td>yes</td>
+<td>Date of entry of the locataire</td>
+<td>string (dd/mm/yyyy)</td>
+</tr>
+<tr>
+<td>quitDate</td>
+<td>no</td>
+<td>Date of leaving the bien</td>
+<td>string (dd/mm/yyyy)</td>
+</tr>
+<tr>
+<td>dayLoyer</td>
+<td>yes</td>
+<td>Month day at which the loyer should be paid</td>
+<td>integer (1 to 28)</td>
+</tr>
+<tr>
+<td>phone</td>
+<td>no</td>
+<td>phone number of the locataire</td>
+<td>string (+33xxxxxxxxx)</td>
+</tr>
+<tr>
+<td>typeLocation</td>
+<td>yes</td>
+<td>type of the location (nu ou meublé)</td>
+<td>integer (0=nu, 1=meublé)</td>
+</tr>
+<tr>
+<td>depotGarantie</td>
+<td>yes</td>
+<td>Durée en mois du dépot de garantie</td>
+<td>integer (1=&ldquo;1 mois&rdquo;, 2=&ldquo;2 mois (possible en meublé)&rdquo;)</td>
+</tr>
+<tr>
+<td>address1</td>
+<td>no</td>
+<td>First line of locataire adresse</td>
+<td>string</td>
+</tr>
+<tr>
+<td>address2</td>
+<td>no</td>
+<td>Second line of locataire adresse</td>
+<td>string</td>
+</tr>
+<tr>
+<td>ville</td>
+<td>no</td>
+<td>Ville of the locataire</td>
+<td>string</td>
+</tr>
+<tr>
+<td>codepostal</td>
+<td>no</td>
+<td>Code postal of the locataire</td>
+<td>string</td>
+</tr>
+<tr>
+<td>country</td>
+<td>no</td>
+<td>Country of the locataire</td>
+<td>string</td>
+</tr>
+<tr>
+<td>bornDate</td>
+<td>no</td>
+<td>born date of the locataire</td>
+<td>string (dd/mm/yyyy)</td>
+</tr>
+<tr>
+<td>bornLocation</td>
+<td>no</td>
+<td>born location of the locataire</td>
+<td>string</td>
+</tr>
+<tr>
+<td>nationality</td>
+<td>no</td>
+<td>Nationality of the locataire</td>
+<td>string</td>
+</tr>
+</tbody></table>
+
+<p>Example of body with parameters:</p>
+
+<p>username:bob<br/>
+password:bobpassword<br/>
+nom:Dupont<br/>
+prenom:Jean<br/>
+loyer:666<br/>
+provision:20<br/>
+indiceRevision:0<br/>
+signatureDate:12/08/2014<br/>
+entryDate:12/08/2014<br/>
+dayLoyer:3<br/>
+typeLocation:0<br/>
+depotGarantie:1<br/></p>
+<pre class="highlight shell"><code>curl --request POST <span class="se">\</span>
+  --url https://www.rendementlocatif.com/api/gestion/2/saveLocataire/580a81d348177eb0128b4568 <span class="se">\</span>
+  --header <span class="s1">'cache-control: no-cache'</span> <span class="se">\</span>
+  --header <span class="s1">'content-type: application/x-www-form-urlencoded'</span> <span class="se">\</span>
+  --header <span class="s1">'x-api-key: secretkey'</span> <span class="se">\</span>
+  --data <span class="s1">'username=boss&amp;password=6407&amp;nom=Dupont&amp;prenom=jean&amp;loyer=666&amp;provision=20&amp;indiceRevision=0&amp;signatureDate=12%2F08%2F2014&amp;entryDate=12%2F08%2F2014&amp;dayLoyer=3&amp;typeLocation=0&amp;depotGarantie=1'</span>
+</code></pre>
+
 <h2 id="split-loyer">Split Loyer</h2>
 
 <p>Splits a loyer paid by a &ldquo;locataire&rdquo; in loyer Hors Charges and Provision pour charge for a locataire.</p>
@@ -2358,6 +2584,140 @@ operationAuto:off<br/></p>
 <td>message</td>
 <td>string</td>
 <td>error message if error</td>
+</tr>
+</tbody></table>
+
+<h2 id="quittance">Quittance</h2>
+
+<p>Gets a &ldquo;quittance de loyer&rdquo;</p>
+
+<blockquote>
+<p>Code to get the bien of a user</p>
+</blockquote>
+<pre class="highlight shell"><code>curl --data <span class="s2">"username=username&amp;password=password"</span>
+<span class="s2">"https://www.rendementlocatif.com/api/gestion/2/quittance/&lt;locataireId&gt;/&lt;anythingOnlyToSendEmail&gt;"</span>
+  -H <span class="s2">"X-API-KEY: secretkey"</span>
+</code></pre>
+
+<blockquote>
+<p>If success, it returns the PDF file (streamed over HTTP)
+Otherwise it returns an error as a json</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"result"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">-10</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Missing or invalid locataireId (in url path)"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<blockquote>
+<p>If success and email send mode, it always returns a json</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"result"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Un email avec la quittance a été envoyé à votre locataire."</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<blockquote>
+<p>if error when seding email</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"result"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">-15</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Message non envoyé. Vous devez renseigner une adresse email pour votre locataire."</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">POST https://www.rendementlocatif.com/api/gestion/2/quittance/&lt;locataireId&gt;/&lt;anythingToSendEmail&gt;</code></p>
+
+<p>&ldquo;locataireId&rdquo; is mandatory and should correspond to the id of the operation to delete.</p>
+
+<p>&ldquo;anythingOnlyToSendEmail&rdquo; is optional.  Can be any non empty string. If given, the server will send an email to the locataire with the quittance PDF attached.</p>
+
+<h3 id="parameters">Parameters</h3>
+
+<p>Should be sent with the request in the body as &ldquo;application/x-www-form-urlencoded&rdquo;.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Mandatory</th>
+<th>Description</th>
+<th>Type</th>
+<th>default</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>username</td>
+<td>yes</td>
+<td>The user name or email address</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>password</td>
+<td>yes</td>
+<td>The user password</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>startDate</td>
+<td>no</td>
+<td>The start date for the quittance (dd/mm/yyyy)</td>
+<td>string</td>
+<td>first day of current month</td>
+</tr>
+<tr>
+<td>endDate</td>
+<td>no</td>
+<td>The end date for the quittance (dd/mm/yyyy)</td>
+<td>string</td>
+<td>last day of current month</td>
+</tr>
+<tr>
+<td>startSolde</td>
+<td>no</td>
+<td>The start date for the solde(dd/mm/yyyy)</td>
+<td>string</td>
+<td>first day of month of locataire entry</td>
+</tr>
+<tr>
+<td>ignoreSolde</td>
+<td>no</td>
+<td>Tells to ignore the solde calculation if equals &ldquo;on&rdquo;</td>
+<td>string</td>
+<td>&ldquo;</td>
+</tr>
+</tbody></table>
+
+<h3 id="returned-parameters">Returned parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>result</td>
+<td>boolean</td>
+<td>true if quittance is generated ok or if email send ok, otherwise false</td>
+</tr>
+<tr>
+<td>code</td>
+<td>integer</td>
+<td>0 if ok otherwise error code of error</td>
+</tr>
+<tr>
+<td>message</td>
+<td>string</td>
+<td>error message if error, ok message of code=0 (success)</td>
 </tr>
 </tbody></table>
 
