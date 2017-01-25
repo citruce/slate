@@ -2018,6 +2018,213 @@ operationDate:17/08/2016<br/>
 operationPaid:on<br/>
 operationAuto:off<br/></p>
 
+<h2 id="set-locataire-quit-date">Set Locataire quit Date</h2>
+
+<p>Set the the locataire departure date.</p>
+
+<blockquote>
+<p>Code to get the bien of a user</p>
+</blockquote>
+<pre class="highlight shell"><code>curl --data <span class="s2">"username=username&amp;password=password"</span>
+<span class="s2">"https://www.rendementlocatif.com/api/gestion/2/setLocataireGone/&lt;locataireId&gt;"</span>
+  -H <span class="s2">"X-API-KEY: secretkey"</span>
+</code></pre>
+
+<blockquote>
+<p><locataireId> is mandatory and is the id of the locataire for which the quit date needs to be updated
+Returns the following JSON:</p>
+
+<p>success</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"result"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"locataireId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5729f23b48177eba408b456a"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<blockquote>
+<p>error</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"result"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">-23</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"La date de départ doit être postérieure à la date d'entrée"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"result"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">-21</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"La date de départ du locataire est invalide."</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">POST https://www.rendementlocatif.com/api/gestion/2/setLocataireGone/&lt;locataireId&gt;</code></p>
+
+<p>&ldquo;locataireId&rdquo; is mandatory and should correspond to the id of the lcoataire.</p>
+
+<h3 id="parameters">Parameters</h3>
+
+<p>Should be sent with the request in the body as &ldquo;application/x-www-form-urlencoded&rdquo;.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Mandatory</th>
+<th>Description</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>username</td>
+<td>yes</td>
+<td>The user name or email address</td>
+<td>string</td>
+</tr>
+<tr>
+<td>password</td>
+<td>yes</td>
+<td>The user password</td>
+<td>string</td>
+</tr>
+<tr>
+<td>quitDate</td>
+<td>no</td>
+<td>Date of leaving the bien</td>
+<td>string (dd/mm/yyyy)</td>
+</tr>
+</tbody></table>
+
+<p>Example of body with parameters:</p>
+
+<p>username:bob<br/>
+password:bobpassword<br/>
+quitDate:12/08/2016<br/></p>
+<pre class="highlight shell"><code>curl --request POST <span class="se">\</span>
+  --url https://www.rendementlocatif.com/api/gestion/2/setLocataireGone/580a81d348177eb0128b4568 <span class="se">\</span>
+  --header <span class="s1">'cache-control: no-cache'</span> <span class="se">\</span>
+  --header <span class="s1">'content-type: application/x-www-form-urlencoded'</span> <span class="se">\</span>
+  --header <span class="s1">'x-api-key: secretkey'</span> <span class="se">\</span>
+  --data <span class="s1">'username=boss&amp;password=6407&amp;quitDate=12%2F08%2F2014'</span>
+</code></pre>
+
+<h2 id="split-loyer">Split Loyer</h2>
+
+<p>Splits a loyer paid by a &ldquo;locataire&rdquo; in loyer Hors Charges and Provision pour charge for a locataire.</p>
+
+<blockquote>
+<p>Code to split a loyer in 2 operations for a locataire</p>
+</blockquote>
+<pre class="highlight shell"><code>curl --data <span class="s2">"username=username&amp;password=password"</span>
+<span class="s2">"https://www.rendementlocatif.com/api/gestion/2/ventilationLoyer/&lt;locataireId&gt;/&lt;montantTotal&gt;"</span>
+  -H <span class="s2">"X-API-KEY: secretkey"</span>
+</code></pre>
+
+<blockquote>
+<p>Returns the following JSON:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"currentLoyer"</span><span class="p">:</span><span class="w"> </span><span class="mi">300</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"currentProvision"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"restantAPayer"</span><span class="p">:</span><span class="w"> </span><span class="mi">150</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"caf"</span><span class="p">:</span><span class="w"> </span><span class="mi">165</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"montantTotal"</span><span class="p">:</span><span class="w"> </span><span class="mi">400</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"loyerHC"</span><span class="p">:</span><span class="w"> </span><span class="mi">385</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"provision"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"result"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">POST https://www.rendementlocatif.com/api/gestion/2/ventilationLoyer/&lt;locataireId&gt;/&lt;montantTotal&gt;</code></p>
+
+<p>&ldquo;locataireId&rdquo; is mandatory and is the id of the locataire from which the &ldquo;montantTotal&rdquo; was received.</p>
+
+<p>&ldquo;montantTotal&rdquo; is the amount of money received from a locataire for a loyer. This API method will split that amount into loyer hors charges and provision pour charges for this locataire depending on his contract (bail).</p>
+
+<h3 id="parameters">Parameters</h3>
+
+<p>Should be sent with the request in the body as &ldquo;application/x-www-form-urlencoded&rdquo;.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>username</td>
+<td>The user name or email address</td>
+<td>string</td>
+</tr>
+<tr>
+<td>password</td>
+<td>The user password</td>
+<td>string</td>
+</tr>
+</tbody></table>
+
+<h3 id="returned-parameters">Returned parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>result</td>
+<td>boolean</td>
+<td>true if operation was marked successfully otherwise false</td>
+</tr>
+<tr>
+<td>code</td>
+<td>integer</td>
+<td>0 if ok otherwise error code of error</td>
+</tr>
+<tr>
+<td>loyerHC</td>
+<td>float</td>
+<td><b>result of the split:</b> the loyer HC to be used for the operationMontant field</td>
+</tr>
+<tr>
+<td>provision</td>
+<td>float</td>
+<td><b>result of the split:</b> the provision to be used for the operationMontant field</td>
+</tr>
+<tr>
+<td>currentLoyer</td>
+<td>float</td>
+<td>the current loyer owned by the locataire (hors charge)</td>
+</tr>
+<tr>
+<td>currentProvision</td>
+<td>float</td>
+<td>the current provision pour charges owned by the locataire</td>
+</tr>
+<tr>
+<td>caf</td>
+<td>float</td>
+<td>the amount of caf received by the &ldquo;proprietaire&rdquo; that should not be paid by the locataire</td>
+</tr>
+<tr>
+<td>montantTotal</td>
+<td>float</td>
+<td>the total amount paid by the locataire as provided the API call url path</td>
+</tr>
+<tr>
+<td>message</td>
+<td>string</td>
+<td>error message if error</td>
+</tr>
+</tbody></table>
+
 <h2 id="save-a-locataire">Save a Locataire</h2>
 
 <p>Creates a new locataire or update an existing locataire (if locataireId is given in the path).</p>
