@@ -1719,6 +1719,140 @@ operationPaid:on<br/>
 operationAuto:off<br/>
 
 
+## Set Locataire quit Date
+
+Set the the locataire departure date.
+
+> Code to get the bien of a user
+
+```shell
+curl --data "username=username&password=password"
+"https://www.rendementlocatif.com/api/gestion/2/setLocataireGone/<locataireId>"
+  -H "X-API-KEY: secretkey"
+```
+
+> <locataireId> is mandatory and is the id of the locataire for which the quit date needs to be updated
+> Returns the following JSON:
+
+>success
+
+```json
+{
+  "result": true,
+  "locataireId": "5729f23b48177eba408b456a",
+  "code": 0
+}
+```
+
+>error
+
+```json
+{
+  "result": false,
+  "code": -23,
+  "message": "La date de départ doit être postérieure à la date d'entrée"
+}
+```
+
+```json
+{
+  "result": false,
+  "code": -21,
+  "message": "La date de départ du locataire est invalide."
+}
+```
+
+### HTTP Request
+
+`POST https://www.rendementlocatif.com/api/gestion/2/setLocataireGone/<locataireId>`
+
+"locataireId" is mandatory and should correspond to the id of the lcoataire.
+
+### Parameters
+
+Should be sent with the request in the body as "application/x-www-form-urlencoded".
+
+Parameter | Mandatory | Description | Type
+--------- | ------- | ------- | -------
+username | yes | The user name or email address | string
+password | yes | The user password | string
+quitDate | no | Date of leaving the bien | string (dd/mm/yyyy)
+
+Example of body with parameters:
+
+username:bob<br/>
+password:bobpassword<br/>
+quitDate:12/08/2016<br/>
+
+```shell
+curl --request POST \
+  --url https://www.rendementlocatif.com/api/gestion/2/setLocataireGone/580a81d348177eb0128b4568 \
+  --header 'cache-control: no-cache' \
+  --header 'content-type: application/x-www-form-urlencoded' \
+  --header 'x-api-key: secretkey' \
+  --data 'username=boss&password=6407&quitDate=12%2F08%2F2014'
+```
+
+## Split Loyer
+
+Splits a loyer paid by a "locataire" in loyer Hors Charges and Provision pour charge for a locataire.
+
+> Code to split a loyer in 2 operations for a locataire
+
+```shell
+curl --data "username=username&password=password"
+"https://www.rendementlocatif.com/api/gestion/2/ventilationLoyer/<locataireId>/<montantTotal>"
+  -H "X-API-KEY: secretkey"
+```
+
+> Returns the following JSON:
+
+```json
+{
+  "currentLoyer": 300,
+  "currentProvision": 15,
+  "restantAPayer": 150,
+  "caf": 165,
+  "montantTotal": 400,
+  "loyerHC": 385,
+  "provision": 15,
+  "result": true,
+  "code": 0
+}
+```
+
+### HTTP Request
+
+`POST https://www.rendementlocatif.com/api/gestion/2/ventilationLoyer/<locataireId>/<montantTotal>`
+
+"locataireId" is mandatory and is the id of the locataire from which the "montantTotal" was received.
+
+"montantTotal" is the amount of money received from a locataire for a loyer. This API method will split that amount into loyer hors charges and provision pour charges for this locataire depending on his contract (bail).
+
+### Parameters
+
+Should be sent with the request in the body as "application/x-www-form-urlencoded".
+
+Parameter | Description | Type
+--------- | ------- | -------
+username | The user name or email address | string
+password | The user password | string
+
+### Returned parameters
+
+Parameter | Type | Description
+--------- | ------- | -------
+result | boolean | true if operation was marked successfully otherwise false
+code | integer | 0 if ok otherwise error code of error
+loyerHC | float | <b>result of the split:</b> the loyer HC to be used for the operationMontant field
+provision | float | <b>result of the split:</b> the provision to be used for the operationMontant field
+currentLoyer | float | the current loyer owned by the locataire (hors charge)
+currentProvision | float | the current provision pour charges owned by the locataire
+caf | float | the amount of caf received by the "proprietaire" that should not be paid by the locataire
+montantTotal | float | the total amount paid by the locataire as provided the API call url path
+message | string | error message if error
+
+
 ## Save a Locataire
 
 Creates a new locataire or update an existing locataire (if locataireId is given in the path).
