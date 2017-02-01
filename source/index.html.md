@@ -1782,7 +1782,7 @@ Example of body with parameters:
 
 username:bob<br/>
 password:bobpassword<br/>
-quitDate:12/08/2016<br/>
+quitDate:1422745200<br/>
 
 ```shell
 curl --request POST \
@@ -1790,7 +1790,7 @@ curl --request POST \
   --header 'cache-control: no-cache' \
   --header 'content-type: application/x-www-form-urlencoded' \
   --header 'x-api-key: secretkey' \
-  --data 'username=boss&password=6407&quitDate=12%2F08%2F2014'
+  --data 'username=boss&password=6407&quitDate=1422745200'
 ```
 
 ## Split Loyer
@@ -1940,8 +1940,8 @@ prenom:Jean<br/>
 loyer:666<br/>
 provision:20<br/>
 indiceRevision:0<br/>
-signatureDate:12/08/2014<br/>
-entryDate:12/08/2014<br/>
+signatureDate:1422745200<br/>
+entryDate:1422745200<br/>
 dayLoyer:3<br/>
 typeLocation:0<br/>
 depotGarantie:1<br/>
@@ -1952,7 +1952,7 @@ curl --request POST \
   --header 'cache-control: no-cache' \
   --header 'content-type: application/x-www-form-urlencoded' \
   --header 'x-api-key: secretkey' \
-  --data 'username=boss&password=6407&nom=Dupont&prenom=jean&loyer=666&provision=20&indiceRevision=0&signatureDate=12%2F08%2F2014&entryDate=12%2F08%2F2014&dayLoyer=3&typeLocation=0&depotGarantie=1'
+  --data 'username=boss&password=6407&nom=Dupont&prenom=jean&loyer=666&provision=20&indiceRevision=0&signatureDate=1422745200&entryDate=1422745200&dayLoyer=3&typeLocation=0&depotGarantie=1'
 ```
 
 ## Split Loyer
