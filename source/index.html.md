@@ -1776,7 +1776,7 @@ Parameter | Mandatory | Description | Type
 --------- | ------- | ------- | -------
 username | yes | The user name or email address | string
 password | yes | The user password | string
-quitDate | no | Date of leaving the bien | string (dd/mm/yyyy)
+quitDate | no | Timestamp of leaving the bien | integer (1422745200)
 
 Example of body with parameters:
 
@@ -1914,9 +1914,9 @@ email | no | Email of the locataire | string (email format)
 loyer | yes | Loyer to be paid by the locataire | float
 provision | yes | Provision pour charges to be paid by the locataire | float
 indiceRevision | yes | Numéro du trimestre de révision pour charges | enum (0=>'Non précisé',1=>'1er trimestre', 2=>'2ème trimestre', 3=>'3ème trimestre', 4=>'4ème trimestre')
-signatureDate | yes | Date of contract signature (signature bail) | string (dd/mm/yyyy)
-entryDate | yes| Date of entry of the locataire | string (dd/mm/yyyy)
-quitDate | no | Date of leaving the bien | string (dd/mm/yyyy)
+signatureDate | yes | Timestamp of contract signature (signature bail) | integer (1422745200)
+entryDate | yes| Timestamp of entry of the locataire | integer (1422745200)
+quitDate | no | Timestamp of leaving the bien | integer (1422745200)
 dayLoyer | yes | Month day at which the loyer should be paid | integer (1 to 28)
 phone | no | phone number of the locataire | string (+33xxxxxxxxx)
 typeLocation | yes | type of the location (nu ou meublé) | integer (0=nu, 1=meublé)
@@ -1926,7 +1926,7 @@ address2 | no | Second line of locataire adresse | string
 ville | no | Ville of the locataire | string
 codepostal | no | Code postal of the locataire | string
 country | no | Country of the locataire | string
-bornDate | no | born date of the locataire | string (dd/mm/yyyy)
+bornDate | no | born Timestamp of the locataire | integer (1422745200)
 bornLocation | no | born location of the locataire | string
 nationality | no | Nationality of the locataire | string
 
