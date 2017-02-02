@@ -1667,7 +1667,7 @@ curl --data "username=username&password=password"
 
 ```json
 {
-  "message": "Operation added",
+  "message": "Operation ajoutée",
   "result": true,
   "operationId": "5809db0b48177ed5098b4568",
   "code": 0
@@ -1694,16 +1694,16 @@ password | The user password | string
 operationName | The type of the operation from a predefined list | string
 operationMontant | The operation amount (always positive) | float
 locataireId | The Id of the locataire if required (depend on the operation type) | string
-operationDate | The date of the operation (format should be the french one: dd/mm/YYYY) | string (dd/mm/YYYY)
+operationDate | The date of the operation (format should be unix timestamp) | integer (unix timestamp)
 operationPaid | Operations was paid or not ( "on" to set as paid, anything else would mark it not paid) | string
 operationAuto | Operations has to be repeated automatically in the future ( "on" to set as enabled, anything else would mark it not enabled) | string
 operationDesc | A description the user can freely add to the operation | string
 operationMontantPC | In the case the type of the operation (operationName) is 'recetteLoyer' then this can be added so to create an operation of type 'recetteLoyerProvision' at the same time. The reason is that a "locataire" will usually pay both recetteLoyer and recetteLoyerProvision at the same time. The UI of the client app should allow the user to fill in both things at the same time and help the user split the amount reveived from the "locataire" in both 'recetteLoyer' and 'recetteLoyerProvision' | string
 operationMontantTEOM | The amount of "Taxe ordure menagère" (TEOM) to be added as new field in the case the operation is of type "chargeTF" (charge taxe foncière) | float
 empruntId | the index of the emprunt of the immeuble (retreived from /immeuble or /immeubles in "emprunt" field ) | integer
-operationRepeatDate | A max date for repeating the operation creation several time until that date. This date should be at the minimum equal to (operationDate + 1 month) and has no maximum. This field should be displayed only if operationDate is set and at the maximum 1 month in the past compared to current dateTime | string (dd/mm/YYYY)
-dateDebut | start date for the regularisation of charges. Should be displayed and used only if (operationName (type) = recetteReguLocataire) or (operationName (type) = chargeReguLocataire) | string (dd/mm/YYYY)
-dateFin | end date for the regularisation of charges. Should be displayed and used only if (operationName (type) = recetteReguLocataire) or (operationName (type) = chargeReguLocataire) | string (dd/mm/YYYY)
+operationRepeatDate | A max date for repeating the operation creation several time until that date. This date should be at the minimum equal to (operationDate + 1 month) and has no maximum except current date. This field should be displayed only if operationDate is set and at the maximum 1 month in the past compared to current dateTime | integer (unix timestamp)
+dateDebut | start date for the regularisation of charges. Should be displayed and used only if (operationName (type) = recetteReguLocataire) or (operationName (type) = chargeReguLocataire) | integer (unix timestamp)
+dateFin | end date for the regularisation of charges. Should be displayed and used only if (operationName (type) = recetteReguLocataire) or (operationName (type) = chargeReguLocataire) | integer (unix timestamp)
 
 
 
@@ -1714,7 +1714,7 @@ password:bobpassword<br/>
 operationName:recetteLoyer<br/>
 operationMontant:9999<br/>
 locataireId:56a7b72548177e22348b4569<br/>
-operationDate:17/08/2016<br/>
+operationDate:1482447600<br/>
 operationPaid:on<br/>
 operationAuto:off<br/>
 
