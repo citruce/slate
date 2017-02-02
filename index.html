@@ -1903,7 +1903,7 @@ If non premium access is allowed, check Auth=false and code=-3.
 <p>Returns the following JSON:</p>
 </blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Operation added"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Operation ajoutée"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"result"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
   </span><span class="nt">"operationId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5809db0b48177ed5098b4568"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
@@ -1957,8 +1957,8 @@ If &ldquo;operationId&rdquo; is incorrect or empty, the operation will be added 
 </tr>
 <tr>
 <td>operationDate</td>
-<td>The date of the operation (format should be the french one: dd/mm/YYYY)</td>
-<td>string (dd/mm/YYYY)</td>
+<td>The date of the operation (format should be unix timestamp)</td>
+<td>integer (unix timestamp)</td>
 </tr>
 <tr>
 <td>operationPaid</td>
@@ -1992,18 +1992,18 @@ If &ldquo;operationId&rdquo; is incorrect or empty, the operation will be added 
 </tr>
 <tr>
 <td>operationRepeatDate</td>
-<td>A max date for repeating the operation creation several time until that date. This date should be at the minimum equal to (operationDate + 1 month) and has no maximum. This field should be displayed only if operationDate is set and at the maximum 1 month in the past compared to current dateTime</td>
-<td>string (dd/mm/YYYY)</td>
+<td>A max date for repeating the operation creation several time until that date. This date should be at the minimum equal to (operationDate + 1 month) and has no maximum except current date. This field should be displayed only if operationDate is set and at the maximum 1 month in the past compared to current dateTime</td>
+<td>integer (unix timestamp)</td>
 </tr>
 <tr>
 <td>dateDebut</td>
 <td>start date for the regularisation of charges. Should be displayed and used only if (operationName (type) = recetteReguLocataire) or (operationName (type) = chargeReguLocataire)</td>
-<td>string (dd/mm/YYYY)</td>
+<td>integer (unix timestamp)</td>
 </tr>
 <tr>
 <td>dateFin</td>
 <td>end date for the regularisation of charges. Should be displayed and used only if (operationName (type) = recetteReguLocataire) or (operationName (type) = chargeReguLocataire)</td>
-<td>string (dd/mm/YYYY)</td>
+<td>integer (unix timestamp)</td>
 </tr>
 </tbody></table>
 
@@ -2014,7 +2014,7 @@ password:bobpassword<br/>
 operationName:recetteLoyer<br/>
 operationMontant:9999<br/>
 locataireId:56a7b72548177e22348b4569<br/>
-operationDate:17/08/2016<br/>
+operationDate:1482447600<br/>
 operationPaid:on<br/>
 operationAuto:off<br/></p>
 
