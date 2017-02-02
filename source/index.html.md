@@ -2207,9 +2207,9 @@ Parameter | Mandatory | Description | Type | default
 --------- | ------- | ------- | ------- | -------
 username | yes | The user name or email address | string |
 password | yes | The user password | string |
-startDate | no | The start date for the quittance (dd/mm/yyyy) | string | first day of current month
-endDate | no | The end date for the quittance (dd/mm/yyyy) | string | last day of current month
-startSolde | no | The start date for the solde(dd/mm/yyyy) | string | first day of month of locataire entry
+startDate | no | The start date (timestamp) for the quittance | integer | first day of current month
+endDate | no | The end date (timestamp) for the quittance | integer | last day of current month
+startSolde | no | The start date (timestamp) for the solde| integer | first day of month of locataire entry
 ignoreSolde | no | Tells to ignore the solde calculation if equals "on" or take it into account if equals off | string | 'on'
 
 ### Returned parameters
