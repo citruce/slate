@@ -52,6 +52,72 @@ https://www.rendementlocatif.com/api/gestion/2/immeubles
 
 # Authentificating a user
 
+## Signup
+
+```shell
+curl --data "username=username&password=password&email=email"
+  "https://www.rendementlocatif.com/api/signup"
+  -H "X-API-KEY: secretkey"
+```
+
+> Returns the following JSON if success
+
+```json
+{
+  "signup": true,
+  "Code": "0",
+  "Message": "Bienvenue, vous avez accès à toutes les fonctions de l'application pour une durée de 30 jours."
+}
+```
+> Returns the following JSON if error
+
+```json
+{
+  "signup": false,
+  "Code": "-1",
+  "message": "there are errors, see errors array",
+  "errors": [
+    {
+      "code": -13,
+      "message": "Il existe déjà une personne inscrite avec ce nom d'utilisateur. osamu. Ce nom d'utilisateur est trop ressemblant. Il doit différer par au moins un caractère alpha-numérique (a-z ou 0-9). Veuillez essayer un autre nom d'utilisateur."
+    },
+    {
+      "code": -2,
+      "message": "L'adresse électronique que vous avez saisie est invalide."
+    }
+  ]
+}
+```
+
+This endpoint signs up a new user.
+
+### HTTP Request
+
+`POST https://www.rendementlocatif.com/api/signup`
+
+### Parameters
+
+Parameter | Description
+--------- | -------
+username | The username
+password | The user password
+email | The user email address
+
+Should be sent with the request as "application/x-www-form-urlencoded".
+
+### Returned parameters
+
+Parameter | Type | Description
+--------- | ------- | -------
+signup | boolean | true if the user is signed up, false otherwise
+code | string | 0 : user is premium, -1 : there are errors,
+message | string | a message that could be displayed to user (optional)
+errors | array | array of code and message for every error to display to the user
+
+<aside class="success">
+The user should be signed up if signup=true
+</aside>
+
 ## Login
 
 ```shell
