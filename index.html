@@ -157,6 +157,107 @@ https://www.rendementlocatif.com/api/gestion/2/immeubles
 
 <h1 id="authentificating-a-user">Authentificating a user</h1>
 
+<h2 id="signup">Signup</h2>
+<pre class="highlight shell"><code>curl --data <span class="s2">"username=username&amp;password=password&amp;email=email"</span>
+  <span class="s2">"https://www.rendementlocatif.com/api/signup"</span>
+  -H <span class="s2">"X-API-KEY: secretkey"</span>
+</code></pre>
+
+<blockquote>
+<p>Returns the following JSON if success</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"signup"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bienvenue, vous avez accès à toutes les fonctions de l'application pour une durée de 30 jours."</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<blockquote>
+<p>Returns the following JSON if error</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"signup"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"-1"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"there are errors, see errors array"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">-13</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Il existe déjà une personne inscrite avec ce nom d'utilisateur. osamu. Ce nom d'utilisateur est trop ressemblant. Il doit différer par au moins un caractère alpha-numérique (a-z ou 0-9). Veuillez essayer un autre nom d'utilisateur."</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">-2</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"L'adresse électronique que vous avez saisie est invalide."</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint signs up a new user.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">POST https://www.rendementlocatif.com/api/signup</code></p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>username</td>
+<td>The username</td>
+</tr>
+<tr>
+<td>password</td>
+<td>The user password</td>
+</tr>
+<tr>
+<td>email</td>
+<td>The user email address</td>
+</tr>
+</tbody></table>
+
+<p>Should be sent with the request as &ldquo;application/x-www-form-urlencoded&rdquo;.</p>
+
+<h3 id="returned-parameters">Returned parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>signup</td>
+<td>boolean</td>
+<td>true if the user is signed up, false otherwise</td>
+</tr>
+<tr>
+<td>code</td>
+<td>string</td>
+<td>0 : user is premium, -1 : there are errors,</td>
+</tr>
+<tr>
+<td>message</td>
+<td>string</td>
+<td>a message that could be displayed to user (optional)</td>
+</tr>
+<tr>
+<td>errors</td>
+<td>array</td>
+<td>array of code and message for every error to display to the user</td>
+</tr>
+</tbody></table>
+
+<aside class="success">
+The user should be signed up if signup=true
+</aside>
+
 <h2 id="login">Login</h2>
 <pre class="highlight shell"><code>curl --data <span class="s2">"username=username&amp;password=password"</span>
   <span class="s2">"https://www.rendementlocatif.com/api/login"</span>
