@@ -46,8 +46,10 @@ Replace <code>secretkey</code> with your personal key.
 
 The endpoint accepts the version like this https://www.rendementlocatif.com/api/gestion/version/.
 <aside class="notice">
-Currently only version = 2 is supported. So please use the following endpoint:<br/>
-https://www.rendementlocatif.com/api/gestion/2/immeubles
+Last version is 21. So please use the following endpoint:<br/>
+https://www.rendementlocatif.com/api/gestion/21/
+
+21 is not backward compatible with 2 because 21 uses timestamps for dates parameters instead of human readable french dates.
 </aside>
 
 # Authentificating a user
@@ -230,7 +232,7 @@ Gets all the "immeubles" of a user and their associated "biens".
 
 ```shell
 curl --data "username=username&password=password"
-"https://www.rendementlocatif.com/api/gestion/2/immeubles"
+"https://www.rendementlocatif.com/api/gestion/21/immeubles"
   -H "X-API-KEY: secretkey"
 ```
 
@@ -882,7 +884,7 @@ curl --data "username=username&password=password"
 
 ### HTTP Request
 
-`POST https://www.rendementlocatif.com/api/gestion/2/immeubles`
+`POST https://www.rendementlocatif.com/api/gestion/21/immeubles`
 
 ### Parameters
 
@@ -902,7 +904,7 @@ Gets the details of a "immeuble" of a user.
 
 ```shell
 curl --data "username=username&password=password"
-"https://www.rendementlocatif.com/api/gestion/2/immeuble/<immeubleId>"
+"https://www.rendementlocatif.com/api/gestion/21/immeuble/<immeubleId>"
   -H "X-API-KEY: secretkey"
 ```
 
@@ -993,7 +995,7 @@ curl --data "username=username&password=password"
 
 ### HTTP Request
 
-`POST https://www.rendementlocatif.com/api/gestion/2/immeuble/<immeubleId>`
+`POST https://www.rendementlocatif.com/api/gestion/21/immeuble/<immeubleId>`
 
 ### Parameters
 
@@ -1012,7 +1014,7 @@ Gets the details of a "bien" of a user and its current present locataires (curre
 
 ```shell
 curl --data "username=username&password=password"
-"https://www.rendementlocatif.com/api/gestion/2/bien/<bienId>"
+"https://www.rendementlocatif.com/api/gestion/21/bien/<bienId>"
   -H "X-API-KEY: secretkey"
 ```
 
@@ -1245,7 +1247,7 @@ curl --data "username=username&password=password"
 
 ### HTTP Request
 
-`POST https://www.rendementlocatif.com/api/gestion/2/bien/<bienId>`
+`POST https://www.rendementlocatif.com/api/gestion/21/bien/<bienId>`
 
 ### Parameters
 
@@ -1264,7 +1266,7 @@ Gets all the "locataires" of a bien.
 
 ```shell
 curl --data "username=username&password=password"
-"https://www.rendementlocatif.com/api/gestion/2/locataires/<immeubleIdOrbienId>/<limit>"
+"https://www.rendementlocatif.com/api/gestion/21/locataires/<immeubleIdOrbienId>/<limit>"
   -H "X-API-KEY: secretkey"
 ```
 
@@ -1499,7 +1501,7 @@ curl --data "username=username&password=password"
 
 ### HTTP Request
 
-`POST https://www.rendementlocatif.com/api/gestion/2/locataires/<immeubleIdOrbienId>/<limit>`
+`POST https://www.rendementlocatif.com/api/gestion/21/locataires/<immeubleIdOrbienId>/<limit>`
 
 "immeubleIdOrbienId" can be either the ID of a bien or the ID of an immeuble. The API will figure out which kinf it is.
 
@@ -1523,7 +1525,7 @@ Gets the details of a "locataire" of a user.
 
 ```shell
 curl --data "username=username&password=password"
-"https://www.rendementlocatif.com/api/gestion/2/locataire/<locataireId>"
+"https://www.rendementlocatif.com/api/gestion/21/locataire/<locataireId>"
   -H "X-API-KEY: secretkey"
 ```
 
@@ -1578,7 +1580,7 @@ curl --data "username=username&password=password"
 
 ### HTTP Request
 
-`POST https://www.rendementlocatif.com/api/gestion/2/locataire/<locataireId>`
+`POST https://www.rendementlocatif.com/api/gestion/21/locataire/<locataireId>`
 
 ### Parameters
 
@@ -1598,7 +1600,7 @@ Gets the last n operations of a "immeuble" of a user.
 
 ```shell
 curl --data "username=username&password=password"
-"https://www.rendementlocatif.com/api/gestion/2/operations/<immeubleId>/<limit>"
+"https://www.rendementlocatif.com/api/gestion/21/operations/<immeubleId>/<limit>"
   -H "X-API-KEY: secretkey"
 ```
 
@@ -1702,7 +1704,7 @@ curl --data "username=username&password=password"
 
 ### HTTP Request
 
-`POST https://www.rendementlocatif.com/api/gestion/2/operations/<immeubleId>/<limit>`
+`POST https://www.rendementlocatif.com/api/gestion/21/operations/<immeubleId>/<limit>`
 
 The "limit" parameter is the max number of operations to return. By default (if not present), it returns 1000 operations.
 
@@ -1725,7 +1727,7 @@ Creates a new operation or update an existing operation (if operationId is given
 
 ```shell
 curl --data "username=username&password=password"
-"https://www.rendementlocatif.com/api/gestion/2/saveOperation/<immeubleId>/<operationId>"
+"https://www.rendementlocatif.com/api/gestion/21/saveOperation/<immeubleId>/<operationId>"
   -H "X-API-KEY: secretkey"
 ```
 
@@ -1742,7 +1744,7 @@ curl --data "username=username&password=password"
 
 ### HTTP Request
 
-`POST https://www.rendementlocatif.com/api/gestion/2/saveOperation/<immeubleId>/<operationId>`
+`POST https://www.rendementlocatif.com/api/gestion/21/saveOperation/<immeubleId>/<operationId>`
 
 "immeubleId" is mandatory and should correspond to the id of the immeuble to which the operation will be attached.
 
@@ -1793,7 +1795,7 @@ Set the the locataire departure date.
 
 ```shell
 curl --data "username=username&password=password"
-"https://www.rendementlocatif.com/api/gestion/2/setLocataireGone/<locataireId>"
+"https://www.rendementlocatif.com/api/gestion/21/setLocataireGone/<locataireId>"
   -H "X-API-KEY: secretkey"
 ```
 
@@ -1830,7 +1832,7 @@ curl --data "username=username&password=password"
 
 ### HTTP Request
 
-`POST https://www.rendementlocatif.com/api/gestion/2/setLocataireGone/<locataireId>`
+`POST https://www.rendementlocatif.com/api/gestion/21/setLocataireGone/<locataireId>`
 
 "locataireId" is mandatory and should correspond to the id of the lcoataire.
 
@@ -1852,11 +1854,11 @@ quitDate:1422745200<br/>
 
 ```shell
 curl --request POST \
-  --url https://www.rendementlocatif.com/api/gestion/2/setLocataireGone/580a81d348177eb0128b4568 \
+  --url https://www.rendementlocatif.com/api/gestion/21/setLocataireGone/580a81d348177eb0128b4568 \
   --header 'cache-control: no-cache' \
   --header 'content-type: application/x-www-form-urlencoded' \
   --header 'x-api-key: secretkey' \
-  --data 'username=boss&password=6407&quitDate=1422745200'
+  --data 'username=boss&password=password&quitDate=1422745200'
 ```
 
 ## Split Loyer
@@ -1867,7 +1869,7 @@ Splits a loyer paid by a "locataire" in loyer Hors Charges and Provision pour ch
 
 ```shell
 curl --data "username=username&password=password"
-"https://www.rendementlocatif.com/api/gestion/2/ventilationLoyer/<locataireId>/<montantTotal>"
+"https://www.rendementlocatif.com/api/gestion/21/ventilationLoyer/<locataireId>/<montantTotal>"
   -H "X-API-KEY: secretkey"
 ```
 
@@ -1889,7 +1891,7 @@ curl --data "username=username&password=password"
 
 ### HTTP Request
 
-`POST https://www.rendementlocatif.com/api/gestion/2/ventilationLoyer/<locataireId>/<montantTotal>`
+`POST https://www.rendementlocatif.com/api/gestion/21/ventilationLoyer/<locataireId>/<montantTotal>`
 
 "locataireId" is mandatory and is the id of the locataire from which the "montantTotal" was received.
 
@@ -1927,7 +1929,7 @@ Creates a new locataire or update an existing locataire (if locataireId is given
 
 ```shell
 curl --data "username=username&password=password"
-"https://www.rendementlocatif.com/api/gestion/2/saveLocataire/<bienId>/<locataireId>"
+"https://www.rendementlocatif.com/api/gestion/21/saveLocataire/<bienId>/<locataireId>"
   -H "X-API-KEY: secretkey"
 ```
 
@@ -1958,7 +1960,7 @@ curl --data "username=username&password=password"
 
 ### HTTP Request
 
-`POST https://www.rendementlocatif.com/api/gestion/2/saveLocataire/<bienId>/<locataireId>`
+`POST https://www.rendementlocatif.com/api/gestion/21/saveLocataire/<bienId>/<locataireId>`
 
 "bienId" is mandatory and should correspond to the id of the bien to which the locataire will be attached.
 
@@ -2014,11 +2016,11 @@ depotGarantie:1<br/>
 
 ```shell
 curl --request POST \
-  --url https://www.rendementlocatif.com/api/gestion/2/saveLocataire/580a81d348177eb0128b4568 \
+  --url https://www.rendementlocatif.com/api/gestion/21/saveLocataire/580a81d348177eb0128b4568 \
   --header 'cache-control: no-cache' \
   --header 'content-type: application/x-www-form-urlencoded' \
   --header 'x-api-key: secretkey' \
-  --data 'username=boss&password=6407&nom=Dupont&prenom=jean&loyer=666&provision=20&indiceRevision=0&signatureDate=1422745200&entryDate=1422745200&dayLoyer=3&typeLocation=0&depotGarantie=1'
+  --data 'username=boss&password=password&nom=Dupont&prenom=jean&loyer=666&provision=20&indiceRevision=0&signatureDate=1422745200&entryDate=1422745200&dayLoyer=3&typeLocation=0&depotGarantie=1'
 ```
 
 ## Split Loyer
@@ -2029,7 +2031,7 @@ Splits a loyer paid by a "locataire" in loyer Hors Charges and Provision pour ch
 
 ```shell
 curl --data "username=username&password=password"
-"https://www.rendementlocatif.com/api/gestion/2/ventilationLoyer/<locataireId>/<montantTotal>"
+"https://www.rendementlocatif.com/api/gestion/21/ventilationLoyer/<locataireId>/<montantTotal>"
   -H "X-API-KEY: secretkey"
 ```
 
@@ -2051,7 +2053,7 @@ curl --data "username=username&password=password"
 
 ### HTTP Request
 
-`POST https://www.rendementlocatif.com/api/gestion/2/ventilationLoyer/<locataireId>/<montantTotal>`
+`POST https://www.rendementlocatif.com/api/gestion/21/ventilationLoyer/<locataireId>/<montantTotal>`
 
 "locataireId" is mandatory and is the id of the locataire from which the "montantTotal" was received.
 
@@ -2088,7 +2090,7 @@ Marks an operation as paid
 
 ```shell
 curl --data "username=username&password=password"
-"https://www.rendementlocatif.com/api/gestion/2/markOperationPaid/<operationId>"
+"https://www.rendementlocatif.com/api/gestion/21/markOperationPaid/<operationId>"
   -H "X-API-KEY: secretkey"
 ```
 
@@ -2103,7 +2105,7 @@ curl --data "username=username&password=password"
 
 ### HTTP Request
 
-`POST https://www.rendementlocatif.com/api/gestion/2/markOperationPaid/<operationId>`
+`POST https://www.rendementlocatif.com/api/gestion/21/markOperationPaid/<operationId>`
 
 "operationId" is mandatory and should correspond to the id of the operation to mark as paid.
 
@@ -2132,7 +2134,7 @@ Marks an operation as paid
 
 ```shell
 curl --data "username=username&password=password"
-"https://www.rendementlocatif.com/api/gestion/2/markOperationUnPaid/<operationId>"
+"https://www.rendementlocatif.com/api/gestion/21/markOperationUnPaid/<operationId>"
   -H "X-API-KEY: secretkey"
 ```
 
@@ -2147,7 +2149,7 @@ curl --data "username=username&password=password"
 
 ### HTTP Request
 
-`POST https://www.rendementlocatif.com/api/gestion/2/markOperationUnPaid/<operationId>`
+`POST https://www.rendementlocatif.com/api/gestion/21/markOperationUnPaid/<operationId>`
 
 "operationId" is mandatory and should correspond to the id of the operation to mark as unpaid.
 
@@ -2177,7 +2179,7 @@ Deletes an operation
 
 ```shell
 curl --data "username=username&password=password"
-"https://www.rendementlocatif.com/api/gestion/2/deleteOperation/<operationId>"
+"https://www.rendementlocatif.com/api/gestion/21/deleteOperation/<operationId>"
   -H "X-API-KEY: secretkey"
 ```
 
@@ -2192,7 +2194,7 @@ curl --data "username=username&password=password"
 
 ### HTTP Request
 
-`POST https://www.rendementlocatif.com/api/gestion/2/deleteOperation/<operationId>`
+`POST https://www.rendementlocatif.com/api/gestion/21/deleteOperation/<operationId>`
 
 "operationId" is mandatory and should correspond to the id of the operation to delete.
 
@@ -2221,7 +2223,7 @@ Gets a "quittance de loyer"
 
 ```shell
 curl --data "username=username&password=password"
-"https://www.rendementlocatif.com/api/gestion/2/quittance/<locataireId>/<anythingOnlyToSendEmail>"
+"https://www.rendementlocatif.com/api/gestion/21/quittance/<locataireId>/<anythingOnlyToSendEmail>"
   -H "X-API-KEY: secretkey"
 ```
 
@@ -2242,7 +2244,7 @@ curl --data "username=username&password=password"
 {
   "result": true,
   "code": 0,
-  "message": "Un email avec la quittance a été envoyé à votre locataire."
+  "message": "Un email avec le document a été envoyé à votre locataire."
 }
 ```
 
@@ -2259,9 +2261,9 @@ curl --data "username=username&password=password"
 
 ### HTTP Request
 
-`POST https://www.rendementlocatif.com/api/gestion/2/quittance/<locataireId>/<anythingToSendEmail>`
+`POST https://www.rendementlocatif.com/api/gestion/21/quittance/<locataireId>/<anythingToSendEmail>`
 
-"locataireId" is mandatory and should correspond to the id of the operation to delete.
+"locataireId" is mandatory and should correspond to the id of the locataire for which we want to edit a quittance.
 
 "anythingOnlyToSendEmail" is optional.  Can be any non empty string. If given, the server will send an email to the locataire with the quittance PDF attached.
 
@@ -2282,6 +2284,1072 @@ ignoreSolde | no | Tells to ignore the solde calculation if equals "on" or take 
 
 Parameter | Type | Description
 --------- | ------- | -------
-result | boolean | true if quittance is generated ok or if email send ok, otherwise false
+result | boolean | true if doc is generated ok or if email send ok, otherwise false
 code | integer | 0 if ok otherwise error code of error
 message | string | error message if error, ok message of code=0 (success)
+
+
+## Bail
+
+Gets a "contrat de bail"
+
+> Code to get the bien of a user
+
+```shell
+curl --data "username=username&password=password"
+"https://www.rendementlocatif.com/api/gestion/21/bail/<locataireId>/<type>/<empty>/<collocation>/<anythingToSendEmail>"
+  -H "X-API-KEY: secretkey"
+```
+
+> If success, it returns the PDF file (streamed over HTTP)
+> Otherwise it returns an error as a json
+
+```json
+{
+  "result": false,
+  "code": -10,
+  "message": "Missing or invalid locataireId (in url path)"
+}
+```
+
+> If success and email send mode, it always returns a json
+
+```json
+{
+  "result": true,
+  "code": 0,
+  "message": "Un email avec le document a été envoyé à votre locataire."
+}
+```
+
+> if error when seding email
+
+
+```json
+{
+  "result": false,
+  "code": -15,
+  "message": "Message non envoyé. Vous devez renseigner une adresse email pour votre locataire."
+}
+```
+
+### HTTP Request
+
+`POST https://www.rendementlocatif.com/api/gestion/21/bail/<locataireId>/<type>/<empty>/<collocation>/<anythingToSendEmail>`
+
+"locataireId" is mandatory and should correspond to the id of the locataire for which we want to edit the bail.
+
+"type" (optional) is either "m" (bail meublé) or "nu" (bail nu, default)
+
+"empty" (optional) can be anything to produce an empty bail document (not pre-filled with owner and locataire personal details). Set to "skip" to keep the document pre-filled and set another next parameter in the URL (collocation and send_email parameters).
+
+"collocation" (optional) can be anything and will generate a bail with all currently active locataires (pour collocation). Set to "skip" to keep the document not empty and set another next parameter in the URL.
+
+"anythingOnlyToSendEmail" is optional.  Can be any non empty string. If given, the server will send an email to the locataire with the bail PDF attached.
+
+### POST Parameters
+
+Should be sent with the request in the body as "application/x-www-form-urlencoded".
+
+Parameter | Mandatory | Description | Type | default
+--------- | ------- | ------- | ------- | -------
+username | yes | The user name or email address | string |
+password | yes | The user password | string |
+
+
+### Returned parameters
+
+Parameter | Type | Description
+--------- | ------- | -------
+result | boolean | true if doc is generated ok or if email send ok, otherwise false
+code | integer | 0 if ok otherwise error code of error
+message | string | error message if error, ok message of code=0 (success)
+
+
+Examples:
+
+Send a meublé pre-filled bail document to locataire "5845a17f48177ea2098b4567" (no collocation)
+
+```shell
+curl --request POST \
+  --url https://www.rendementlocatif.com/api/gestion/21/bail/5845a17f48177ea2098b4567/m/skip/skip/send \
+  --header 'cache-control: no-cache' \
+  --header 'content-type: application/x-www-form-urlencoded' \
+  --header 'x-api-key: secretkey' \
+  --data 'username=boss&password=password'
+```
+
+
+## Etat des lieux
+
+Gets a "etat des lieux" document.
+
+> Code to get the bien of a user
+
+```shell
+curl --data "username=username&password=password"
+"https://www.rendementlocatif.com/api/gestion/21/etatDesLieux/<locataireId>/<type>/<empty>/<collocation>/<anythingToSendEmail>"
+  -H "X-API-KEY: secretkey"
+```
+
+> If success, it returns the PDF file (streamed over HTTP)
+> Otherwise it returns an error as a json
+
+```json
+{
+  "result": false,
+  "code": -10,
+  "message": "Missing or invalid locataireId (in url path)"
+}
+```
+
+> If success and email send mode, it always returns a json
+
+```json
+{
+  "result": true,
+  "code": 0,
+  "message": "Un email avec le document a été envoyé à votre locataire."
+}
+```
+
+> if error when seding email
+
+
+```json
+{
+  "result": false,
+  "code": -15,
+  "message": "Message non envoyé. Vous devez renseigner une adresse email pour votre locataire."
+}
+```
+
+### HTTP Request
+
+`POST https://www.rendementlocatif.com/api/gestion/21/etatDesLieux/<locataireId>/<type>/<empty>/<collocation>/<anythingToSendEmail>`
+
+"locataireId" is mandatory and should correspond to the id of the locataire for which we want to edit the document.
+
+"type" (optional) is either "e" (Etat des lieux d'entrée, default) or "s" (état des lieux de sortie)
+
+"empty" (optional) can be anything to produce an empty document (not pre-filled with owner and locataire personal details). Set this to "skip" to keep the document pre-filled and set another next parameter in the URL.
+
+"collocation" (optional) can be anything and will generate a document with all currently active locataires (pour collocation). Set to "skip" to keep the document not empty and set another next parameter in the URL.
+
+"anythingOnlyToSendEmail" is optional.  Can be any non empty string. If given, the server will send an email to the locataire with the document PDF attached.
+
+### POST Parameters
+
+Should be sent with the request in the body as "application/x-www-form-urlencoded".
+
+Parameter | Mandatory | Description | Type | default
+--------- | ------- | ------- | ------- | -------
+username | yes | The user name or email address | string |
+password | yes | The user password | string |
+
+
+### Returned parameters
+
+Parameter | Type | Description
+--------- | ------- | -------
+result | boolean | true if doc is generated ok or if email send ok, otherwise false
+code | integer | 0 if ok otherwise error code of error
+message | string | error message if error, ok message of code=0 (success)
+
+
+Examples:
+
+Send a pre-filled document "etat de lieux de sortie" to locataire "5845a17f48177ea2098b4567"
+
+```shell
+curl --request POST \
+  --url https://www.rendementlocatif.com/api/gestion/21/etatDesLieux/5845a17f48177ea2098b4567/s/skip/skip/send \
+  --header 'cache-control: no-cache' \
+  --header 'content-type: application/x-www-form-urlencoded' \
+  --header 'x-api-key: secretkey' \
+  --data 'username=boss&password=password'
+```
+
+## Liste avant Départ
+
+Gets a "liste choses à faire avant départ" document.
+
+> Code to get the bien of a user
+
+```shell
+curl --data "username=username&password=password"
+"https://www.rendementlocatif.com/api/gestion/21/avantDepart/<locataireId>/<empty>/<anythingToSendEmail>"
+  -H "X-API-KEY: secretkey"
+```
+
+> If success, it returns the PDF file (streamed over HTTP)
+> Otherwise it returns an error as a json
+
+```json
+{
+  "result": false,
+  "code": -10,
+  "message": "Missing or invalid locataireId (in url path)"
+}
+```
+
+> If success and email send mode, it always returns a json
+
+```json
+{
+  "result": true,
+  "code": 0,
+  "message": "Un email avec le document a été envoyé à votre locataire."
+}
+```
+
+> if error when seding email
+
+
+```json
+{
+  "result": false,
+  "code": -15,
+  "message": "Message non envoyé. Vous devez renseigner une adresse email pour votre locataire."
+}
+```
+
+### HTTP Request
+
+`POST https://www.rendementlocatif.com/api/gestion/21/avantDepart/<locataireId>/<empty>/<anythingToSendEmail>`
+
+"locataireId" is mandatory and should correspond to the id of the locataire for which we want to edit the document.
+
+"empty" (optional) can be anything to produce an empty document (not pre-filled with owner and locataire personal details). Set this to "skip" to keep the document pre-filled and set another next parameter in the URL.
+
+"anythingOnlyToSendEmail" is optional.  Can be any non empty string. If given, the server will send an email to the locataire with the document PDF attached.
+
+### POST Parameters
+
+Should be sent with the request in the body as "application/x-www-form-urlencoded".
+
+Parameter | Mandatory | Description | Type | default
+--------- | ------- | ------- | ------- | -------
+username | yes | The user name or email address | string |
+password | yes | The user password | string |
+
+
+### Returned parameters
+
+Parameter | Type | Description
+--------- | ------- | -------
+result | boolean | true if doc is generated ok or if email send ok, otherwise false
+code | integer | 0 if ok otherwise error code of error
+message | string | error message if error, ok message of code=0 (success)
+
+
+Examples:
+
+Send a pre-filled document to locataire "5845a17f48177ea2098b4567"
+
+```shell
+curl --request POST \
+  --url https://www.rendementlocatif.com/api/gestion/21/avantDepart/5845a17f48177ea2098b4567/skip/send \
+  --header 'cache-control: no-cache' \
+  --header 'content-type: application/x-www-form-urlencoded' \
+  --header 'x-api-key: secretkey' \
+  --data 'username=boss&password=password'
+```
+
+
+## Caution Solidaire
+
+Gets a "acte de cautionnement solidaire" document.
+
+> Code to get the bien of a user
+
+```shell
+curl --data "username=username&password=password"
+"https://www.rendementlocatif.com/api/gestion/21/cautionSolidaire/<locataireId>/<empty>/<collocation>/<anythingToSendEmail>"
+  -H "X-API-KEY: secretkey"
+```
+
+> If success, it returns the PDF file (streamed over HTTP)
+> Otherwise it returns an error as a json
+
+```json
+{
+  "result": false,
+  "code": -10,
+  "message": "Missing or invalid locataireId (in url path)"
+}
+```
+
+> If success and email send mode, it always returns a json
+
+```json
+{
+  "result": true,
+  "code": 0,
+  "message": "Un email avec le document a été envoyé à votre locataire."
+}
+```
+
+> if error when seding email
+
+
+```json
+{
+  "result": false,
+  "code": -15,
+  "message": "Message non envoyé. Vous devez renseigner une adresse email pour votre locataire."
+}
+```
+
+### HTTP Request
+
+`POST https://www.rendementlocatif.com/api/gestion/21/etatDesLieux/<locataireId>/<empty>/<collocation>/<anythingToSendEmail>`
+
+"locataireId" is mandatory and should correspond to the id of the locataire for which we want to edit the document.
+
+
+"empty" (optional) can be anything to produce an empty document (not pre-filled with owner and locataire personal details). Set this to "skip" to keep the document pre-filled and set another next parameter in the URL.
+
+"collocation" (optional) can be anything and will generate a document with all currently active locataires (pour collocation). Set to "skip" to keep the document not empty and set another next parameter in the URL.
+
+"anythingOnlyToSendEmail" is optional.  Can be any non empty string. If given, the server will send an email to the locataire with the document PDF attached.
+
+### POST Parameters
+
+Should be sent with the request in the body as "application/x-www-form-urlencoded".
+
+Parameter | Mandatory | Description | Type | default
+--------- | ------- | ------- | ------- | -------
+username | yes | The user name or email address | string |
+password | yes | The user password | string |
+
+
+### Returned parameters
+
+Parameter | Type | Description
+--------- | ------- | -------
+result | boolean | true if doc is generated ok or if email send ok, otherwise false
+code | integer | 0 if ok otherwise error code of error
+message | string | error message if error, ok message of code=0 (success)
+
+
+Examples:
+
+Send a pre-filled document "caution solidaire" to locataire "5845a17f48177ea2098b4567"
+
+```shell
+curl --request POST \
+  --url https://www.rendementlocatif.com/api/gestion/21/cautionSolidaire/5845a17f48177ea2098b4567/skip/skip/send \
+  --header 'cache-control: no-cache' \
+  --header 'content-type: application/x-www-form-urlencoded' \
+  --header 'x-api-key: secretkey' \
+  --data 'username=boss&password=password'
+```
+
+
+## Taxe ordures ménagères
+
+Gets a "rappel paiement taxe enlèvement des ordures ménagères" document.
+
+> Code to get the bien of a user
+
+```shell
+curl --data "username=username&password=password"
+"https://www.rendementlocatif.com/api/gestion/21/taxeOrduresMenageres/<locataireId>/<total>/<anythingToSendEmail>"
+  -H "X-API-KEY: secretkey"
+```
+
+> If success, it returns the PDF file (streamed over HTTP)
+> Otherwise it returns an error as a json or success if sent by email
+
+```json
+{
+  "result": false,
+  "code": -10,
+  "message": "Missing or invalid locataireId (in url path)"
+}
+```
+
+> If success and email send mode, it always returns a json
+
+```json
+{
+  "result": true,
+  "code": 0,
+  "message": "Un email avec le document a été envoyé à votre locataire."
+}
+```
+
+> if error when seding email
+
+
+```json
+{
+  "result": false,
+  "code": -15,
+  "message": "Message non envoyé. Vous devez renseigner une adresse email pour votre locataire."
+}
+```
+
+### HTTP Request
+
+`POST https://www.rendementlocatif.com/api/gestion/21/taxeOrduresMenageres/<locataireId>/<total>/<anythingToSendEmail>`
+
+"locataireId" is mandatory and should correspond to the id of the locataire for which we want to edit the document.
+
+"total" (optional) is a number to set the amount due for the tax in the document. By default it is set to 0.
+
+"anythingOnlyToSendEmail" is optional.  Can be any non empty string. If given, the server will send an email to the locataire with the document PDF attached.
+
+### POST Parameters
+
+Should be sent with the request in the body as "application/x-www-form-urlencoded".
+
+Parameter | Mandatory | Description | Type | default
+--------- | ------- | ------- | ------- | -------
+username | yes | The user name or email address | string |
+password | yes | The user password | string |
+
+
+### Returned parameters
+
+Parameter | Type | Description
+--------- | ------- | -------
+result | boolean | true if doc is generated ok or if email send ok, otherwise false
+code | integer | 0 if ok otherwise error code of error
+message | string | error message if error, ok message of code=0 (success)
+
+
+Examples:
+
+Send a pre-filled document "taxe ordures ménagères" to locataire "5845a17f48177ea2098b4567" with amount due 34€ (set in the document).
+
+```shell
+curl --request POST \
+  --url https://www.rendementlocatif.com/api/gestion/21/taxeOrduresMenageres/5845a17f48177ea2098b4567/34/send \
+  --header 'cache-control: no-cache' \
+  --header 'content-type: application/x-www-form-urlencoded' \
+  --header 'x-api-key: secretkey' \
+  --data 'username=boss&password=password'
+```
+
+
+## Relance Loyer impayé
+
+Gets a "relance loyers impayés" document.
+
+> Code to get the bien of a user
+
+```shell
+curl --data "username=username&password=password"
+"https://www.rendementlocatif.com/api/gestion/21/loyerImpaye/<locataireId>/<total>/<anythingToSendEmail>"
+  -H "X-API-KEY: secretkey"
+```
+
+> If success, it returns the PDF file (streamed over HTTP)
+> Otherwise it returns an error as a json or success if sent by email
+
+```json
+{
+  "result": false,
+  "code": -10,
+  "message": "Missing or invalid locataireId (in url path)"
+}
+```
+
+> If success and email send mode, it always returns a json
+
+```json
+{
+  "result": true,
+  "code": 0,
+  "message": "Un email avec le document a été envoyé à votre locataire."
+}
+```
+
+> if error when seding email
+
+
+```json
+{
+  "result": false,
+  "code": -15,
+  "message": "Message non envoyé. Vous devez renseigner une adresse email pour votre locataire."
+}
+```
+
+### HTTP Request
+
+`POST https://www.rendementlocatif.com/api/gestion/21/loyerImpaye/<locataireId>/<total>/<anythingToSendEmail>`
+
+"locataireId" is mandatory and should correspond to the id of the locataire for which we want to edit the document.
+
+"total" (optional) is a number to set the amount due in the document. By default it is set to 0.
+
+"anythingOnlyToSendEmail" is optional.  Can be any non empty string. If given, the server will send an email to the locataire with the document PDF attached.
+
+### POST Parameters
+
+Should be sent with the request in the body as "application/x-www-form-urlencoded".
+
+Parameter | Mandatory | Description | Type | default
+--------- | ------- | ------- | ------- | -------
+username | yes | The user name or email address | string |
+password | yes | The user password | string |
+
+
+### Returned parameters
+
+Parameter | Type | Description
+--------- | ------- | -------
+result | boolean | true if doc is generated ok or if email send ok, otherwise false
+code | integer | 0 if ok otherwise error code of error
+message | string | error message if error, ok message of code=0 (success)
+
+
+Examples:
+
+Send a pre-filled document "relance loyers impayés" to locataire "5845a17f48177ea2098b4567" with amount due 34€ (set in the document).
+
+```shell
+curl --request POST \
+  --url https://www.rendementlocatif.com/api/gestion/21/loyerImpaye/5845a17f48177ea2098b4567/34/send \
+  --header 'cache-control: no-cache' \
+  --header 'content-type: application/x-www-form-urlencoded' \
+  --header 'x-api-key: secretkey' \
+  --data 'username=boss&password=/21/'
+```
+
+## Compte Locataire
+
+Gets the detailled status of a locataire account. Can be returned as data (full data of account and lines) or as a PDF. Can also be sent by email to the locataire (when pdf).
+
+> Code to get the bien of a user
+
+```shell
+curl --data "username=username&password=password"
+"https://www.rendementlocatif.com/api/gestion/21/compteLocataire/<locataireId>/<mode>/<anythingToSendEmail>"
+  -H "X-API-KEY: secretkey"
+```
+
+> If success, it returns the PDF file (streamed over HTTP)
+> Otherwise it returns an error as a json or success if sent by email
+
+```json
+{
+  "result": false,
+  "code": -10,
+  "message": "Missing or invalid locataireId (in url path)"
+}
+```
+
+> If success and data return (not pdf), it always returns a json like this
+
+```json
+{
+  "result": true,
+  "locataire": {
+    "address1": "",
+    "address2": "",
+    "bienId": "580a81d348177eb0128b4568",
+    "bornDate": null,
+    "bornLocation": "",
+    "codepostal": "",
+    "country": "",
+    "dateCreated": {
+      "sec": 1480958335,
+      "usec": 313000
+    },
+    "dateLastModified": {
+      "sec": 1491916791,
+      "usec": 704000
+    },
+    "dayLoyer": 3,
+    "depotGarantie": 1,
+    "email": "bassouli@gmail.com",
+    "entryDate": {
+      "sec": 1422745200,
+      "usec": 0
+    },
+    "immeubleId": "580a81d348177eb0128b4567",
+    "indiceRevision": 0,
+    "loyer": 300,
+    "nationality": "",
+    "nom": "testAPINom",
+    "phone": "",
+    "precision": "",
+    "prenom": "testAPIPrénom",
+    "provision": 30,
+    "quitDate": null,
+    "robot": false,
+    "signatureDate": {
+      "sec": 1422745200,
+      "usec": 0
+    },
+    "typeLocation": 0,
+    "user_id": "23",
+    "ville": "",
+    "id": "5845a17f48177ea2098b4567"
+  },
+  "immeuble": {
+    "active": true,
+    "address": "5 Rue d'Alençon",
+    "address2": "",
+    "address_number": "5",
+    "codepostal": "75015",
+    "comagence": 3816.45,
+    "comcourtier": 0,
+    "country": "FR",
+    "country_long": "France",
+    "dateCreated": {
+      "sec": 1477083603,
+      "usec": 168000
+    },
+    "dateLastModified": {
+      "sec": 1482254485,
+      "usec": 553000
+    },
+    "fraisnotaire": 1688.59,
+    "investId": "5729f23b48177eba408b4567",
+    "meubles": 277,
+    "milliemes": 554,
+    "name": "test immeuble 2",
+    "options": {
+      "autoPaiement": true
+    },
+    "place_id": "ChIJMR_W1DJw5kcRHxOw3-Nr5DE",
+    "place_url": "https://maps.google.com/?q=5+Rue+d'Alençon,+75015+Paris,+France&ftid=0x47e67032d4d61f31:0x31e46be3dfb0131f",
+    "prixnet": 47705.55,
+    "prixtoday": 47705.55,
+    "robot": false,
+    "surface": 23,
+    "travauxr": 0,
+    "type": "immeuble",
+    "user_id": "23",
+    "ville": "Paris|75015",
+    "ville_niveau1": "Île-de-France",
+    "ville_niveau2": "Paris",
+    "ville_seule": "Paris",
+    "villevalue": "Paris (75015)",
+    "imageURL": "https://maps.googleapis.com/maps/api/streetview?size=640x400&location=5+Rue+d%27Alen%C3%A7on%2C+Paris%2C+France&key=AIzaSyC0bksAgpmpdGIZt4Ed3gj7yEes4RG7TZo",
+    "totalEmprunt": 91915,
+    "totalMensualite": 649.15,
+    "date_achat": {
+      "sec": 1398895200,
+      "usec": 0
+    },
+    "id": "580a81d348177eb0128b4567"
+  },
+  "amount": -8910,
+  "lines": [
+    {
+      "time": 1422745200,
+      "montant": 330,
+      "description": "Loyer + Provisions charges",
+      "positive": false
+    },
+    {
+      "time": 1425337200,
+      "montant": 330,
+      "description": "Loyer + Provisions charges",
+      "positive": false
+    },
+    {
+      "time": 1428012000,
+      "montant": 330,
+      "description": "Loyer + Provisions charges",
+      "positive": false
+    },
+    {
+      "time": 1430604000,
+      "montant": 330,
+      "description": "Loyer + Provisions charges",
+      "positive": false
+    },
+    {
+      "time": 1433282400,
+      "montant": 330,
+      "description": "Loyer + Provisions charges",
+      "positive": false
+    },
+    {
+      "time": 1435874400,
+      "montant": 330,
+      "description": "Loyer + Provisions charges",
+      "positive": false
+    },
+    {
+      "time": 1438552800,
+      "montant": 330,
+      "description": "Loyer + Provisions charges",
+      "positive": false
+    },
+    {
+      "time": 1441231200,
+      "montant": 330,
+      "description": "Loyer + Provisions charges",
+      "positive": false
+    },
+    {
+      "time": 1443823200,
+      "montant": 330,
+      "description": "Loyer + Provisions charges",
+      "positive": false
+    },
+    {
+      "time": 1446505200,
+      "montant": 330,
+      "description": "Loyer + Provisions charges",
+      "positive": false
+    },
+    {
+      "time": 1449097200,
+      "montant": 330,
+      "description": "Loyer + Provisions charges",
+      "positive": false
+    },
+    {
+      "time": 1451775600,
+      "montant": 330,
+      "description": "Loyer + Provisions charges",
+      "positive": false
+    },
+    {
+      "time": 1454454000,
+      "montant": 330,
+      "description": "Loyer + Provisions charges",
+      "positive": false
+    },
+    {
+      "time": 1456959600,
+      "montant": 330,
+      "description": "Loyer + Provisions charges",
+      "positive": false
+    },
+    {
+      "time": 1459634400,
+      "montant": 330,
+      "description": "Loyer + Provisions charges",
+      "positive": false
+    },
+    {
+      "time": 1462226400,
+      "montant": 330,
+      "description": "Loyer + Provisions charges",
+      "positive": false
+    },
+    {
+      "time": 1464904800,
+      "montant": 330,
+      "description": "Loyer + Provisions charges",
+      "positive": false
+    },
+    {
+      "time": 1467496800,
+      "montant": 330,
+      "description": "Loyer + Provisions charges",
+      "positive": false
+    },
+    {
+      "time": 1470175200,
+      "montant": 330,
+      "description": "Loyer + Provisions charges",
+      "positive": false
+    },
+    {
+      "time": 1472853600,
+      "montant": 330,
+      "description": "Loyer + Provisions charges",
+      "positive": false
+    },
+    {
+      "time": 1475445600,
+      "montant": 330,
+      "description": "Loyer + Provisions charges",
+      "positive": false
+    },
+    {
+      "time": 1478127600,
+      "montant": 330,
+      "description": "Loyer + Provisions charges",
+      "positive": false
+    },
+    {
+      "time": 1480719600,
+      "montant": 330,
+      "description": "Loyer + Provisions charges",
+      "positive": false
+    },
+    {
+      "time": 1483398000,
+      "montant": 330,
+      "description": "Loyer + Provisions charges",
+      "positive": false
+    },
+    {
+      "time": 1486076400,
+      "montant": 330,
+      "description": "Loyer + Provisions charges",
+      "positive": false
+    },
+    {
+      "time": 1488495600,
+      "montant": 330,
+      "description": "Loyer + Provisions charges",
+      "positive": false
+    },
+    {
+      "time": 1491170400,
+      "montant": 330,
+      "description": "Loyer + Provisions charges",
+      "positive": false
+    }
+  ]
+}
+```
+
+> If success and email send mode, it always returns a json
+
+```json
+{
+  "result": true,
+  "code": 0,
+  "message": "Un email avec le document a été envoyé à votre locataire."
+}
+```
+
+> if error when seding email
+
+
+```json
+{
+  "result": false,
+  "code": -15,
+  "message": "Message non envoyé. Vous devez renseigner une adresse email pour votre locataire."
+}
+```
+
+### HTTP Request
+
+`POST https://www.rendementlocatif.com/api/gestion/21/compteLocataire/<locataireId>/<mode>/<anythingToSendEmail>`
+
+"locataireId" is mandatory and should correspond to the id of the locataire for which we want to edit the account status.
+
+"mode" (optional) is a string to set wether or not we want the API to return a PDF document (<mode> = 'pdf' , by default) or data as json (<mode> = 'data').
+
+"anythingOnlyToSendEmail" is optional.  Can be any non empty string. If given, the server will send an email to the locataire with the document PDF attached.
+
+### POST Parameters
+
+Should be sent with the request in the body as "application/x-www-form-urlencoded".
+
+Parameter | Mandatory | Description | Type | default
+--------- | ------- | ------- | ------- | -------
+username | yes | The user name or email address | string |
+password | yes | The user password | string |
+
+
+### Returned parameters
+
+Parameter | Type | Description
+--------- | ------- | -------
+result | boolean | true if doc is generated ok or if email send ok, otherwise false
+code | integer | 0 if ok otherwise error code of error
+locataire | object | details of the locataire for display
+immeuble | object | details of the immeuble (to get the adress and everything in case needed for display)
+amount | float | total amount due by the locataire (is negative) or due by the landlord (if positive)
+lines | array | an array of all the lines of the account to be usually displayed as a table. Every line is an object with "time" = timestamp of operation, "montant" = float, "positive" = false or true depending on whether it is a du amount (dette) or paid amount (by the locataire)
+message | string | error message if error, ok message of code=0 (success)
+
+
+Examples:
+
+Returns the status of the account of locataire 5845a17f48177ea2098b4567 as json data.
+
+```shell
+curl --request POST \
+  --url https://www.rendementlocatif.com/api/gestion/21/lcompteLocataire/5845a17f48177ea2098b4567/data \
+  --header 'cache-control: no-cache' \
+  --header 'content-type: application/x-www-form-urlencoded' \
+  --header 'x-api-key: secretkey' \
+  --data 'username=boss&password=/21/'
+```
+
+## Fiche candidature
+
+Gets a "fiche de candidature" document for a new locataire.
+
+> Code to get the bien of a user
+
+```shell
+curl --data "username=username&password=password"
+"https://www.rendementlocatif.com/api/gestion/21/ficheCandidature/<bienId>/<empty>/<anythingToSendEmail>"
+  -H "X-API-KEY: secretkey"
+```
+
+> If success, it returns the PDF file (streamed over HTTP)
+> Otherwise it returns an error as a json
+
+```json
+{
+  "result": false,
+  "code": -10,
+  "message": "Missing or invalid locataireId (in url path)"
+}
+```
+
+> If success and email send mode, it always returns a json
+
+```json
+{
+  "result": true,
+  "code": 0,
+  "message": "Un email avec le document a été envoyé à votre locataire."
+}
+```
+
+> if error when seding email
+
+
+```json
+{
+  "result": false,
+  "code": -15,
+  "message": "Message non envoyé. Vous devez renseigner une adresse email pour votre locataire."
+}
+```
+
+### HTTP Request
+
+`POST https://www.rendementlocatif.com/api/gestion/21/etatDesLieux/<bienId>/<empty>/<anythingToSendEmail>`
+
+"bienId" is mandatory and should correspond to the bien id for which we want to edit the document.
+
+
+"empty" (optional) can be anything to produce an empty document (not pre-filled with owner and locataire personal details). Set this to "skip" to keep the document pre-filled and set another next parameter in the URL.
+
+"anythingOnlyToSendEmail" is optional.  Can be any non empty string. If given, the server will send an email to the locataire with the document PDF attached.
+
+### POST Parameters
+
+Should be sent with the request in the body as "application/x-www-form-urlencoded".
+
+Parameter | Mandatory | Description | Type | default
+--------- | ------- | ------- | ------- | -------
+username | yes | The user name or email address | string |
+password | yes | The user password | string |
+
+
+### Returned parameters
+
+Parameter | Type | Description
+--------- | ------- | -------
+result | boolean | true if doc is generated ok or if email send ok, otherwise false
+code | integer | 0 if ok otherwise error code of error
+message | string | error message if error, ok message of code=0 (success)
+
+
+Examples:
+
+Send a pre-filled document "fiche candidature" to locataire "580a81d348177eb0128b4568"
+
+```shell
+curl --request POST \
+  --url https://www.rendementlocatif.com/api/gestion/21/ficheCandidature/580a81d348177eb0128b4568/skip/send \
+  --header 'cache-control: no-cache' \
+  --header 'content-type: application/x-www-form-urlencoded' \
+  --header 'x-api-key: secretkey' \
+  --data 'username=boss&password=password'
+```
+
+
+
+## Any document
+
+Gets other documents as PDF, can also be sent to a locataire by email.
+It can be used for documents that already have a specific endpoint (bail, ficheCandidature, etc) but it is not recommanded. Otherwise using the specific endpoint will pre-fill much more detailsand give more options.
+
+> Code to get the bien of a user
+
+```shell
+curl --data "username=username&password=password"
+"https://www.rendementlocatif.com/api/gestion/21/doc/<docType>/<locataireId>/<anythingToSendEmail>"
+  -H "X-API-KEY: secretkey"
+```
+
+> If success, it returns the PDF file (streamed over HTTP)
+> Otherwise it returns an error as a json
+
+```json
+{
+  "result": false,
+  "code": -10,
+  "message": "Missing or invalid docType (in url path, 1st parameter)"
+}
+```
+
+> If success and email send mode, it always returns a json
+
+```json
+{
+  "result": true,
+  "code": 0,
+  "message": "Un email avec le document a été envoyé à votre locataire."
+}
+```
+
+> if error when seding email
+
+
+```json
+{
+  "result": false,
+  "code": -15,
+  "message": "Message non envoyé. Vous devez renseigner une adresse email pour votre locataire."
+}
+```
+
+### HTTP Request
+
+`POST https://www.rendementlocatif.com/api/gestion/21/doc/<docType>/<locataireId>/<anythingToSendEmail>`
+
+"docType" is the id of the document to return (string). DocType can be one of :
+
+* listeChargesRecuperables
+* listeReparationsLocatives
+
+"locataireId" is mandatory and should correspond to the id of the locataire for which we want to edit the document.
+
+"anythingOnlyToSendEmail" is optional.  Can be any non empty string. If given, the server will send an email to the locataire with the document PDF attached.
+
+### POST Parameters
+
+Should be sent with the request in the body as "application/x-www-form-urlencoded".
+
+Parameter | Mandatory | Description | Type | default
+--------- | ------- | ------- | ------- | -------
+username | yes | The user name or email address | string |
+password | yes | The user password | string |
+
+
+### Returned parameters
+
+Parameter | Type | Description
+--------- | ------- | -------
+result | boolean | true if doc is generated ok or if email send ok, otherwise false
+code | integer | 0 if ok otherwise error code of error
+message | string | error message if error, ok message of code=0 (success)
+
+
+Examples:
+
+Gets a "liste des charges récupérables" document as PDF.
+
+```shell
+curl --request POST \
+  --url https://www.rendementlocatif.com/api/gestion/21/doc/listeChargesRecuperables \
+  --header 'cache-control: no-cache' \
+  --header 'content-type: application/x-www-form-urlencoded' \
+  --header 'x-api-key: secretkey' \
+  --data 'username=boss&password=password'
+```
