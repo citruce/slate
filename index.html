@@ -4403,6 +4403,993 @@ Otherwise it returns an error as a json</p>
   --data <span class="s1">'username=boss&amp;password=password'</span>
 </code></pre>
 
+<h2 id="rapport-performance">Rapport Performance</h2>
+
+<p>Retreives all the data to generate a rapport of the user patrimoine immobilier.</p>
+
+<blockquote>
+<p>Code to get the bien of a user</p>
+</blockquote>
+<pre class="highlight shell"><code>curl --data <span class="s2">"username=username&amp;password=password"</span>
+<span class="s2">"https://www.rendementlocatif.com/api/gestion/21/raport/"</span>
+  -H <span class="s2">"X-API-KEY: secretkey"</span>
+</code></pre>
+
+<blockquote>
+<p>error example</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"result"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">25</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Aucun rapport disponible pour le moment."</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<blockquote>
+<p>If success</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"year"</span><span class="p">:</span><span class="w"> </span><span class="mi">2016</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"years"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="mi">2017</span><span class="p">,</span><span class="w">
+    </span><span class="mi">2016</span><span class="p">,</span><span class="w">
+    </span><span class="mi">2015</span><span class="p">,</span><span class="w">
+    </span><span class="mi">2014</span><span class="p">,</span><span class="w">
+    </span><span class="mi">2013</span><span class="p">,</span><span class="w">
+    </span><span class="mi">2012</span><span class="p">,</span><span class="w">
+    </span><span class="mi">2011</span><span class="p">,</span><span class="w">
+    </span><span class="mi">2010</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nt">"yearsEmprunt"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+  </span><span class="nt">"monthsEmprunt"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"0"</span><span class="p">:</span><span class="w"> </span><span class="mi">1401487200</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"1"</span><span class="p">:</span><span class="w"> </span><span class="mi">1404079200</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"2"</span><span class="p">:</span><span class="w"> </span><span class="mi">1406757600</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"3"</span><span class="p">:</span><span class="w"> </span><span class="mi">1409436000</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"4"</span><span class="p">:</span><span class="w"> </span><span class="mi">1412028000</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"5"</span><span class="p">:</span><span class="w"> </span><span class="mi">1414710000</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"6"</span><span class="p">:</span><span class="w"> </span><span class="mi">1417302000</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"7"</span><span class="p">:</span><span class="w"> </span><span class="mi">1419980400</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"8"</span><span class="p">:</span><span class="w"> </span><span class="mi">1422658800</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"9"</span><span class="p">:</span><span class="w"> </span><span class="mi">1425078000</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"10"</span><span class="p">:</span><span class="w"> </span><span class="mi">1427752800</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"11"</span><span class="p">:</span><span class="w"> </span><span class="mi">1430344800</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"12"</span><span class="p">:</span><span class="w"> </span><span class="mi">1433023200</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"13"</span><span class="p">:</span><span class="w"> </span><span class="mi">1435615200</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"14"</span><span class="p">:</span><span class="w"> </span><span class="mi">1438293600</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"15"</span><span class="p">:</span><span class="w"> </span><span class="mi">1440972000</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"16"</span><span class="p">:</span><span class="w"> </span><span class="mi">1443564000</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"17"</span><span class="p">:</span><span class="w"> </span><span class="mi">1446246000</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"18"</span><span class="p">:</span><span class="w"> </span><span class="mi">1448838000</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"19"</span><span class="p">:</span><span class="w"> </span><span class="mi">1451516400</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"20"</span><span class="p">:</span><span class="w"> </span><span class="mi">1454194800</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"21"</span><span class="p">:</span><span class="w"> </span><span class="mi">1456700400</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"22"</span><span class="p">:</span><span class="w"> </span><span class="mi">1459375200</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"23"</span><span class="p">:</span><span class="w"> </span><span class="mi">1461967200</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"24"</span><span class="p">:</span><span class="w"> </span><span class="mi">1464645600</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"25"</span><span class="p">:</span><span class="w"> </span><span class="mi">1467237600</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"26"</span><span class="p">:</span><span class="w"> </span><span class="mi">1469916000</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"27"</span><span class="p">:</span><span class="w"> </span><span class="mi">1472594400</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"28"</span><span class="p">:</span><span class="w"> </span><span class="mi">1475186400</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"29"</span><span class="p">:</span><span class="w"> </span><span class="mi">1477868400</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"30"</span><span class="p">:</span><span class="w"> </span><span class="mi">1480460400</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"31"</span><span class="p">:</span><span class="w"> </span><span class="mi">1483138800</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"32"</span><span class="p">:</span><span class="w"> </span><span class="mi">1485817200</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"33"</span><span class="p">:</span><span class="w"> </span><span class="mi">1488236400</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"34"</span><span class="p">:</span><span class="w"> </span><span class="mi">1490911200</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"35"</span><span class="p">:</span><span class="w"> </span><span class="mi">1493503200</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"36"</span><span class="p">:</span><span class="w"> </span><span class="mi">1496181600</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"37"</span><span class="p">:</span><span class="w"> </span><span class="mi">1498773600</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"38"</span><span class="p">:</span><span class="w"> </span><span class="mi">1501452000</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"39"</span><span class="p">:</span><span class="w"> </span><span class="mi">1504130400</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"40"</span><span class="p">:</span><span class="w"> </span><span class="mi">1506722400</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"41"</span><span class="p">:</span><span class="w"> </span><span class="mi">1509404400</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"42"</span><span class="p">:</span><span class="w"> </span><span class="mi">1511996400</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"43"</span><span class="p">:</span><span class="w"> </span><span class="mi">1514674800</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"44"</span><span class="p">:</span><span class="w"> </span><span class="mi">1517353200</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"45"</span><span class="p">:</span><span class="w"> </span><span class="mi">1519772400</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"46"</span><span class="p">:</span><span class="w"> </span><span class="mi">1522447200</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"47"</span><span class="p">:</span><span class="w"> </span><span class="mi">1525039200</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"48"</span><span class="p">:</span><span class="w"> </span><span class="mi">1527717600</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"49"</span><span class="p">:</span><span class="w"> </span><span class="mi">1530309600</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"50"</span><span class="p">:</span><span class="w"> </span><span class="mi">1532988000</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"51"</span><span class="p">:</span><span class="w"> </span><span class="mi">1535666400</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"52"</span><span class="p">:</span><span class="w"> </span><span class="mi">1538258400</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"53"</span><span class="p">:</span><span class="w"> </span><span class="mi">1540940400</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"54"</span><span class="p">:</span><span class="w"> </span><span class="mi">1543532400</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"55"</span><span class="p">:</span><span class="w"> </span><span class="mi">1546210800</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"56"</span><span class="p">:</span><span class="w"> </span><span class="mi">1548889200</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"57"</span><span class="p">:</span><span class="w"> </span><span class="mi">1551308400</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"58"</span><span class="p">:</span><span class="w"> </span><span class="mi">1553986800</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"59"</span><span class="p">:</span><span class="w"> </span><span class="mi">1556575200</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"60"</span><span class="p">:</span><span class="w"> </span><span class="mi">1559253600</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"61"</span><span class="p">:</span><span class="w"> </span><span class="mi">1561845600</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"62"</span><span class="p">:</span><span class="w"> </span><span class="mi">1564524000</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"63"</span><span class="p">:</span><span class="w"> </span><span class="mi">1567202400</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"64"</span><span class="p">:</span><span class="w"> </span><span class="mi">1569794400</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"65"</span><span class="p">:</span><span class="w"> </span><span class="mi">1572476400</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"66"</span><span class="p">:</span><span class="w"> </span><span class="mi">1575068400</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"67"</span><span class="p">:</span><span class="w"> </span><span class="mi">1577746800</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"68"</span><span class="p">:</span><span class="w"> </span><span class="mi">1580425200</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"69"</span><span class="p">:</span><span class="w"> </span><span class="mi">1582930800</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"70"</span><span class="p">:</span><span class="w"> </span><span class="mi">1585605600</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"71"</span><span class="p">:</span><span class="w"> </span><span class="mi">1588197600</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"72"</span><span class="p">:</span><span class="w"> </span><span class="mi">1590876000</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"73"</span><span class="p">:</span><span class="w"> </span><span class="mi">1593468000</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"74"</span><span class="p">:</span><span class="w"> </span><span class="mi">1596146400</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"75"</span><span class="p">:</span><span class="w"> </span><span class="mi">1598824800</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"76"</span><span class="p">:</span><span class="w"> </span><span class="mi">1601416800</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"77"</span><span class="p">:</span><span class="w"> </span><span class="mi">1604098800</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"78"</span><span class="p">:</span><span class="w"> </span><span class="mi">1606690800</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"79"</span><span class="p">:</span><span class="w"> </span><span class="mi">1609369200</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"80"</span><span class="p">:</span><span class="w"> </span><span class="mi">1612047600</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"81"</span><span class="p">:</span><span class="w"> </span><span class="mi">1614466800</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"82"</span><span class="p">:</span><span class="w"> </span><span class="mi">1617141600</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"83"</span><span class="p">:</span><span class="w"> </span><span class="mi">1619733600</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"84"</span><span class="p">:</span><span class="w"> </span><span class="mi">1622412000</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"85"</span><span class="p">:</span><span class="w"> </span><span class="mi">1625004000</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"86"</span><span class="p">:</span><span class="w"> </span><span class="mi">1627682400</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"87"</span><span class="p">:</span><span class="w"> </span><span class="mi">1630360800</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"88"</span><span class="p">:</span><span class="w"> </span><span class="mi">1632952800</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"89"</span><span class="p">:</span><span class="w"> </span><span class="mi">1635631200</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"90"</span><span class="p">:</span><span class="w"> </span><span class="mi">1638226800</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"91"</span><span class="p">:</span><span class="w"> </span><span class="mi">1640905200</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"92"</span><span class="p">:</span><span class="w"> </span><span class="mi">1643583600</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"93"</span><span class="p">:</span><span class="w"> </span><span class="mi">1646002800</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"94"</span><span class="p">:</span><span class="w"> </span><span class="mi">1648677600</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"95"</span><span class="p">:</span><span class="w"> </span><span class="mi">1651269600</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"96"</span><span class="p">:</span><span class="w"> </span><span class="mi">1653948000</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"97"</span><span class="p">:</span><span class="w"> </span><span class="mi">1656540000</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"98"</span><span class="p">:</span><span class="w"> </span><span class="mi">1659218400</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"99"</span><span class="p">:</span><span class="w"> </span><span class="mi">1661896800</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"100"</span><span class="p">:</span><span class="w"> </span><span class="mi">1664488800</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"101"</span><span class="p">:</span><span class="w"> </span><span class="mi">1667170800</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"102"</span><span class="p">:</span><span class="w"> </span><span class="mi">1669762800</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"103"</span><span class="p">:</span><span class="w"> </span><span class="mi">1672441200</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"104"</span><span class="p">:</span><span class="w"> </span><span class="mi">1675119600</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"105"</span><span class="p">:</span><span class="w"> </span><span class="mi">1677538800</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"106"</span><span class="p">:</span><span class="w"> </span><span class="mi">1680213600</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"107"</span><span class="p">:</span><span class="w"> </span><span class="mi">1682805600</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"108"</span><span class="p">:</span><span class="w"> </span><span class="mi">1685484000</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"109"</span><span class="p">:</span><span class="w"> </span><span class="mi">1688076000</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"110"</span><span class="p">:</span><span class="w"> </span><span class="mi">1690754400</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"111"</span><span class="p">:</span><span class="w"> </span><span class="mi">1693432800</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"112"</span><span class="p">:</span><span class="w"> </span><span class="mi">1696024800</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"113"</span><span class="p">:</span><span class="w"> </span><span class="mi">1698706800</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"114"</span><span class="p">:</span><span class="w"> </span><span class="mi">1701298800</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"115"</span><span class="p">:</span><span class="w"> </span><span class="mi">1703977200</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"116"</span><span class="p">:</span><span class="w"> </span><span class="mi">1706655600</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"117"</span><span class="p">:</span><span class="w"> </span><span class="mi">1709161200</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"118"</span><span class="p">:</span><span class="w"> </span><span class="mi">1711839600</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"119"</span><span class="p">:</span><span class="w"> </span><span class="mi">1714428000</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"120"</span><span class="p">:</span><span class="w"> </span><span class="mi">1717106400</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"121"</span><span class="p">:</span><span class="w"> </span><span class="mi">1719698400</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"122"</span><span class="p">:</span><span class="w"> </span><span class="mi">1722376800</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"123"</span><span class="p">:</span><span class="w"> </span><span class="mi">1725055200</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"124"</span><span class="p">:</span><span class="w"> </span><span class="mi">1727647200</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"125"</span><span class="p">:</span><span class="w"> </span><span class="mi">1730329200</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"126"</span><span class="p">:</span><span class="w"> </span><span class="mi">1732921200</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"127"</span><span class="p">:</span><span class="w"> </span><span class="mi">1735599600</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"128"</span><span class="p">:</span><span class="w"> </span><span class="mi">1738278000</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"129"</span><span class="p">:</span><span class="w"> </span><span class="mi">1740697200</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"130"</span><span class="p">:</span><span class="w"> </span><span class="mi">1743372000</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"131"</span><span class="p">:</span><span class="w"> </span><span class="mi">1745964000</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"132"</span><span class="p">:</span><span class="w"> </span><span class="mi">1748642400</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"133"</span><span class="p">:</span><span class="w"> </span><span class="mi">1751234400</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"134"</span><span class="p">:</span><span class="w"> </span><span class="mi">1753912800</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"135"</span><span class="p">:</span><span class="w"> </span><span class="mi">1756591200</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"136"</span><span class="p">:</span><span class="w"> </span><span class="mi">1759183200</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"137"</span><span class="p">:</span><span class="w"> </span><span class="mi">1761865200</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"138"</span><span class="p">:</span><span class="w"> </span><span class="mi">1764457200</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"139"</span><span class="p">:</span><span class="w"> </span><span class="mi">1767135600</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"140"</span><span class="p">:</span><span class="w"> </span><span class="mi">1769814000</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"141"</span><span class="p">:</span><span class="w"> </span><span class="mi">1772233200</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"142"</span><span class="p">:</span><span class="w"> </span><span class="mi">1774908000</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"143"</span><span class="p">:</span><span class="w"> </span><span class="mi">1777500000</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"144"</span><span class="p">:</span><span class="w"> </span><span class="mi">1780178400</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"145"</span><span class="p">:</span><span class="w"> </span><span class="mi">1782770400</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"146"</span><span class="p">:</span><span class="w"> </span><span class="mi">1785448800</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"147"</span><span class="p">:</span><span class="w"> </span><span class="mi">1788127200</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"148"</span><span class="p">:</span><span class="w"> </span><span class="mi">1790719200</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"149"</span><span class="p">:</span><span class="w"> </span><span class="mi">1793401200</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"150"</span><span class="p">:</span><span class="w"> </span><span class="mi">1795993200</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"151"</span><span class="p">:</span><span class="w"> </span><span class="mi">1798671600</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"152"</span><span class="p">:</span><span class="w"> </span><span class="mi">1801350000</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"153"</span><span class="p">:</span><span class="w"> </span><span class="mi">1803769200</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"154"</span><span class="p">:</span><span class="w"> </span><span class="mi">1806444000</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"155"</span><span class="p">:</span><span class="w"> </span><span class="mi">1809036000</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"156"</span><span class="p">:</span><span class="w"> </span><span class="mi">1811714400</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"157"</span><span class="p">:</span><span class="w"> </span><span class="mi">1814306400</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"158"</span><span class="p">:</span><span class="w"> </span><span class="mi">1816984800</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"159"</span><span class="p">:</span><span class="w"> </span><span class="mi">1819663200</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"160"</span><span class="p">:</span><span class="w"> </span><span class="mi">1822255200</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"161"</span><span class="p">:</span><span class="w"> </span><span class="mi">1824933600</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"162"</span><span class="p">:</span><span class="w"> </span><span class="mi">1827529200</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"163"</span><span class="p">:</span><span class="w"> </span><span class="mi">1830207600</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"164"</span><span class="p">:</span><span class="w"> </span><span class="mi">1832886000</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"165"</span><span class="p">:</span><span class="w"> </span><span class="mi">1835391600</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"166"</span><span class="p">:</span><span class="w"> </span><span class="mi">1838066400</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"167"</span><span class="p">:</span><span class="w"> </span><span class="mi">1840658400</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"168"</span><span class="p">:</span><span class="w"> </span><span class="mi">1843336800</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"169"</span><span class="p">:</span><span class="w"> </span><span class="mi">1845928800</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"170"</span><span class="p">:</span><span class="w"> </span><span class="mi">1848607200</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"171"</span><span class="p">:</span><span class="w"> </span><span class="mi">1851285600</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"172"</span><span class="p">:</span><span class="w"> </span><span class="mi">1853877600</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"173"</span><span class="p">:</span><span class="w"> </span><span class="mi">1856559600</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"174"</span><span class="p">:</span><span class="w"> </span><span class="mi">1859151600</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"175"</span><span class="p">:</span><span class="w"> </span><span class="mi">1861830000</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"176"</span><span class="p">:</span><span class="w"> </span><span class="mi">1864508400</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"177"</span><span class="p">:</span><span class="w"> </span><span class="mi">1866927600</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"178"</span><span class="p">:</span><span class="w"> </span><span class="mi">1869602400</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"179"</span><span class="p">:</span><span class="w"> </span><span class="mi">1872194400</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"180"</span><span class="p">:</span><span class="w"> </span><span class="mi">972946800</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"181"</span><span class="p">:</span><span class="w"> </span><span class="mi">975538800</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"182"</span><span class="p">:</span><span class="w"> </span><span class="mi">978217200</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"183"</span><span class="p">:</span><span class="w"> </span><span class="mi">980895600</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"184"</span><span class="p">:</span><span class="w"> </span><span class="mi">983314800</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"185"</span><span class="p">:</span><span class="w"> </span><span class="mi">985989600</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"186"</span><span class="p">:</span><span class="w"> </span><span class="mi">988581600</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"187"</span><span class="p">:</span><span class="w"> </span><span class="mi">991260000</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"188"</span><span class="p">:</span><span class="w"> </span><span class="mi">993852000</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"189"</span><span class="p">:</span><span class="w"> </span><span class="mi">996530400</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"190"</span><span class="p">:</span><span class="w"> </span><span class="mi">999208800</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"191"</span><span class="p">:</span><span class="w"> </span><span class="mi">1001800800</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"192"</span><span class="p">:</span><span class="w"> </span><span class="mi">1004482800</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"193"</span><span class="p">:</span><span class="w"> </span><span class="mi">1007074800</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"194"</span><span class="p">:</span><span class="w"> </span><span class="mi">1009753200</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"195"</span><span class="p">:</span><span class="w"> </span><span class="mi">1012431600</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"196"</span><span class="p">:</span><span class="w"> </span><span class="mi">1014850800</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"197"</span><span class="p">:</span><span class="w"> </span><span class="mi">1017529200</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"198"</span><span class="p">:</span><span class="w"> </span><span class="mi">1020117600</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"199"</span><span class="p">:</span><span class="w"> </span><span class="mi">1022796000</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"200"</span><span class="p">:</span><span class="w"> </span><span class="mi">1025388000</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"201"</span><span class="p">:</span><span class="w"> </span><span class="mi">1028066400</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"202"</span><span class="p">:</span><span class="w"> </span><span class="mi">1030744800</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"203"</span><span class="p">:</span><span class="w"> </span><span class="mi">1033336800</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"204"</span><span class="p">:</span><span class="w"> </span><span class="mi">1036018800</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"205"</span><span class="p">:</span><span class="w"> </span><span class="mi">1038610800</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"206"</span><span class="p">:</span><span class="w"> </span><span class="mi">1041289200</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"207"</span><span class="p">:</span><span class="w"> </span><span class="mi">1043967600</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"208"</span><span class="p">:</span><span class="w"> </span><span class="mi">1046386800</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"209"</span><span class="p">:</span><span class="w"> </span><span class="mi">1049061600</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"210"</span><span class="p">:</span><span class="w"> </span><span class="mi">1051653600</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"211"</span><span class="p">:</span><span class="w"> </span><span class="mi">1054332000</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"212"</span><span class="p">:</span><span class="w"> </span><span class="mi">1056924000</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"213"</span><span class="p">:</span><span class="w"> </span><span class="mi">1059602400</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"214"</span><span class="p">:</span><span class="w"> </span><span class="mi">1062280800</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"215"</span><span class="p">:</span><span class="w"> </span><span class="mi">1064872800</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"216"</span><span class="p">:</span><span class="w"> </span><span class="mi">1067554800</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"217"</span><span class="p">:</span><span class="w"> </span><span class="mi">1070146800</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"218"</span><span class="p">:</span><span class="w"> </span><span class="mi">1072825200</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"219"</span><span class="p">:</span><span class="w"> </span><span class="mi">1075503600</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"220"</span><span class="p">:</span><span class="w"> </span><span class="mi">1078009200</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"221"</span><span class="p">:</span><span class="w"> </span><span class="mi">1080684000</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"222"</span><span class="p">:</span><span class="w"> </span><span class="mi">1083276000</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"223"</span><span class="p">:</span><span class="w"> </span><span class="mi">1085954400</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"224"</span><span class="p">:</span><span class="w"> </span><span class="mi">1088546400</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"225"</span><span class="p">:</span><span class="w"> </span><span class="mi">1091224800</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"226"</span><span class="p">:</span><span class="w"> </span><span class="mi">1093903200</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"227"</span><span class="p">:</span><span class="w"> </span><span class="mi">1096495200</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"228"</span><span class="p">:</span><span class="w"> </span><span class="mi">1099173600</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"229"</span><span class="p">:</span><span class="w"> </span><span class="mi">1101769200</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"230"</span><span class="p">:</span><span class="w"> </span><span class="mi">1104447600</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"231"</span><span class="p">:</span><span class="w"> </span><span class="mi">1107126000</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"232"</span><span class="p">:</span><span class="w"> </span><span class="mi">1109545200</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"233"</span><span class="p">:</span><span class="w"> </span><span class="mi">1112220000</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"234"</span><span class="p">:</span><span class="w"> </span><span class="mi">1114812000</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"235"</span><span class="p">:</span><span class="w"> </span><span class="mi">1117490400</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"236"</span><span class="p">:</span><span class="w"> </span><span class="mi">1120082400</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"237"</span><span class="p">:</span><span class="w"> </span><span class="mi">1122760800</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"238"</span><span class="p">:</span><span class="w"> </span><span class="mi">1125439200</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"239"</span><span class="p">:</span><span class="w"> </span><span class="mi">1128031200</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"240"</span><span class="p">:</span><span class="w"> </span><span class="mi">1130713200</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"241"</span><span class="p">:</span><span class="w"> </span><span class="mi">1133305200</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"242"</span><span class="p">:</span><span class="w"> </span><span class="mi">1135983600</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"243"</span><span class="p">:</span><span class="w"> </span><span class="mi">1138662000</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"244"</span><span class="p">:</span><span class="w"> </span><span class="mi">1141081200</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"245"</span><span class="p">:</span><span class="w"> </span><span class="mi">1143756000</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"246"</span><span class="p">:</span><span class="w"> </span><span class="mi">1146348000</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"247"</span><span class="p">:</span><span class="w"> </span><span class="mi">1149026400</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"248"</span><span class="p">:</span><span class="w"> </span><span class="mi">1151618400</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"249"</span><span class="p">:</span><span class="w"> </span><span class="mi">1154296800</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"250"</span><span class="p">:</span><span class="w"> </span><span class="mi">1156975200</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"251"</span><span class="p">:</span><span class="w"> </span><span class="mi">1159567200</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"252"</span><span class="p">:</span><span class="w"> </span><span class="mi">1162249200</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"253"</span><span class="p">:</span><span class="w"> </span><span class="mi">1164841200</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"254"</span><span class="p">:</span><span class="w"> </span><span class="mi">1167519600</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"255"</span><span class="p">:</span><span class="w"> </span><span class="mi">1170198000</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"256"</span><span class="p">:</span><span class="w"> </span><span class="mi">1172617200</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"257"</span><span class="p">:</span><span class="w"> </span><span class="mi">1175292000</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"258"</span><span class="p">:</span><span class="w"> </span><span class="mi">1177884000</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"259"</span><span class="p">:</span><span class="w"> </span><span class="mi">1180562400</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"260"</span><span class="p">:</span><span class="w"> </span><span class="mi">1183154400</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"261"</span><span class="p">:</span><span class="w"> </span><span class="mi">1185832800</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"262"</span><span class="p">:</span><span class="w"> </span><span class="mi">1188511200</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"263"</span><span class="p">:</span><span class="w"> </span><span class="mi">1191103200</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"264"</span><span class="p">:</span><span class="w"> </span><span class="mi">1193785200</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"265"</span><span class="p">:</span><span class="w"> </span><span class="mi">1196377200</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"266"</span><span class="p">:</span><span class="w"> </span><span class="mi">1199055600</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"267"</span><span class="p">:</span><span class="w"> </span><span class="mi">1201734000</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"268"</span><span class="p">:</span><span class="w"> </span><span class="mi">1204239600</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"269"</span><span class="p">:</span><span class="w"> </span><span class="mi">1206914400</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"270"</span><span class="p">:</span><span class="w"> </span><span class="mi">1209506400</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"271"</span><span class="p">:</span><span class="w"> </span><span class="mi">1212184800</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"272"</span><span class="p">:</span><span class="w"> </span><span class="mi">1214776800</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"273"</span><span class="p">:</span><span class="w"> </span><span class="mi">1217455200</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"274"</span><span class="p">:</span><span class="w"> </span><span class="mi">1220133600</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"275"</span><span class="p">:</span><span class="w"> </span><span class="mi">1222725600</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"276"</span><span class="p">:</span><span class="w"> </span><span class="mi">1225407600</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"277"</span><span class="p">:</span><span class="w"> </span><span class="mi">1227999600</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"278"</span><span class="p">:</span><span class="w"> </span><span class="mi">1230678000</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"279"</span><span class="p">:</span><span class="w"> </span><span class="mi">1233356400</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"280"</span><span class="p">:</span><span class="w"> </span><span class="mi">1235775600</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"281"</span><span class="p">:</span><span class="w"> </span><span class="mi">1238450400</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"282"</span><span class="p">:</span><span class="w"> </span><span class="mi">1241042400</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"283"</span><span class="p">:</span><span class="w"> </span><span class="mi">1243720800</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"284"</span><span class="p">:</span><span class="w"> </span><span class="mi">1246312800</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"285"</span><span class="p">:</span><span class="w"> </span><span class="mi">1248991200</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"286"</span><span class="p">:</span><span class="w"> </span><span class="mi">1251669600</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"287"</span><span class="p">:</span><span class="w"> </span><span class="mi">1254261600</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"288"</span><span class="p">:</span><span class="w"> </span><span class="mi">1256943600</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"289"</span><span class="p">:</span><span class="w"> </span><span class="mi">1259535600</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"290"</span><span class="p">:</span><span class="w"> </span><span class="mi">1262214000</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"291"</span><span class="p">:</span><span class="w"> </span><span class="mi">1264892400</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"292"</span><span class="p">:</span><span class="w"> </span><span class="mi">1267311600</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"293"</span><span class="p">:</span><span class="w"> </span><span class="mi">1269986400</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"294"</span><span class="p">:</span><span class="w"> </span><span class="mi">1272578400</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"295"</span><span class="p">:</span><span class="w"> </span><span class="mi">1275256800</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"296"</span><span class="p">:</span><span class="w"> </span><span class="mi">1277848800</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"297"</span><span class="p">:</span><span class="w"> </span><span class="mi">1280527200</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"298"</span><span class="p">:</span><span class="w"> </span><span class="mi">1283205600</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"299"</span><span class="p">:</span><span class="w"> </span><span class="mi">1285797600</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"300"</span><span class="p">:</span><span class="w"> </span><span class="mi">1288476000</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"301"</span><span class="p">:</span><span class="w"> </span><span class="mi">1291071600</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"302"</span><span class="p">:</span><span class="w"> </span><span class="mi">1293750000</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"303"</span><span class="p">:</span><span class="w"> </span><span class="mi">1296428400</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"304"</span><span class="p">:</span><span class="w"> </span><span class="mi">1298847600</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"305"</span><span class="p">:</span><span class="w"> </span><span class="mi">1301522400</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"306"</span><span class="p">:</span><span class="w"> </span><span class="mi">1304114400</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"307"</span><span class="p">:</span><span class="w"> </span><span class="mi">1306792800</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"308"</span><span class="p">:</span><span class="w"> </span><span class="mi">1309384800</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"309"</span><span class="p">:</span><span class="w"> </span><span class="mi">1312063200</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"310"</span><span class="p">:</span><span class="w"> </span><span class="mi">1314741600</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"311"</span><span class="p">:</span><span class="w"> </span><span class="mi">1317333600</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"312"</span><span class="p">:</span><span class="w"> </span><span class="mi">1320015600</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"313"</span><span class="p">:</span><span class="w"> </span><span class="mi">1322607600</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"314"</span><span class="p">:</span><span class="w"> </span><span class="mi">1325286000</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"315"</span><span class="p">:</span><span class="w"> </span><span class="mi">1327964400</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"316"</span><span class="p">:</span><span class="w"> </span><span class="mi">1330470000</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"317"</span><span class="p">:</span><span class="w"> </span><span class="mi">1333144800</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"318"</span><span class="p">:</span><span class="w"> </span><span class="mi">1335736800</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"319"</span><span class="p">:</span><span class="w"> </span><span class="mi">1338415200</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"320"</span><span class="p">:</span><span class="w"> </span><span class="mi">1341007200</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"321"</span><span class="p">:</span><span class="w"> </span><span class="mi">1343685600</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"322"</span><span class="p">:</span><span class="w"> </span><span class="mi">1346364000</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"323"</span><span class="p">:</span><span class="w"> </span><span class="mi">1348956000</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"324"</span><span class="p">:</span><span class="w"> </span><span class="mi">1351638000</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"325"</span><span class="p">:</span><span class="w"> </span><span class="mi">1354230000</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"326"</span><span class="p">:</span><span class="w"> </span><span class="mi">1356908400</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"327"</span><span class="p">:</span><span class="w"> </span><span class="mi">1359586800</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"328"</span><span class="p">:</span><span class="w"> </span><span class="mi">1362006000</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"329"</span><span class="p">:</span><span class="w"> </span><span class="mi">1364684400</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"330"</span><span class="p">:</span><span class="w"> </span><span class="mi">1367272800</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"331"</span><span class="p">:</span><span class="w"> </span><span class="mi">1369951200</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"332"</span><span class="p">:</span><span class="w"> </span><span class="mi">1372543200</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"333"</span><span class="p">:</span><span class="w"> </span><span class="mi">1375221600</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"334"</span><span class="p">:</span><span class="w"> </span><span class="mi">1377900000</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"335"</span><span class="p">:</span><span class="w"> </span><span class="mi">1380492000</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"336"</span><span class="p">:</span><span class="w"> </span><span class="mi">1383174000</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"337"</span><span class="p">:</span><span class="w"> </span><span class="mi">1385766000</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"338"</span><span class="p">:</span><span class="w"> </span><span class="mi">1388444400</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"339"</span><span class="p">:</span><span class="w"> </span><span class="mi">1391122800</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"340"</span><span class="p">:</span><span class="w"> </span><span class="mi">1393542000</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"341"</span><span class="p">:</span><span class="w"> </span><span class="mi">1396216800</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"342"</span><span class="p">:</span><span class="w"> </span><span class="mi">1398808800</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"343"</span><span class="p">:</span><span class="w"> </span><span class="mi">1401487200</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"344"</span><span class="p">:</span><span class="w"> </span><span class="mi">1404079200</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"345"</span><span class="p">:</span><span class="w"> </span><span class="mi">1406757600</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"346"</span><span class="p">:</span><span class="w"> </span><span class="mi">1409436000</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"347"</span><span class="p">:</span><span class="w"> </span><span class="mi">1412028000</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"348"</span><span class="p">:</span><span class="w"> </span><span class="mi">1414710000</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"349"</span><span class="p">:</span><span class="w"> </span><span class="mi">1417302000</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"350"</span><span class="p">:</span><span class="w"> </span><span class="mi">1419980400</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"351"</span><span class="p">:</span><span class="w"> </span><span class="mi">1422658800</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"352"</span><span class="p">:</span><span class="w"> </span><span class="mi">1425078000</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"353"</span><span class="p">:</span><span class="w"> </span><span class="mi">1427752800</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"354"</span><span class="p">:</span><span class="w"> </span><span class="mi">1430344800</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"355"</span><span class="p">:</span><span class="w"> </span><span class="mi">1433023200</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"356"</span><span class="p">:</span><span class="w"> </span><span class="mi">1435615200</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"357"</span><span class="p">:</span><span class="w"> </span><span class="mi">1438293600</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"358"</span><span class="p">:</span><span class="w"> </span><span class="mi">1440972000</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"359"</span><span class="p">:</span><span class="w"> </span><span class="mi">1443564000</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"360"</span><span class="p">:</span><span class="w"> </span><span class="mi">1446246000</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"361"</span><span class="p">:</span><span class="w"> </span><span class="mi">1448838000</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"362"</span><span class="p">:</span><span class="w"> </span><span class="mi">1451516400</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"363"</span><span class="p">:</span><span class="w"> </span><span class="mi">1454194800</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"364"</span><span class="p">:</span><span class="w"> </span><span class="mi">1456700400</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"365"</span><span class="p">:</span><span class="w"> </span><span class="mi">1459375200</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"366"</span><span class="p">:</span><span class="w"> </span><span class="mi">1461967200</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"367"</span><span class="p">:</span><span class="w"> </span><span class="mi">1464645600</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"368"</span><span class="p">:</span><span class="w"> </span><span class="mi">1467237600</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"369"</span><span class="p">:</span><span class="w"> </span><span class="mi">1469916000</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"370"</span><span class="p">:</span><span class="w"> </span><span class="mi">1472594400</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"371"</span><span class="p">:</span><span class="w"> </span><span class="mi">1475186400</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"372"</span><span class="p">:</span><span class="w"> </span><span class="mi">1477868400</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"373"</span><span class="p">:</span><span class="w"> </span><span class="mi">1480460400</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"374"</span><span class="p">:</span><span class="w"> </span><span class="mi">1483138800</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"375"</span><span class="p">:</span><span class="w"> </span><span class="mi">1485817200</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"376"</span><span class="p">:</span><span class="w"> </span><span class="mi">1488236400</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"377"</span><span class="p">:</span><span class="w"> </span><span class="mi">1490911200</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"378"</span><span class="p">:</span><span class="w"> </span><span class="mi">1493503200</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"379"</span><span class="p">:</span><span class="w"> </span><span class="mi">1496181600</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"380"</span><span class="p">:</span><span class="w"> </span><span class="mi">1498773600</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"381"</span><span class="p">:</span><span class="w"> </span><span class="mi">1501452000</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"382"</span><span class="p">:</span><span class="w"> </span><span class="mi">1504130400</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"383"</span><span class="p">:</span><span class="w"> </span><span class="mi">1506722400</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"384"</span><span class="p">:</span><span class="w"> </span><span class="mi">1509404400</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"385"</span><span class="p">:</span><span class="w"> </span><span class="mi">1511996400</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"386"</span><span class="p">:</span><span class="w"> </span><span class="mi">1514674800</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"387"</span><span class="p">:</span><span class="w"> </span><span class="mi">1517353200</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"388"</span><span class="p">:</span><span class="w"> </span><span class="mi">1519772400</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"389"</span><span class="p">:</span><span class="w"> </span><span class="mi">1522447200</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"390"</span><span class="p">:</span><span class="w"> </span><span class="mi">1525039200</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"391"</span><span class="p">:</span><span class="w"> </span><span class="mi">1527717600</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"392"</span><span class="p">:</span><span class="w"> </span><span class="mi">1530309600</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"393"</span><span class="p">:</span><span class="w"> </span><span class="mi">1532988000</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"394"</span><span class="p">:</span><span class="w"> </span><span class="mi">1535666400</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"395"</span><span class="p">:</span><span class="w"> </span><span class="mi">1538258400</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"396"</span><span class="p">:</span><span class="w"> </span><span class="mi">1540940400</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"397"</span><span class="p">:</span><span class="w"> </span><span class="mi">1543532400</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"398"</span><span class="p">:</span><span class="w"> </span><span class="mi">1546210800</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"399"</span><span class="p">:</span><span class="w"> </span><span class="mi">1548889200</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"400"</span><span class="p">:</span><span class="w"> </span><span class="mi">1551308400</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"401"</span><span class="p">:</span><span class="w"> </span><span class="mi">1553986800</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"402"</span><span class="p">:</span><span class="w"> </span><span class="mi">1556575200</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"403"</span><span class="p">:</span><span class="w"> </span><span class="mi">1559253600</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"404"</span><span class="p">:</span><span class="w"> </span><span class="mi">1561845600</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"405"</span><span class="p">:</span><span class="w"> </span><span class="mi">1564524000</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"406"</span><span class="p">:</span><span class="w"> </span><span class="mi">1567202400</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"407"</span><span class="p">:</span><span class="w"> </span><span class="mi">1569794400</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"408"</span><span class="p">:</span><span class="w"> </span><span class="mi">1572476400</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"409"</span><span class="p">:</span><span class="w"> </span><span class="mi">1575068400</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"410"</span><span class="p">:</span><span class="w"> </span><span class="mi">1577746800</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"411"</span><span class="p">:</span><span class="w"> </span><span class="mi">1580425200</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"412"</span><span class="p">:</span><span class="w"> </span><span class="mi">1582930800</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"413"</span><span class="p">:</span><span class="w"> </span><span class="mi">1585605600</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"414"</span><span class="p">:</span><span class="w"> </span><span class="mi">1588197600</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"415"</span><span class="p">:</span><span class="w"> </span><span class="mi">1590876000</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"416"</span><span class="p">:</span><span class="w"> </span><span class="mi">1593468000</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"417"</span><span class="p">:</span><span class="w"> </span><span class="mi">1596146400</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"418"</span><span class="p">:</span><span class="w"> </span><span class="mi">1598824800</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"419"</span><span class="p">:</span><span class="w"> </span><span class="mi">1601416800</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"420"</span><span class="p">:</span><span class="w"> </span><span class="mi">1604098800</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"421"</span><span class="p">:</span><span class="w"> </span><span class="mi">1606690800</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"422"</span><span class="p">:</span><span class="w"> </span><span class="mi">1609369200</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"423"</span><span class="p">:</span><span class="w"> </span><span class="mi">1612047600</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"424"</span><span class="p">:</span><span class="w"> </span><span class="mi">1614466800</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"425"</span><span class="p">:</span><span class="w"> </span><span class="mi">1617141600</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"426"</span><span class="p">:</span><span class="w"> </span><span class="mi">1619733600</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"427"</span><span class="p">:</span><span class="w"> </span><span class="mi">1622412000</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"428"</span><span class="p">:</span><span class="w"> </span><span class="mi">1625004000</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"429"</span><span class="p">:</span><span class="w"> </span><span class="mi">1627682400</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"430"</span><span class="p">:</span><span class="w"> </span><span class="mi">1630360800</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"431"</span><span class="p">:</span><span class="w"> </span><span class="mi">1632952800</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"432"</span><span class="p">:</span><span class="w"> </span><span class="mi">1635631200</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"433"</span><span class="p">:</span><span class="w"> </span><span class="mi">1638226800</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"434"</span><span class="p">:</span><span class="w"> </span><span class="mi">1640905200</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"435"</span><span class="p">:</span><span class="w"> </span><span class="mi">1643583600</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"436"</span><span class="p">:</span><span class="w"> </span><span class="mi">1646002800</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"437"</span><span class="p">:</span><span class="w"> </span><span class="mi">1648677600</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"438"</span><span class="p">:</span><span class="w"> </span><span class="mi">1651269600</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"439"</span><span class="p">:</span><span class="w"> </span><span class="mi">1653948000</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"440"</span><span class="p">:</span><span class="w"> </span><span class="mi">1656540000</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"441"</span><span class="p">:</span><span class="w"> </span><span class="mi">1659218400</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"442"</span><span class="p">:</span><span class="w"> </span><span class="mi">1661896800</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"443"</span><span class="p">:</span><span class="w"> </span><span class="mi">1664488800</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"444"</span><span class="p">:</span><span class="w"> </span><span class="mi">1667170800</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"445"</span><span class="p">:</span><span class="w"> </span><span class="mi">1669762800</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"446"</span><span class="p">:</span><span class="w"> </span><span class="mi">1672441200</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"447"</span><span class="p">:</span><span class="w"> </span><span class="mi">1675119600</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"448"</span><span class="p">:</span><span class="w"> </span><span class="mi">1677538800</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"449"</span><span class="p">:</span><span class="w"> </span><span class="mi">1680213600</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"450"</span><span class="p">:</span><span class="w"> </span><span class="mi">1682805600</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"451"</span><span class="p">:</span><span class="w"> </span><span class="mi">1685484000</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"452"</span><span class="p">:</span><span class="w"> </span><span class="mi">1688076000</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"453"</span><span class="p">:</span><span class="w"> </span><span class="mi">1690754400</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"454"</span><span class="p">:</span><span class="w"> </span><span class="mi">1693432800</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"455"</span><span class="p">:</span><span class="w"> </span><span class="mi">1696024800</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"456"</span><span class="p">:</span><span class="w"> </span><span class="mi">1698706800</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"457"</span><span class="p">:</span><span class="w"> </span><span class="mi">1701298800</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"458"</span><span class="p">:</span><span class="w"> </span><span class="mi">1703977200</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"459"</span><span class="p">:</span><span class="w"> </span><span class="mi">1706655600</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"460"</span><span class="p">:</span><span class="w"> </span><span class="mi">1709161200</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"461"</span><span class="p">:</span><span class="w"> </span><span class="mi">1711839600</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"462"</span><span class="p">:</span><span class="w"> </span><span class="mi">1714428000</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"463"</span><span class="p">:</span><span class="w"> </span><span class="mi">1717106400</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"464"</span><span class="p">:</span><span class="w"> </span><span class="mi">1719698400</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"465"</span><span class="p">:</span><span class="w"> </span><span class="mi">1722376800</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"466"</span><span class="p">:</span><span class="w"> </span><span class="mi">1725055200</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"467"</span><span class="p">:</span><span class="w"> </span><span class="mi">1727647200</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"468"</span><span class="p">:</span><span class="w"> </span><span class="mi">1730329200</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"469"</span><span class="p">:</span><span class="w"> </span><span class="mi">1732921200</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"470"</span><span class="p">:</span><span class="w"> </span><span class="mi">1735599600</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"471"</span><span class="p">:</span><span class="w"> </span><span class="mi">1738278000</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"472"</span><span class="p">:</span><span class="w"> </span><span class="mi">1740697200</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"473"</span><span class="p">:</span><span class="w"> </span><span class="mi">1743372000</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"474"</span><span class="p">:</span><span class="w"> </span><span class="mi">1745964000</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"475"</span><span class="p">:</span><span class="w"> </span><span class="mi">1748642400</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"476"</span><span class="p">:</span><span class="w"> </span><span class="mi">1751234400</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"477"</span><span class="p">:</span><span class="w"> </span><span class="mi">1753912800</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"478"</span><span class="p">:</span><span class="w"> </span><span class="mi">1756591200</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"479"</span><span class="p">:</span><span class="w"> </span><span class="mi">1759183200</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"480"</span><span class="p">:</span><span class="w"> </span><span class="mi">1761865200</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"481"</span><span class="p">:</span><span class="w"> </span><span class="mi">1764457200</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"482"</span><span class="p">:</span><span class="w"> </span><span class="mi">1767135600</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"483"</span><span class="p">:</span><span class="w"> </span><span class="mi">1769814000</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"484"</span><span class="p">:</span><span class="w"> </span><span class="mi">1772233200</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"485"</span><span class="p">:</span><span class="w"> </span><span class="mi">1774908000</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"486"</span><span class="p">:</span><span class="w"> </span><span class="mi">1777500000</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"487"</span><span class="p">:</span><span class="w"> </span><span class="mi">1780178400</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"488"</span><span class="p">:</span><span class="w"> </span><span class="mi">1782770400</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"489"</span><span class="p">:</span><span class="w"> </span><span class="mi">1785448800</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"490"</span><span class="p">:</span><span class="w"> </span><span class="mi">1788127200</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"491"</span><span class="p">:</span><span class="w"> </span><span class="mi">1790719200</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"492"</span><span class="p">:</span><span class="w"> </span><span class="mi">1793401200</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"493"</span><span class="p">:</span><span class="w"> </span><span class="mi">1795993200</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"494"</span><span class="p">:</span><span class="w"> </span><span class="mi">1798671600</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"495"</span><span class="p">:</span><span class="w"> </span><span class="mi">1801350000</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"496"</span><span class="p">:</span><span class="w"> </span><span class="mi">1803769200</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"497"</span><span class="p">:</span><span class="w"> </span><span class="mi">1806444000</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"498"</span><span class="p">:</span><span class="w"> </span><span class="mi">1809036000</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"499"</span><span class="p">:</span><span class="w"> </span><span class="mi">1811714400</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"500"</span><span class="p">:</span><span class="w"> </span><span class="mi">1814306400</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"501"</span><span class="p">:</span><span class="w"> </span><span class="mi">1816984800</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"502"</span><span class="p">:</span><span class="w"> </span><span class="mi">1819663200</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"503"</span><span class="p">:</span><span class="w"> </span><span class="mi">1822255200</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"504"</span><span class="p">:</span><span class="w"> </span><span class="mi">1824933600</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"505"</span><span class="p">:</span><span class="w"> </span><span class="mi">1827529200</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"506"</span><span class="p">:</span><span class="w"> </span><span class="mi">1830207600</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"507"</span><span class="p">:</span><span class="w"> </span><span class="mi">1832886000</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"508"</span><span class="p">:</span><span class="w"> </span><span class="mi">1835391600</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"509"</span><span class="p">:</span><span class="w"> </span><span class="mi">1838066400</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"510"</span><span class="p">:</span><span class="w"> </span><span class="mi">1840658400</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"511"</span><span class="p">:</span><span class="w"> </span><span class="mi">1843336800</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"512"</span><span class="p">:</span><span class="w"> </span><span class="mi">1845928800</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"513"</span><span class="p">:</span><span class="w"> </span><span class="mi">1848607200</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"514"</span><span class="p">:</span><span class="w"> </span><span class="mi">1851285600</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"515"</span><span class="p">:</span><span class="w"> </span><span class="mi">1853877600</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"516"</span><span class="p">:</span><span class="w"> </span><span class="mi">1856559600</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"517"</span><span class="p">:</span><span class="w"> </span><span class="mi">1859151600</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"518"</span><span class="p">:</span><span class="w"> </span><span class="mi">1861830000</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"519"</span><span class="p">:</span><span class="w"> </span><span class="mi">1864508400</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"520"</span><span class="p">:</span><span class="w"> </span><span class="mi">1866927600</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"521"</span><span class="p">:</span><span class="w"> </span><span class="mi">1869602400</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"522"</span><span class="p">:</span><span class="w"> </span><span class="mi">1872194400</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"523"</span><span class="p">:</span><span class="w"> </span><span class="mi">1874872800</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"524"</span><span class="p">:</span><span class="w"> </span><span class="mi">1877464800</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"525"</span><span class="p">:</span><span class="w"> </span><span class="mi">1880143200</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"526"</span><span class="p">:</span><span class="w"> </span><span class="mi">1882821600</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"527"</span><span class="p">:</span><span class="w"> </span><span class="mi">1885413600</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"528"</span><span class="p">:</span><span class="w"> </span><span class="mi">1888095600</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"529"</span><span class="p">:</span><span class="w"> </span><span class="mi">1890687600</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"530"</span><span class="p">:</span><span class="w"> </span><span class="mi">1893366000</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"531"</span><span class="p">:</span><span class="w"> </span><span class="mi">1896044400</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"532"</span><span class="p">:</span><span class="w"> </span><span class="mi">1898463600</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"533"</span><span class="p">:</span><span class="w"> </span><span class="mi">1901142000</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"534"</span><span class="p">:</span><span class="w"> </span><span class="mi">1903730400</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"535"</span><span class="p">:</span><span class="w"> </span><span class="mi">1906408800</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"536"</span><span class="p">:</span><span class="w"> </span><span class="mi">1909000800</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"537"</span><span class="p">:</span><span class="w"> </span><span class="mi">1911679200</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"538"</span><span class="p">:</span><span class="w"> </span><span class="mi">1914357600</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"539"</span><span class="p">:</span><span class="w"> </span><span class="mi">1916949600</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"540"</span><span class="p">:</span><span class="w"> </span><span class="mi">1919631600</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"541"</span><span class="p">:</span><span class="w"> </span><span class="mi">1922223600</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"542"</span><span class="p">:</span><span class="w"> </span><span class="mi">1924902000</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"543"</span><span class="p">:</span><span class="w"> </span><span class="mi">1927580400</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"544"</span><span class="p">:</span><span class="w"> </span><span class="mi">1929999600</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"545"</span><span class="p">:</span><span class="w"> </span><span class="mi">1932674400</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"546"</span><span class="p">:</span><span class="w"> </span><span class="mi">1935266400</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"547"</span><span class="p">:</span><span class="w"> </span><span class="mi">1937944800</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"548"</span><span class="p">:</span><span class="w"> </span><span class="mi">1940536800</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"549"</span><span class="p">:</span><span class="w"> </span><span class="mi">1943215200</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"550"</span><span class="p">:</span><span class="w"> </span><span class="mi">1945893600</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"551"</span><span class="p">:</span><span class="w"> </span><span class="mi">1948485600</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"yearsLocataires"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"1"</span><span class="p">:</span><span class="w"> </span><span class="mi">2016</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"3"</span><span class="p">:</span><span class="w"> </span><span class="mi">2014</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"4"</span><span class="p">:</span><span class="w"> </span><span class="mi">1983</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"5"</span><span class="p">:</span><span class="w"> </span><span class="mi">1984</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"rapport"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"2016"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"nbImmeubles"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"psAvecFoncier"</span><span class="p">:</span><span class="w"> </span><span class="mf">1506.76</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"psSansFoncier"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"psFoncierSeul"</span><span class="p">:</span><span class="w"> </span><span class="mf">1506.76</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"impotFoncierSeul"</span><span class="p">:</span><span class="w"> </span><span class="mf">1543.18</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"impotAvecFoncier"</span><span class="p">:</span><span class="w"> </span><span class="mf">5127.18</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"impotSansFoncier"</span><span class="p">:</span><span class="w"> </span><span class="mi">3584</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"foncier2044RevenusE"</span><span class="p">:</span><span class="w"> </span><span class="mi">12180</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"foncier2044InteretsG"</span><span class="p">:</span><span class="w"> </span><span class="mi">1959</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"foncier2044ChargesF"</span><span class="p">:</span><span class="w"> </span><span class="mi">500</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"foncier2044"</span><span class="p">:</span><span class="w"> </span><span class="mi">9721</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"microfoncier"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"microfoncierI"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"bic"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"bicF"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"microbic"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"microbicF"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"bicRecettes"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"bicCharges"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"bicAmortissements"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"reductionImpot"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"abattements1"</span><span class="p">:</span><span class="w"> </span><span class="mi">5000</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"abattements2"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"immeubles"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"580a81d348177eb0128b4567"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test immeuble 2"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"investissementTotal"</span><span class="p">:</span><span class="w"> </span><span class="mi">53488</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"rendementNet"</span><span class="p">:</span><span class="w"> </span><span class="mf">-0.037391564463057</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"rendementNetInterets"</span><span class="p">:</span><span class="w"> </span><span class="mf">-4.1373766078373</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"cashflow"</span><span class="p">:</span><span class="w"> </span><span class="mf">-7478.96</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"actifBrut"</span><span class="p">:</span><span class="w"> </span><span class="mf">47705.55</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"passif"</span><span class="p">:</span><span class="w"> </span><span class="mf">77276.43</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nt">"57fb365448177efb16d17f10"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test delete bien inventaire"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"investissementTotal"</span><span class="p">:</span><span class="w"> </span><span class="mi">100615</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"rendementNet"</span><span class="p">:</span><span class="w"> </span><span class="mf">8.152521989763</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"rendementNetInterets"</span><span class="p">:</span><span class="w"> </span><span class="mf">7.9597077970482</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"cashflow"</span><span class="p">:</span><span class="w"> </span><span class="mf">413.7</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"actifBrut"</span><span class="p">:</span><span class="w"> </span><span class="mf">89814.81</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"passif"</span><span class="p">:</span><span class="w"> </span><span class="mf">-11236.76</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nt">"5729f23b48177eba408b4568"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"App. Angers, 93 000 euros"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"investissementTotal"</span><span class="p">:</span><span class="w"> </span><span class="mi">44500</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"rendementNet"</span><span class="p">:</span><span class="w"> </span><span class="mf">2.257797752809</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"rendementNetInterets"</span><span class="p">:</span><span class="w"> </span><span class="mf">-1.7084943820225</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"cashflow"</span><span class="p">:</span><span class="w"> </span><span class="mf">-6454.24</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"actifBrut"</span><span class="p">:</span><span class="w"> </span><span class="mf">86111.11</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"passif"</span><span class="p">:</span><span class="w"> </span><span class="mf">77276.43</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"cashflow"</span><span class="p">:</span><span class="w"> </span><span class="mf">-13519.5</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"actifBrut"</span><span class="p">:</span><span class="w"> </span><span class="mf">223631.47</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"passif"</span><span class="p">:</span><span class="w"> </span><span class="mf">66039.67</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"investissements"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"5729f23b48177eba408b4567"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"passif"</span><span class="p">:</span><span class="w"> </span><span class="mf">77276.43</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"capitalAcquis"</span><span class="p">:</span><span class="w"> </span><span class="mi">5271</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nt">"57fb35de48177eee16d17f10"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"passif"</span><span class="p">:</span><span class="w"> </span><span class="mf">-11236.76</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"capitalAcquis"</span><span class="p">:</span><span class="w"> </span><span class="mf">7939.48</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"capitalAcquis"</span><span class="p">:</span><span class="w"> </span><span class="mf">13210.48</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"biens"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"580a81d348177eb0128b4567"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"580a81d348177eb0128b4568"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"allNbJours"</span><span class="p">:</span><span class="w"> </span><span class="mi">366</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"vacanceNbJours"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"occupationNbJours"</span><span class="p">:</span><span class="w"> </span><span class="mi">366</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"vacancePourcent"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"occupationPourcent"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nt">"57fb365448177efb16d17f10"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"57fb365448177efb16d17f11"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"allNbJours"</span><span class="p">:</span><span class="w"> </span><span class="mi">366</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"vacanceNbJours"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"occupationNbJours"</span><span class="p">:</span><span class="w"> </span><span class="mi">366</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"vacancePourcent"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"occupationPourcent"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="nt">"58af694048177ea2118b456c"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"allNbJours"</span><span class="p">:</span><span class="w"> </span><span class="mi">366</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"vacanceNbJours"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"occupationNbJours"</span><span class="p">:</span><span class="w"> </span><span class="mi">366</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"vacancePourcent"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"occupationPourcent"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nt">"5729f23b48177eba408b4568"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"5729f23b48177eba408b4569"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"allNbJours"</span><span class="p">:</span><span class="w"> </span><span class="mi">366</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"vacanceNbJours"</span><span class="p">:</span><span class="w"> </span><span class="mi">263</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"occupationNbJours"</span><span class="p">:</span><span class="w"> </span><span class="mi">103</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"vacancePourcent"</span><span class="p">:</span><span class="w"> </span><span class="mi">72</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"occupationPourcent"</span><span class="p">:</span><span class="w"> </span><span class="mi">28</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"2017"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"nbImmeubles"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"psAvecFoncier"</span><span class="p">:</span><span class="w"> </span><span class="mf">191.12</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"psSansFoncier"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"psFoncierSeul"</span><span class="p">:</span><span class="w"> </span><span class="mf">191.12</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"impotFoncierSeul"</span><span class="p">:</span><span class="w"> </span><span class="mf">172.62</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"impotAvecFoncier"</span><span class="p">:</span><span class="w"> </span><span class="mf">4313.82</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"impotSansFoncier"</span><span class="p">:</span><span class="w"> </span><span class="mf">4141.2</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"foncier2044RevenusE"</span><span class="p">:</span><span class="w"> </span><span class="mi">1250</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"foncier2044InteretsG"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"foncier2044ChargesF"</span><span class="p">:</span><span class="w"> </span><span class="mi">40</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"foncier2044"</span><span class="p">:</span><span class="w"> </span><span class="mi">1233</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"microfoncier"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"microfoncierI"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"bic"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"bicF"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"microbic"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"microbicF"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"bicRecettes"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"bicCharges"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"bicAmortissements"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"reductionImpot"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"abattements1"</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"abattements2"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"immeubles"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"580a81d348177eb0128b4567"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test immeuble 2"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"investissementTotal"</span><span class="p">:</span><span class="w"> </span><span class="mi">53488</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"rendementNet"</span><span class="p">:</span><span class="w"> </span><span class="mf">-0.037391564463057</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"rendementNetInterets"</span><span class="p">:</span><span class="w"> </span><span class="mf">-2.4958869279091</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"cashflow"</span><span class="p">:</span><span class="w"> </span><span class="mf">-7478.96</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"actifBrut"</span><span class="p">:</span><span class="w"> </span><span class="mf">47705.55</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"passif"</span><span class="p">:</span><span class="w"> </span><span class="mf">77276.43</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nt">"57fb365448177efb16d17f10"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test delete bien inventaire"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"investissementTotal"</span><span class="p">:</span><span class="w"> </span><span class="mi">100615</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"rendementNet"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.8410873130249</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"rendementNetInterets"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.86394672762511</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"cashflow"</span><span class="p">:</span><span class="w"> </span><span class="mf">-6942.7</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"actifBrut"</span><span class="p">:</span><span class="w"> </span><span class="mf">89814.81</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"passif"</span><span class="p">:</span><span class="w"> </span><span class="mf">-11236.76</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nt">"5729f23b48177eba408b4568"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"App. Angers, 93 000 euros"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"investissementTotal"</span><span class="p">:</span><span class="w"> </span><span class="mi">44500</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"rendementNet"</span><span class="p">:</span><span class="w"> </span><span class="mf">-0.044943820224719</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"rendementNetInterets"</span><span class="p">:</span><span class="w"> </span><span class="mf">-2.4247191011236</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"cashflow"</span><span class="p">:</span><span class="w"> </span><span class="mf">-7478.96</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"actifBrut"</span><span class="p">:</span><span class="w"> </span><span class="mf">86111.11</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"passif"</span><span class="p">:</span><span class="w"> </span><span class="mf">77276.43</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"cashflow"</span><span class="p">:</span><span class="w"> </span><span class="mf">-21900.62</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"actifBrut"</span><span class="p">:</span><span class="w"> </span><span class="mf">223631.47</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"passif"</span><span class="p">:</span><span class="w"> </span><span class="mf">66039.67</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"investissements"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"5729f23b48177eba408b4567"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"passif"</span><span class="p">:</span><span class="w"> </span><span class="mf">77276.43</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"capitalAcquis"</span><span class="p">:</span><span class="w"> </span><span class="mf">5415.1</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nt">"57fb35de48177eee16d17f10"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"passif"</span><span class="p">:</span><span class="w"> </span><span class="mf">-11236.76</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"capitalAcquis"</span><span class="p">:</span><span class="w"> </span><span class="mf">8156.5</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"capitalAcquis"</span><span class="p">:</span><span class="w"> </span><span class="mf">13571.6</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"biens"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"580a81d348177eb0128b4567"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"580a81d348177eb0128b4568"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"allNbJours"</span><span class="p">:</span><span class="w"> </span><span class="mi">365</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"vacanceNbJours"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"occupationNbJours"</span><span class="p">:</span><span class="w"> </span><span class="mi">365</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"vacancePourcent"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"occupationPourcent"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nt">"57fb365448177efb16d17f10"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"57fb365448177efb16d17f11"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"allNbJours"</span><span class="p">:</span><span class="w"> </span><span class="mi">365</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"vacanceNbJours"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"occupationNbJours"</span><span class="p">:</span><span class="w"> </span><span class="mi">365</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"vacancePourcent"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"occupationPourcent"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="nt">"58af694048177ea2118b456c"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"allNbJours"</span><span class="p">:</span><span class="w"> </span><span class="mi">365</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"vacanceNbJours"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"occupationNbJours"</span><span class="p">:</span><span class="w"> </span><span class="mi">365</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"vacancePourcent"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"occupationPourcent"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nt">"5729f23b48177eba408b4568"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"5729f23b48177eba408b4569"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"allNbJours"</span><span class="p">:</span><span class="w"> </span><span class="mi">365</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"vacanceNbJours"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"occupationNbJours"</span><span class="p">:</span><span class="w"> </span><span class="mi">365</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"vacancePourcent"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"occupationPourcent"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"chargesEmpruntGlobalPerYear"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"2000"</span><span class="p">:</span><span class="w"> </span><span class="mi">731</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"2001"</span><span class="p">:</span><span class="w"> </span><span class="mi">2837</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"2002"</span><span class="p">:</span><span class="w"> </span><span class="mi">2692</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"2003"</span><span class="p">:</span><span class="w"> </span><span class="mi">2543</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"2004"</span><span class="p">:</span><span class="w"> </span><span class="mi">2390</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"2005"</span><span class="p">:</span><span class="w"> </span><span class="mi">2233</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"2006"</span><span class="p">:</span><span class="w"> </span><span class="mi">2072</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"2007"</span><span class="p">:</span><span class="w"> </span><span class="mi">1906</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"2008"</span><span class="p">:</span><span class="w"> </span><span class="mi">1736</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"2009"</span><span class="p">:</span><span class="w"> </span><span class="mi">1561</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"2010"</span><span class="p">:</span><span class="w"> </span><span class="mi">1381</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"2011"</span><span class="p">:</span><span class="w"> </span><span class="mi">1197</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"2012"</span><span class="p">:</span><span class="w"> </span><span class="mi">1007</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"2013"</span><span class="p">:</span><span class="w"> </span><span class="mi">812</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"2014"</span><span class="p">:</span><span class="w"> </span><span class="mi">2461</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"2015"</span><span class="p">:</span><span class="w"> </span><span class="mi">3065</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"2016"</span><span class="p">:</span><span class="w"> </span><span class="mi">4154</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"2017"</span><span class="p">:</span><span class="w"> </span><span class="mi">2353</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"2018"</span><span class="p">:</span><span class="w"> </span><span class="mi">1982</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"2019"</span><span class="p">:</span><span class="w"> </span><span class="mi">1601</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"2020"</span><span class="p">:</span><span class="w"> </span><span class="mi">1209</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"2021"</span><span class="p">:</span><span class="w"> </span><span class="mi">807</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"2022"</span><span class="p">:</span><span class="w"> </span><span class="mi">393</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"2023"</span><span class="p">:</span><span class="w"> </span><span class="mi">-31</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"2024"</span><span class="p">:</span><span class="w"> </span><span class="mi">-467</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"2025"</span><span class="p">:</span><span class="w"> </span><span class="mi">-915</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"2026"</span><span class="p">:</span><span class="w"> </span><span class="mi">-1376</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"2027"</span><span class="p">:</span><span class="w"> </span><span class="mi">-1849</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"2028"</span><span class="p">:</span><span class="w"> </span><span class="mi">-2334</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"2029"</span><span class="p">:</span><span class="w"> </span><span class="mi">-3015</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"2030"</span><span class="p">:</span><span class="w"> </span><span class="mi">-3447</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"2031"</span><span class="p">:</span><span class="w"> </span><span class="mi">-2793</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"explications"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"2015"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"immeubles"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"580a81d348177eb0128b4567"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"investissementTotal"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[ Net vendeur (47706) + Comission agence (3816) + Travaux (0) + Frais dossier (0) + Crédit logement(0) + Meubles (277) + Frais de notaire (1689) - Primes Anah (0) ]"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"rendementNet"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[ Recettes (0) - Charges (20) - Prél. Sociaux (0) - Impôt (0) ] * 100 / Investissement (53488)"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"rendementNetInterets"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[ Recettes (0) - Charges (20) - Intérêts (1473) - Prél. Sociaux (0) - Impôt (0) ] * 100 / Investissement (53488)"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"cashflow"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Loyers (0) - MensualitésSansAssurance (7459) - Charges (20) - Prél. Sociaux (0) - Impôt (0)"</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="nt">"57fb365448177efb16d17f10"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"investissementTotal"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[ Net vendeur (89815) + Comission agence (7185) + Travaux (0) + Frais dossier (0) + Crédit logement(0) + Meubles (500) + Frais de notaire (3115) - Primes Anah (0) ]"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"rendementNet"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[ Recettes (11400) - Charges (40) - Prél. Sociaux (1698) - Impôt (2191) ] * 100 / Investissement (100615)"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"rendementNetInterets"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[ Recettes (11400) - Charges (40) - Intérêts (406) - Prél. Sociaux (1698) - Impôt (2191) ] * 100 / Investissement (100615)"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"cashflow"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Loyers (11400) - MensualitésSansAssurance (7789) - Charges (40) - Prél. Sociaux (1698) - Impôt (2191)"</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="nt">"5729f23b48177eba408b4568"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"investissementTotal"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[ Net vendeur (38406) + Comission agence (3072) + Travaux (0) + Frais dossier (750) + Crédit logement(690) + Meubles (223) + Frais de notaire (1359) - Primes Anah (0) ]"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"rendementNet"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[ Recettes (12624) - Charges (200) - Prél. Sociaux (0) - Impôt (0) ] * 100 / Investissement (44500)"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"rendementNetInterets"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[ Recettes (12624) - Charges (200) - Intérêts (3568) - Prél. Sociaux (0) - Impôt (0) ] * 100 / Investissement (44500)"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"cashflow"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Loyers (12624) - MensualitésSansAssurance (7459) - Charges (200) - Prél. Sociaux (0) - Impôt (0)"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"2016"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"immeubles"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"580a81d348177eb0128b4567"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"investissementTotal"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[ Net vendeur (47706) + Comission agence (3816) + Travaux (0) + Frais dossier (0) + Crédit logement(0) + Meubles (277) + Frais de notaire (1689) - Primes Anah (0) ]"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"rendementNet"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[ Recettes (0) - Charges (20) - Prél. Sociaux (0) - Impôt (0) ] * 100 / Investissement (53488)"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"rendementNetInterets"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[ Recettes (0) - Charges (20) - Intérêts (2193) - Prél. Sociaux (0) - Impôt (0) ] * 100 / Investissement (53488)"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"cashflow"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Loyers (0) - MensualitésSansAssurance (7459) - Charges (20) - Prél. Sociaux (0) - Impôt (0)"</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="nt">"57fb365448177efb16d17f10"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"investissementTotal"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[ Net vendeur (89815) + Comission agence (7185) + Travaux (0) + Frais dossier (0) + Crédit logement(0) + Meubles (500) + Frais de notaire (3115) - Primes Anah (0) ]"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"rendementNet"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[ Recettes (11400) - Charges (90) - Prél. Sociaux (1507) - Impôt (1601) ] * 100 / Investissement (100615)"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"rendementNetInterets"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[ Recettes (11400) - Charges (90) - Intérêts (194) - Prél. Sociaux (1507) - Impôt (1601) ] * 100 / Investissement (100615)"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"cashflow"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Loyers (11400) - MensualitésSansAssurance (7789) - Charges (90) - Prél. Sociaux (1507) - Impôt (1601)"</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="nt">"5729f23b48177eba408b4568"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"investissementTotal"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[ Net vendeur (38406) + Comission agence (3072) + Travaux (0) + Frais dossier (750) + Crédit logement(690) + Meubles (223) + Frais de notaire (1359) - Primes Anah (0) ]"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"rendementNet"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[ Recettes (780) - Charges (410) - Prél. Sociaux (-216) - Impôt (-419) ] * 100 / Investissement (44500)"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"rendementNetInterets"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[ Recettes (780) - Charges (410) - Intérêts (1765) - Prél. Sociaux (-216) - Impôt (-419) ] * 100 / Investissement (44500)"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"cashflow"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Loyers (780) - MensualitésSansAssurance (7459) - Charges (410) - Prél. Sociaux (-216) - Impôt (-419)"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"2017"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"immeubles"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"580a81d348177eb0128b4567"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"investissementTotal"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[ Net vendeur (47706) + Comission agence (3816) + Travaux (0) + Frais dossier (0) + Crédit logement(0) + Meubles (277) + Frais de notaire (1689) - Primes Anah (0) ]"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"rendementNet"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[ Recettes (0) - Charges (20) - Prél. Sociaux (0) - Impôt (0) ] * 100 / Investissement (53488)"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"rendementNetInterets"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[ Recettes (0) - Charges (20) - Intérêts (1315) - Prél. Sociaux (0) - Impôt (0) ] * 100 / Investissement (53488)"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"cashflow"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Loyers (0) - MensualitésSansAssurance (7459) - Charges (20) - Prél. Sociaux (0) - Impôt (0)"</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="nt">"57fb365448177efb16d17f10"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"investissementTotal"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[ Net vendeur (89815) + Comission agence (7185) + Travaux (0) + Frais dossier (0) + Crédit logement(0) + Meubles (500) + Frais de notaire (3115) - Primes Anah (0) ]"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"rendementNet"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[ Recettes (1250) - Charges (40) - Prél. Sociaux (191) - Impôt (173) ] * 100 / Investissement (100615)"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"rendementNetInterets"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[ Recettes (1250) - Charges (40) - Intérêts (-23) - Prél. Sociaux (191) - Impôt (173) ] * 100 / Investissement (100615)"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"cashflow"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Loyers (1250) - MensualitésSansAssurance (7789) - Charges (40) - Prél. Sociaux (191) - Impôt (173)"</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="nt">"5729f23b48177eba408b4568"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"investissementTotal"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[ Net vendeur (38406) + Comission agence (3072) + Travaux (0) + Frais dossier (750) + Crédit logement(690) + Meubles (223) + Frais de notaire (1359) - Primes Anah (0) ]"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"rendementNet"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[ Recettes (0) - Charges (20) - Prél. Sociaux (0) - Impôt (0) ] * 100 / Investissement (44500)"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"rendementNetInterets"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[ Recettes (0) - Charges (20) - Intérêts (1059) - Prél. Sociaux (0) - Impôt (0) ] * 100 / Investissement (44500)"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"cashflow"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Loyers (0) - MensualitésSansAssurance (7459) - Charges (20) - Prél. Sociaux (0) - Impôt (0)"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"rapportEmprunt"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"972946800"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"57fb35de48177eee16d17f10"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"passif"</span><span class="p">:</span><span class="w"> </span><span class="mf">95548.88</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"actifNet"</span><span class="p">:</span><span class="w"> </span><span class="mf">-5734.07</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"975538800"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"57fb35de48177eee16d17f10"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"passif"</span><span class="p">:</span><span class="w"> </span><span class="mf">95114.79</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"actifNet"</span><span class="p">:</span><span class="w"> </span><span class="mf">-5299.98</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"978217200"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"57fb35de48177eee16d17f10"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"passif"</span><span class="p">:</span><span class="w"> </span><span class="mf">94679.72</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"actifNet"</span><span class="p">:</span><span class="w"> </span><span class="mf">-4864.91</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"980895600"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"57fb35de48177eee16d17f10"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"passif"</span><span class="p">:</span><span class="w"> </span><span class="mf">94243.67</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"actifNet"</span><span class="p">:</span><span class="w"> </span><span class="mf">-4428.86</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"983314800"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"57fb35de48177eee16d17f10"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"passif"</span><span class="p">:</span><span class="w"> </span><span class="mf">93806.64</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"actifNet"</span><span class="p">:</span><span class="w"> </span><span class="mf">-3991.83</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"countImmeubles"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"time_to_compute_report"</span><span class="p">:</span><span class="w"> </span><span class="mf">13.190853118896</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"result"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"cacheLastUpdateTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">1488359129</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">POST https://www.rendementlocatif.com/api/gestion/21/raport/</code></p>
+
+<h3 id="post-parameters">POST Parameters</h3>
+
+<p>Should be sent with the request in the body as &ldquo;application/x-www-form-urlencoded&rdquo;.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Mandatory</th>
+<th>Description</th>
+<th>Type</th>
+<th>default</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>username</td>
+<td>yes</td>
+<td>The user name or email address</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>password</td>
+<td>yes</td>
+<td>The user password</td>
+<td>string</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h3 id="returned-parameters">Returned parameters</h3>
+
+<p>TBD</p>
+
           <h1 id="errors">Errors</h1>
 
 <p>Below are some errors you can get when using the API. There is usually an error message in the response to identify the exact problem.</p>
