@@ -151,8 +151,10 @@ Replace <code>secretkey</code> with your personal key.
 
 <p>The endpoint accepts the version like this https://www.rendementlocatif.com/api/gestion/version/.
 <aside class="notice">
-Currently only version = 2 is supported. So please use the following endpoint:<br/>
-https://www.rendementlocatif.com/api/gestion/2/immeubles
+Last version is 21. So please use the following endpoint:<br/>
+https://www.rendementlocatif.com/api/gestion/21/</p>
+
+<p>21 is not backward compatible with 2 because 21 uses timestamps for dates parameters instead of human readable french dates.
 </aside></p>
 
 <h1 id="authentificating-a-user">Authentificating a user</h1>
@@ -440,7 +442,7 @@ If non premium access is allowed, check Auth=false and code=-3.
 <p>Code to get the immeubles of a user</p>
 </blockquote>
 <pre class="highlight shell"><code>curl --data <span class="s2">"username=username&amp;password=password"</span>
-<span class="s2">"https://www.rendementlocatif.com/api/gestion/2/immeubles"</span>
+<span class="s2">"https://www.rendementlocatif.com/api/gestion/21/immeubles"</span>
   -H <span class="s2">"X-API-KEY: secretkey"</span>
 </code></pre>
 
@@ -1092,7 +1094,7 @@ If non premium access is allowed, check Auth=false and code=-3.
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">POST https://www.rendementlocatif.com/api/gestion/2/immeubles</code></p>
+<p><code class="prettyprint">POST https://www.rendementlocatif.com/api/gestion/21/immeubles</code></p>
 
 <h3 id="parameters">Parameters</h3>
 
@@ -1122,7 +1124,7 @@ If non premium access is allowed, check Auth=false and code=-3.
 <p>Code to get the bien of a user</p>
 </blockquote>
 <pre class="highlight shell"><code>curl --data <span class="s2">"username=username&amp;password=password"</span>
-<span class="s2">"https://www.rendementlocatif.com/api/gestion/2/immeuble/&lt;immeubleId&gt;"</span>
+<span class="s2">"https://www.rendementlocatif.com/api/gestion/21/immeuble/&lt;immeubleId&gt;"</span>
   -H <span class="s2">"X-API-KEY: secretkey"</span>
 </code></pre>
 
@@ -1213,7 +1215,7 @@ If non premium access is allowed, check Auth=false and code=-3.
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">POST https://www.rendementlocatif.com/api/gestion/2/immeuble/&lt;immeubleId&gt;</code></p>
+<p><code class="prettyprint">POST https://www.rendementlocatif.com/api/gestion/21/immeuble/&lt;immeubleId&gt;</code></p>
 
 <h3 id="parameters">Parameters</h3>
 
@@ -1243,7 +1245,7 @@ If non premium access is allowed, check Auth=false and code=-3.
 <p>Code to get the bien of a user</p>
 </blockquote>
 <pre class="highlight shell"><code>curl --data <span class="s2">"username=username&amp;password=password"</span>
-<span class="s2">"https://www.rendementlocatif.com/api/gestion/2/bien/&lt;bienId&gt;"</span>
+<span class="s2">"https://www.rendementlocatif.com/api/gestion/21/bien/&lt;bienId&gt;"</span>
   -H <span class="s2">"X-API-KEY: secretkey"</span>
 </code></pre>
 
@@ -1476,7 +1478,7 @@ If non premium access is allowed, check Auth=false and code=-3.
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">POST https://www.rendementlocatif.com/api/gestion/2/bien/&lt;bienId&gt;</code></p>
+<p><code class="prettyprint">POST https://www.rendementlocatif.com/api/gestion/21/bien/&lt;bienId&gt;</code></p>
 
 <h3 id="parameters">Parameters</h3>
 
@@ -1506,7 +1508,7 @@ If non premium access is allowed, check Auth=false and code=-3.
 <p>Code to get the bien of a user</p>
 </blockquote>
 <pre class="highlight shell"><code>curl --data <span class="s2">"username=username&amp;password=password"</span>
-<span class="s2">"https://www.rendementlocatif.com/api/gestion/2/locataires/&lt;immeubleIdOrbienId&gt;/&lt;limit&gt;"</span>
+<span class="s2">"https://www.rendementlocatif.com/api/gestion/21/locataires/&lt;immeubleIdOrbienId&gt;/&lt;limit&gt;"</span>
   -H <span class="s2">"X-API-KEY: secretkey"</span>
 </code></pre>
 
@@ -1741,7 +1743,7 @@ If non premium access is allowed, check Auth=false and code=-3.
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">POST https://www.rendementlocatif.com/api/gestion/2/locataires/&lt;immeubleIdOrbienId&gt;/&lt;limit&gt;</code></p>
+<p><code class="prettyprint">POST https://www.rendementlocatif.com/api/gestion/21/locataires/&lt;immeubleIdOrbienId&gt;/&lt;limit&gt;</code></p>
 
 <p>&ldquo;immeubleIdOrbienId&rdquo; can be either the ID of a bien or the ID of an immeuble. The API will figure out which kinf it is.</p>
 
@@ -1775,7 +1777,7 @@ If non premium access is allowed, check Auth=false and code=-3.
 <p>Code to get the bien of a user</p>
 </blockquote>
 <pre class="highlight shell"><code>curl --data <span class="s2">"username=username&amp;password=password"</span>
-<span class="s2">"https://www.rendementlocatif.com/api/gestion/2/locataire/&lt;locataireId&gt;"</span>
+<span class="s2">"https://www.rendementlocatif.com/api/gestion/21/locataire/&lt;locataireId&gt;"</span>
   -H <span class="s2">"X-API-KEY: secretkey"</span>
 </code></pre>
 
@@ -1830,7 +1832,7 @@ If non premium access is allowed, check Auth=false and code=-3.
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">POST https://www.rendementlocatif.com/api/gestion/2/locataire/&lt;locataireId&gt;</code></p>
+<p><code class="prettyprint">POST https://www.rendementlocatif.com/api/gestion/21/locataire/&lt;locataireId&gt;</code></p>
 
 <h3 id="parameters">Parameters</h3>
 
@@ -1860,7 +1862,7 @@ If non premium access is allowed, check Auth=false and code=-3.
 <p>Code to get the bien of a user</p>
 </blockquote>
 <pre class="highlight shell"><code>curl --data <span class="s2">"username=username&amp;password=password"</span>
-<span class="s2">"https://www.rendementlocatif.com/api/gestion/2/operations/&lt;immeubleId&gt;/&lt;limit&gt;"</span>
+<span class="s2">"https://www.rendementlocatif.com/api/gestion/21/operations/&lt;immeubleId&gt;/&lt;limit&gt;"</span>
   -H <span class="s2">"X-API-KEY: secretkey"</span>
 </code></pre>
 
@@ -1964,7 +1966,7 @@ If non premium access is allowed, check Auth=false and code=-3.
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">POST https://www.rendementlocatif.com/api/gestion/2/operations/&lt;immeubleId&gt;/&lt;limit&gt;</code></p>
+<p><code class="prettyprint">POST https://www.rendementlocatif.com/api/gestion/21/operations/&lt;immeubleId&gt;/&lt;limit&gt;</code></p>
 
 <p>The &ldquo;limit&rdquo; parameter is the max number of operations to return. By default (if not present), it returns 1000 operations.</p>
 
@@ -1996,7 +1998,7 @@ If non premium access is allowed, check Auth=false and code=-3.
 <p>Code to get the bien of a user</p>
 </blockquote>
 <pre class="highlight shell"><code>curl --data <span class="s2">"username=username&amp;password=password"</span>
-<span class="s2">"https://www.rendementlocatif.com/api/gestion/2/saveOperation/&lt;immeubleId&gt;/&lt;operationId&gt;"</span>
+<span class="s2">"https://www.rendementlocatif.com/api/gestion/21/saveOperation/&lt;immeubleId&gt;/&lt;operationId&gt;"</span>
   -H <span class="s2">"X-API-KEY: secretkey"</span>
 </code></pre>
 
@@ -2013,7 +2015,7 @@ If non premium access is allowed, check Auth=false and code=-3.
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">POST https://www.rendementlocatif.com/api/gestion/2/saveOperation/&lt;immeubleId&gt;/&lt;operationId&gt;</code></p>
+<p><code class="prettyprint">POST https://www.rendementlocatif.com/api/gestion/21/saveOperation/&lt;immeubleId&gt;/&lt;operationId&gt;</code></p>
 
 <p>&ldquo;immeubleId&rdquo; is mandatory and should correspond to the id of the immeuble to which the operation will be attached.</p>
 
@@ -2127,7 +2129,7 @@ operationAuto:off<br/></p>
 <p>Code to get the bien of a user</p>
 </blockquote>
 <pre class="highlight shell"><code>curl --data <span class="s2">"username=username&amp;password=password"</span>
-<span class="s2">"https://www.rendementlocatif.com/api/gestion/2/setLocataireGone/&lt;locataireId&gt;"</span>
+<span class="s2">"https://www.rendementlocatif.com/api/gestion/21/setLocataireGone/&lt;locataireId&gt;"</span>
   -H <span class="s2">"X-API-KEY: secretkey"</span>
 </code></pre>
 
@@ -2162,7 +2164,7 @@ Returns the following JSON:</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">POST https://www.rendementlocatif.com/api/gestion/2/setLocataireGone/&lt;locataireId&gt;</code></p>
+<p><code class="prettyprint">POST https://www.rendementlocatif.com/api/gestion/21/setLocataireGone/&lt;locataireId&gt;</code></p>
 
 <p>&ldquo;locataireId&rdquo; is mandatory and should correspond to the id of the lcoataire.</p>
 
@@ -2204,11 +2206,11 @@ Returns the following JSON:</p>
 password:bobpassword<br/>
 quitDate:1422745200<br/></p>
 <pre class="highlight shell"><code>curl --request POST <span class="se">\</span>
-  --url https://www.rendementlocatif.com/api/gestion/2/setLocataireGone/580a81d348177eb0128b4568 <span class="se">\</span>
+  --url https://www.rendementlocatif.com/api/gestion/21/setLocataireGone/580a81d348177eb0128b4568 <span class="se">\</span>
   --header <span class="s1">'cache-control: no-cache'</span> <span class="se">\</span>
   --header <span class="s1">'content-type: application/x-www-form-urlencoded'</span> <span class="se">\</span>
   --header <span class="s1">'x-api-key: secretkey'</span> <span class="se">\</span>
-  --data <span class="s1">'username=boss&amp;password=6407&amp;quitDate=1422745200'</span>
+  --data <span class="s1">'username=boss&amp;password=password&amp;quitDate=1422745200'</span>
 </code></pre>
 
 <h2 id="split-loyer">Split Loyer</h2>
@@ -2219,7 +2221,7 @@ quitDate:1422745200<br/></p>
 <p>Code to split a loyer in 2 operations for a locataire</p>
 </blockquote>
 <pre class="highlight shell"><code>curl --data <span class="s2">"username=username&amp;password=password"</span>
-<span class="s2">"https://www.rendementlocatif.com/api/gestion/2/ventilationLoyer/&lt;locataireId&gt;/&lt;montantTotal&gt;"</span>
+<span class="s2">"https://www.rendementlocatif.com/api/gestion/21/ventilationLoyer/&lt;locataireId&gt;/&lt;montantTotal&gt;"</span>
   -H <span class="s2">"X-API-KEY: secretkey"</span>
 </code></pre>
 
@@ -2241,7 +2243,7 @@ quitDate:1422745200<br/></p>
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">POST https://www.rendementlocatif.com/api/gestion/2/ventilationLoyer/&lt;locataireId&gt;/&lt;montantTotal&gt;</code></p>
+<p><code class="prettyprint">POST https://www.rendementlocatif.com/api/gestion/21/ventilationLoyer/&lt;locataireId&gt;/&lt;montantTotal&gt;</code></p>
 
 <p>&ldquo;locataireId&rdquo; is mandatory and is the id of the locataire from which the &ldquo;montantTotal&rdquo; was received.</p>
 
@@ -2334,7 +2336,7 @@ quitDate:1422745200<br/></p>
 <p>Code to get the bien of a user</p>
 </blockquote>
 <pre class="highlight shell"><code>curl --data <span class="s2">"username=username&amp;password=password"</span>
-<span class="s2">"https://www.rendementlocatif.com/api/gestion/2/saveLocataire/&lt;bienId&gt;/&lt;locataireId&gt;"</span>
+<span class="s2">"https://www.rendementlocatif.com/api/gestion/21/saveLocataire/&lt;bienId&gt;/&lt;locataireId&gt;"</span>
   -H <span class="s2">"X-API-KEY: secretkey"</span>
 </code></pre>
 
@@ -2365,7 +2367,7 @@ Returns the following JSON:</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">POST https://www.rendementlocatif.com/api/gestion/2/saveLocataire/&lt;bienId&gt;/&lt;locataireId&gt;</code></p>
+<p><code class="prettyprint">POST https://www.rendementlocatif.com/api/gestion/21/saveLocataire/&lt;bienId&gt;/&lt;locataireId&gt;</code></p>
 
 <p>&ldquo;bienId&rdquo; is mandatory and should correspond to the id of the bien to which the locataire will be attached.</p>
 
@@ -2545,11 +2547,11 @@ dayLoyer:3<br/>
 typeLocation:0<br/>
 depotGarantie:1<br/></p>
 <pre class="highlight shell"><code>curl --request POST <span class="se">\</span>
-  --url https://www.rendementlocatif.com/api/gestion/2/saveLocataire/580a81d348177eb0128b4568 <span class="se">\</span>
+  --url https://www.rendementlocatif.com/api/gestion/21/saveLocataire/580a81d348177eb0128b4568 <span class="se">\</span>
   --header <span class="s1">'cache-control: no-cache'</span> <span class="se">\</span>
   --header <span class="s1">'content-type: application/x-www-form-urlencoded'</span> <span class="se">\</span>
   --header <span class="s1">'x-api-key: secretkey'</span> <span class="se">\</span>
-  --data <span class="s1">'username=boss&amp;password=6407&amp;nom=Dupont&amp;prenom=jean&amp;loyer=666&amp;provision=20&amp;indiceRevision=0&amp;signatureDate=1422745200&amp;entryDate=1422745200&amp;dayLoyer=3&amp;typeLocation=0&amp;depotGarantie=1'</span>
+  --data <span class="s1">'username=boss&amp;password=password&amp;nom=Dupont&amp;prenom=jean&amp;loyer=666&amp;provision=20&amp;indiceRevision=0&amp;signatureDate=1422745200&amp;entryDate=1422745200&amp;dayLoyer=3&amp;typeLocation=0&amp;depotGarantie=1'</span>
 </code></pre>
 
 <h2 id="split-loyer">Split Loyer</h2>
@@ -2560,7 +2562,7 @@ depotGarantie:1<br/></p>
 <p>Code to split a loyer in 2 operations for a locataire</p>
 </blockquote>
 <pre class="highlight shell"><code>curl --data <span class="s2">"username=username&amp;password=password"</span>
-<span class="s2">"https://www.rendementlocatif.com/api/gestion/2/ventilationLoyer/&lt;locataireId&gt;/&lt;montantTotal&gt;"</span>
+<span class="s2">"https://www.rendementlocatif.com/api/gestion/21/ventilationLoyer/&lt;locataireId&gt;/&lt;montantTotal&gt;"</span>
   -H <span class="s2">"X-API-KEY: secretkey"</span>
 </code></pre>
 
@@ -2582,7 +2584,7 @@ depotGarantie:1<br/></p>
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">POST https://www.rendementlocatif.com/api/gestion/2/ventilationLoyer/&lt;locataireId&gt;/&lt;montantTotal&gt;</code></p>
+<p><code class="prettyprint">POST https://www.rendementlocatif.com/api/gestion/21/ventilationLoyer/&lt;locataireId&gt;/&lt;montantTotal&gt;</code></p>
 
 <p>&ldquo;locataireId&rdquo; is mandatory and is the id of the locataire from which the &ldquo;montantTotal&rdquo; was received.</p>
 
@@ -2675,7 +2677,7 @@ depotGarantie:1<br/></p>
 <p>Code to get the bien of a user</p>
 </blockquote>
 <pre class="highlight shell"><code>curl --data <span class="s2">"username=username&amp;password=password"</span>
-<span class="s2">"https://www.rendementlocatif.com/api/gestion/2/markOperationPaid/&lt;operationId&gt;"</span>
+<span class="s2">"https://www.rendementlocatif.com/api/gestion/21/markOperationPaid/&lt;operationId&gt;"</span>
   -H <span class="s2">"X-API-KEY: secretkey"</span>
 </code></pre>
 
@@ -2690,7 +2692,7 @@ depotGarantie:1<br/></p>
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">POST https://www.rendementlocatif.com/api/gestion/2/markOperationPaid/&lt;operationId&gt;</code></p>
+<p><code class="prettyprint">POST https://www.rendementlocatif.com/api/gestion/21/markOperationPaid/&lt;operationId&gt;</code></p>
 
 <p>&ldquo;operationId&rdquo; is mandatory and should correspond to the id of the operation to mark as paid.</p>
 
@@ -2751,7 +2753,7 @@ depotGarantie:1<br/></p>
 <p>Code to get the bien of a user</p>
 </blockquote>
 <pre class="highlight shell"><code>curl --data <span class="s2">"username=username&amp;password=password"</span>
-<span class="s2">"https://www.rendementlocatif.com/api/gestion/2/markOperationUnPaid/&lt;operationId&gt;"</span>
+<span class="s2">"https://www.rendementlocatif.com/api/gestion/21/markOperationUnPaid/&lt;operationId&gt;"</span>
   -H <span class="s2">"X-API-KEY: secretkey"</span>
 </code></pre>
 
@@ -2766,7 +2768,7 @@ depotGarantie:1<br/></p>
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">POST https://www.rendementlocatif.com/api/gestion/2/markOperationUnPaid/&lt;operationId&gt;</code></p>
+<p><code class="prettyprint">POST https://www.rendementlocatif.com/api/gestion/21/markOperationUnPaid/&lt;operationId&gt;</code></p>
 
 <p>&ldquo;operationId&rdquo; is mandatory and should correspond to the id of the operation to mark as unpaid.</p>
 
@@ -2827,7 +2829,7 @@ depotGarantie:1<br/></p>
 <p>Code to get the bien of a user</p>
 </blockquote>
 <pre class="highlight shell"><code>curl --data <span class="s2">"username=username&amp;password=password"</span>
-<span class="s2">"https://www.rendementlocatif.com/api/gestion/2/deleteOperation/&lt;operationId&gt;"</span>
+<span class="s2">"https://www.rendementlocatif.com/api/gestion/21/deleteOperation/&lt;operationId&gt;"</span>
   -H <span class="s2">"X-API-KEY: secretkey"</span>
 </code></pre>
 
@@ -2842,7 +2844,7 @@ depotGarantie:1<br/></p>
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">POST https://www.rendementlocatif.com/api/gestion/2/deleteOperation/&lt;operationId&gt;</code></p>
+<p><code class="prettyprint">POST https://www.rendementlocatif.com/api/gestion/21/deleteOperation/&lt;operationId&gt;</code></p>
 
 <p>&ldquo;operationId&rdquo; is mandatory and should correspond to the id of the operation to delete.</p>
 
@@ -2903,7 +2905,7 @@ depotGarantie:1<br/></p>
 <p>Code to get the bien of a user</p>
 </blockquote>
 <pre class="highlight shell"><code>curl --data <span class="s2">"username=username&amp;password=password"</span>
-<span class="s2">"https://www.rendementlocatif.com/api/gestion/2/quittance/&lt;locataireId&gt;/&lt;anythingOnlyToSendEmail&gt;"</span>
+<span class="s2">"https://www.rendementlocatif.com/api/gestion/21/quittance/&lt;locataireId&gt;/&lt;anythingOnlyToSendEmail&gt;"</span>
   -H <span class="s2">"X-API-KEY: secretkey"</span>
 </code></pre>
 
@@ -2924,7 +2926,7 @@ Otherwise it returns an error as a json</p>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"result"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
   </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Un email avec la quittance a été envoyé à votre locataire."</span><span class="w">
+  </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Un email avec le document a été envoyé à votre locataire."</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
@@ -2940,9 +2942,9 @@ Otherwise it returns an error as a json</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">POST https://www.rendementlocatif.com/api/gestion/2/quittance/&lt;locataireId&gt;/&lt;anythingToSendEmail&gt;</code></p>
+<p><code class="prettyprint">POST https://www.rendementlocatif.com/api/gestion/21/quittance/&lt;locataireId&gt;/&lt;anythingToSendEmail&gt;</code></p>
 
-<p>&ldquo;locataireId&rdquo; is mandatory and should correspond to the id of the operation to delete.</p>
+<p>&ldquo;locataireId&rdquo; is mandatory and should correspond to the id of the locataire for which we want to edit a quittance.</p>
 
 <p>&ldquo;anythingOnlyToSendEmail&rdquo; is optional.  Can be any non empty string. If given, the server will send an email to the locataire with the quittance PDF attached.</p>
 
@@ -3015,7 +3017,7 @@ Otherwise it returns an error as a json</p>
 <tr>
 <td>result</td>
 <td>boolean</td>
-<td>true if quittance is generated ok or if email send ok, otherwise false</td>
+<td>true if doc is generated ok or if email send ok, otherwise false</td>
 </tr>
 <tr>
 <td>code</td>
@@ -3028,6 +3030,1378 @@ Otherwise it returns an error as a json</p>
 <td>error message if error, ok message of code=0 (success)</td>
 </tr>
 </tbody></table>
+
+<h2 id="bail">Bail</h2>
+
+<p>Gets a &ldquo;contrat de bail&rdquo;</p>
+
+<blockquote>
+<p>Code to get the bien of a user</p>
+</blockquote>
+<pre class="highlight shell"><code>curl --data <span class="s2">"username=username&amp;password=password"</span>
+<span class="s2">"https://www.rendementlocatif.com/api/gestion/21/bail/&lt;locataireId&gt;/&lt;type&gt;/&lt;empty&gt;/&lt;collocation&gt;/&lt;anythingToSendEmail&gt;"</span>
+  -H <span class="s2">"X-API-KEY: secretkey"</span>
+</code></pre>
+
+<blockquote>
+<p>If success, it returns the PDF file (streamed over HTTP)
+Otherwise it returns an error as a json</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"result"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">-10</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Missing or invalid locataireId (in url path)"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<blockquote>
+<p>If success and email send mode, it always returns a json</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"result"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Un email avec le document a été envoyé à votre locataire."</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<blockquote>
+<p>if error when seding email</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"result"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">-15</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Message non envoyé. Vous devez renseigner une adresse email pour votre locataire."</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">POST https://www.rendementlocatif.com/api/gestion/21/bail/&lt;locataireId&gt;/&lt;type&gt;/&lt;empty&gt;/&lt;collocation&gt;/&lt;anythingToSendEmail&gt;</code></p>
+
+<p>&ldquo;locataireId&rdquo; is mandatory and should correspond to the id of the locataire for which we want to edit the bail.</p>
+
+<p>&ldquo;type&rdquo; (optional) is either &ldquo;m&rdquo; (bail meublé) or &ldquo;nu&rdquo; (bail nu, default)</p>
+
+<p>&ldquo;empty&rdquo; (optional) can be anything to produce an empty bail document (not pre-filled with owner and locataire personal details). Set to &ldquo;skip&rdquo; to keep the document pre-filled and set another next parameter in the URL (collocation and send_email parameters).</p>
+
+<p>&ldquo;collocation&rdquo; (optional) can be anything and will generate a bail with all currently active locataires (pour collocation). Set to &ldquo;skip&rdquo; to keep the document not empty and set another next parameter in the URL.</p>
+
+<p>&ldquo;anythingOnlyToSendEmail&rdquo; is optional.  Can be any non empty string. If given, the server will send an email to the locataire with the bail PDF attached.</p>
+
+<h3 id="post-parameters">POST Parameters</h3>
+
+<p>Should be sent with the request in the body as &ldquo;application/x-www-form-urlencoded&rdquo;.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Mandatory</th>
+<th>Description</th>
+<th>Type</th>
+<th>default</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>username</td>
+<td>yes</td>
+<td>The user name or email address</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>password</td>
+<td>yes</td>
+<td>The user password</td>
+<td>string</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h3 id="returned-parameters">Returned parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>result</td>
+<td>boolean</td>
+<td>true if doc is generated ok or if email send ok, otherwise false</td>
+</tr>
+<tr>
+<td>code</td>
+<td>integer</td>
+<td>0 if ok otherwise error code of error</td>
+</tr>
+<tr>
+<td>message</td>
+<td>string</td>
+<td>error message if error, ok message of code=0 (success)</td>
+</tr>
+</tbody></table>
+
+<p>Examples:</p>
+
+<p>Send a meublé pre-filled bail document to locataire &ldquo;5845a17f48177ea2098b4567&rdquo; (no collocation)</p>
+<pre class="highlight shell"><code>curl --request POST <span class="se">\</span>
+  --url https://www.rendementlocatif.com/api/gestion/21/bail/5845a17f48177ea2098b4567/m/skip/skip/send <span class="se">\</span>
+  --header <span class="s1">'cache-control: no-cache'</span> <span class="se">\</span>
+  --header <span class="s1">'content-type: application/x-www-form-urlencoded'</span> <span class="se">\</span>
+  --header <span class="s1">'x-api-key: secretkey'</span> <span class="se">\</span>
+  --data <span class="s1">'username=boss&amp;password=password'</span>
+</code></pre>
+
+<h2 id="etat-des-lieux">Etat des lieux</h2>
+
+<p>Gets a &ldquo;etat des lieux&rdquo; document.</p>
+
+<blockquote>
+<p>Code to get the bien of a user</p>
+</blockquote>
+<pre class="highlight shell"><code>curl --data <span class="s2">"username=username&amp;password=password"</span>
+<span class="s2">"https://www.rendementlocatif.com/api/gestion/21/etatDesLieux/&lt;locataireId&gt;/&lt;type&gt;/&lt;empty&gt;/&lt;collocation&gt;/&lt;anythingToSendEmail&gt;"</span>
+  -H <span class="s2">"X-API-KEY: secretkey"</span>
+</code></pre>
+
+<blockquote>
+<p>If success, it returns the PDF file (streamed over HTTP)
+Otherwise it returns an error as a json</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"result"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">-10</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Missing or invalid locataireId (in url path)"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<blockquote>
+<p>If success and email send mode, it always returns a json</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"result"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Un email avec le document a été envoyé à votre locataire."</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<blockquote>
+<p>if error when seding email</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"result"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">-15</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Message non envoyé. Vous devez renseigner une adresse email pour votre locataire."</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">POST https://www.rendementlocatif.com/api/gestion/21/etatDesLieux/&lt;locataireId&gt;/&lt;type&gt;/&lt;empty&gt;/&lt;collocation&gt;/&lt;anythingToSendEmail&gt;</code></p>
+
+<p>&ldquo;locataireId&rdquo; is mandatory and should correspond to the id of the locataire for which we want to edit the document.</p>
+
+<p>&ldquo;type&rdquo; (optional) is either &ldquo;e&rdquo; (Etat des lieux d&#39;entrée, default) or &ldquo;s&rdquo; (état des lieux de sortie)</p>
+
+<p>&ldquo;empty&rdquo; (optional) can be anything to produce an empty document (not pre-filled with owner and locataire personal details). Set this to &ldquo;skip&rdquo; to keep the document pre-filled and set another next parameter in the URL.</p>
+
+<p>&ldquo;collocation&rdquo; (optional) can be anything and will generate a document with all currently active locataires (pour collocation). Set to &ldquo;skip&rdquo; to keep the document not empty and set another next parameter in the URL.</p>
+
+<p>&ldquo;anythingOnlyToSendEmail&rdquo; is optional.  Can be any non empty string. If given, the server will send an email to the locataire with the document PDF attached.</p>
+
+<h3 id="post-parameters">POST Parameters</h3>
+
+<p>Should be sent with the request in the body as &ldquo;application/x-www-form-urlencoded&rdquo;.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Mandatory</th>
+<th>Description</th>
+<th>Type</th>
+<th>default</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>username</td>
+<td>yes</td>
+<td>The user name or email address</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>password</td>
+<td>yes</td>
+<td>The user password</td>
+<td>string</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h3 id="returned-parameters">Returned parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>result</td>
+<td>boolean</td>
+<td>true if doc is generated ok or if email send ok, otherwise false</td>
+</tr>
+<tr>
+<td>code</td>
+<td>integer</td>
+<td>0 if ok otherwise error code of error</td>
+</tr>
+<tr>
+<td>message</td>
+<td>string</td>
+<td>error message if error, ok message of code=0 (success)</td>
+</tr>
+</tbody></table>
+
+<p>Examples:</p>
+
+<p>Send a pre-filled document &ldquo;etat de lieux de sortie&rdquo; to locataire &ldquo;5845a17f48177ea2098b4567&rdquo;</p>
+<pre class="highlight shell"><code>curl --request POST <span class="se">\</span>
+  --url https://www.rendementlocatif.com/api/gestion/21/etatDesLieux/5845a17f48177ea2098b4567/s/skip/skip/send <span class="se">\</span>
+  --header <span class="s1">'cache-control: no-cache'</span> <span class="se">\</span>
+  --header <span class="s1">'content-type: application/x-www-form-urlencoded'</span> <span class="se">\</span>
+  --header <span class="s1">'x-api-key: secretkey'</span> <span class="se">\</span>
+  --data <span class="s1">'username=boss&amp;password=password'</span>
+</code></pre>
+
+<h2 id="liste-avant-d-part">Liste avant Départ</h2>
+
+<p>Gets a &ldquo;liste choses à faire avant départ&rdquo; document.</p>
+
+<blockquote>
+<p>Code to get the bien of a user</p>
+</blockquote>
+<pre class="highlight shell"><code>curl --data <span class="s2">"username=username&amp;password=password"</span>
+<span class="s2">"https://www.rendementlocatif.com/api/gestion/21/avantDepart/&lt;locataireId&gt;/&lt;empty&gt;/&lt;anythingToSendEmail&gt;"</span>
+  -H <span class="s2">"X-API-KEY: secretkey"</span>
+</code></pre>
+
+<blockquote>
+<p>If success, it returns the PDF file (streamed over HTTP)
+Otherwise it returns an error as a json</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"result"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">-10</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Missing or invalid locataireId (in url path)"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<blockquote>
+<p>If success and email send mode, it always returns a json</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"result"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Un email avec le document a été envoyé à votre locataire."</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<blockquote>
+<p>if error when seding email</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"result"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">-15</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Message non envoyé. Vous devez renseigner une adresse email pour votre locataire."</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">POST https://www.rendementlocatif.com/api/gestion/21/avantDepart/&lt;locataireId&gt;/&lt;empty&gt;/&lt;anythingToSendEmail&gt;</code></p>
+
+<p>&ldquo;locataireId&rdquo; is mandatory and should correspond to the id of the locataire for which we want to edit the document.</p>
+
+<p>&ldquo;empty&rdquo; (optional) can be anything to produce an empty document (not pre-filled with owner and locataire personal details). Set this to &ldquo;skip&rdquo; to keep the document pre-filled and set another next parameter in the URL.</p>
+
+<p>&ldquo;anythingOnlyToSendEmail&rdquo; is optional.  Can be any non empty string. If given, the server will send an email to the locataire with the document PDF attached.</p>
+
+<h3 id="post-parameters">POST Parameters</h3>
+
+<p>Should be sent with the request in the body as &ldquo;application/x-www-form-urlencoded&rdquo;.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Mandatory</th>
+<th>Description</th>
+<th>Type</th>
+<th>default</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>username</td>
+<td>yes</td>
+<td>The user name or email address</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>password</td>
+<td>yes</td>
+<td>The user password</td>
+<td>string</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h3 id="returned-parameters">Returned parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>result</td>
+<td>boolean</td>
+<td>true if doc is generated ok or if email send ok, otherwise false</td>
+</tr>
+<tr>
+<td>code</td>
+<td>integer</td>
+<td>0 if ok otherwise error code of error</td>
+</tr>
+<tr>
+<td>message</td>
+<td>string</td>
+<td>error message if error, ok message of code=0 (success)</td>
+</tr>
+</tbody></table>
+
+<p>Examples:</p>
+
+<p>Send a pre-filled document to locataire &ldquo;5845a17f48177ea2098b4567&rdquo;</p>
+<pre class="highlight shell"><code>curl --request POST <span class="se">\</span>
+  --url https://www.rendementlocatif.com/api/gestion/21/avantDepart/5845a17f48177ea2098b4567/skip/send <span class="se">\</span>
+  --header <span class="s1">'cache-control: no-cache'</span> <span class="se">\</span>
+  --header <span class="s1">'content-type: application/x-www-form-urlencoded'</span> <span class="se">\</span>
+  --header <span class="s1">'x-api-key: secretkey'</span> <span class="se">\</span>
+  --data <span class="s1">'username=boss&amp;password=password'</span>
+</code></pre>
+
+<h2 id="caution-solidaire">Caution Solidaire</h2>
+
+<p>Gets a &ldquo;acte de cautionnement solidaire&rdquo; document.</p>
+
+<blockquote>
+<p>Code to get the bien of a user</p>
+</blockquote>
+<pre class="highlight shell"><code>curl --data <span class="s2">"username=username&amp;password=password"</span>
+<span class="s2">"https://www.rendementlocatif.com/api/gestion/21/cautionSolidaire/&lt;locataireId&gt;/&lt;empty&gt;/&lt;collocation&gt;/&lt;anythingToSendEmail&gt;"</span>
+  -H <span class="s2">"X-API-KEY: secretkey"</span>
+</code></pre>
+
+<blockquote>
+<p>If success, it returns the PDF file (streamed over HTTP)
+Otherwise it returns an error as a json</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"result"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">-10</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Missing or invalid locataireId (in url path)"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<blockquote>
+<p>If success and email send mode, it always returns a json</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"result"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Un email avec le document a été envoyé à votre locataire."</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<blockquote>
+<p>if error when seding email</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"result"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">-15</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Message non envoyé. Vous devez renseigner une adresse email pour votre locataire."</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">POST https://www.rendementlocatif.com/api/gestion/21/etatDesLieux/&lt;locataireId&gt;/&lt;empty&gt;/&lt;collocation&gt;/&lt;anythingToSendEmail&gt;</code></p>
+
+<p>&ldquo;locataireId&rdquo; is mandatory and should correspond to the id of the locataire for which we want to edit the document.</p>
+
+<p>&ldquo;empty&rdquo; (optional) can be anything to produce an empty document (not pre-filled with owner and locataire personal details). Set this to &ldquo;skip&rdquo; to keep the document pre-filled and set another next parameter in the URL.</p>
+
+<p>&ldquo;collocation&rdquo; (optional) can be anything and will generate a document with all currently active locataires (pour collocation). Set to &ldquo;skip&rdquo; to keep the document not empty and set another next parameter in the URL.</p>
+
+<p>&ldquo;anythingOnlyToSendEmail&rdquo; is optional.  Can be any non empty string. If given, the server will send an email to the locataire with the document PDF attached.</p>
+
+<h3 id="post-parameters">POST Parameters</h3>
+
+<p>Should be sent with the request in the body as &ldquo;application/x-www-form-urlencoded&rdquo;.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Mandatory</th>
+<th>Description</th>
+<th>Type</th>
+<th>default</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>username</td>
+<td>yes</td>
+<td>The user name or email address</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>password</td>
+<td>yes</td>
+<td>The user password</td>
+<td>string</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h3 id="returned-parameters">Returned parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>result</td>
+<td>boolean</td>
+<td>true if doc is generated ok or if email send ok, otherwise false</td>
+</tr>
+<tr>
+<td>code</td>
+<td>integer</td>
+<td>0 if ok otherwise error code of error</td>
+</tr>
+<tr>
+<td>message</td>
+<td>string</td>
+<td>error message if error, ok message of code=0 (success)</td>
+</tr>
+</tbody></table>
+
+<p>Examples:</p>
+
+<p>Send a pre-filled document &ldquo;caution solidaire&rdquo; to locataire &ldquo;5845a17f48177ea2098b4567&rdquo;</p>
+<pre class="highlight shell"><code>curl --request POST <span class="se">\</span>
+  --url https://www.rendementlocatif.com/api/gestion/21/cautionSolidaire/5845a17f48177ea2098b4567/skip/skip/send <span class="se">\</span>
+  --header <span class="s1">'cache-control: no-cache'</span> <span class="se">\</span>
+  --header <span class="s1">'content-type: application/x-www-form-urlencoded'</span> <span class="se">\</span>
+  --header <span class="s1">'x-api-key: secretkey'</span> <span class="se">\</span>
+  --data <span class="s1">'username=boss&amp;password=password'</span>
+</code></pre>
+
+<h2 id="taxe-ordures-m-nag-res">Taxe ordures ménagères</h2>
+
+<p>Gets a &ldquo;rappel paiement taxe enlèvement des ordures ménagères&rdquo; document.</p>
+
+<blockquote>
+<p>Code to get the bien of a user</p>
+</blockquote>
+<pre class="highlight shell"><code>curl --data <span class="s2">"username=username&amp;password=password"</span>
+<span class="s2">"https://www.rendementlocatif.com/api/gestion/21/taxeOrduresMenageres/&lt;locataireId&gt;/&lt;total&gt;/&lt;anythingToSendEmail&gt;"</span>
+  -H <span class="s2">"X-API-KEY: secretkey"</span>
+</code></pre>
+
+<blockquote>
+<p>If success, it returns the PDF file (streamed over HTTP)
+Otherwise it returns an error as a json or success if sent by email</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"result"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">-10</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Missing or invalid locataireId (in url path)"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<blockquote>
+<p>If success and email send mode, it always returns a json</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"result"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Un email avec le document a été envoyé à votre locataire."</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<blockquote>
+<p>if error when seding email</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"result"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">-15</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Message non envoyé. Vous devez renseigner une adresse email pour votre locataire."</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">POST https://www.rendementlocatif.com/api/gestion/21/taxeOrduresMenageres/&lt;locataireId&gt;/&lt;total&gt;/&lt;anythingToSendEmail&gt;</code></p>
+
+<p>&ldquo;locataireId&rdquo; is mandatory and should correspond to the id of the locataire for which we want to edit the document.</p>
+
+<p>&ldquo;total&rdquo; (optional) is a number to set the amount due for the tax in the document. By default it is set to 0.</p>
+
+<p>&ldquo;anythingOnlyToSendEmail&rdquo; is optional.  Can be any non empty string. If given, the server will send an email to the locataire with the document PDF attached.</p>
+
+<h3 id="post-parameters">POST Parameters</h3>
+
+<p>Should be sent with the request in the body as &ldquo;application/x-www-form-urlencoded&rdquo;.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Mandatory</th>
+<th>Description</th>
+<th>Type</th>
+<th>default</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>username</td>
+<td>yes</td>
+<td>The user name or email address</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>password</td>
+<td>yes</td>
+<td>The user password</td>
+<td>string</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h3 id="returned-parameters">Returned parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>result</td>
+<td>boolean</td>
+<td>true if doc is generated ok or if email send ok, otherwise false</td>
+</tr>
+<tr>
+<td>code</td>
+<td>integer</td>
+<td>0 if ok otherwise error code of error</td>
+</tr>
+<tr>
+<td>message</td>
+<td>string</td>
+<td>error message if error, ok message of code=0 (success)</td>
+</tr>
+</tbody></table>
+
+<p>Examples:</p>
+
+<p>Send a pre-filled document &ldquo;taxe ordures ménagères&rdquo; to locataire &ldquo;5845a17f48177ea2098b4567&rdquo; with amount due 34€ (set in the document).</p>
+<pre class="highlight shell"><code>curl --request POST <span class="se">\</span>
+  --url https://www.rendementlocatif.com/api/gestion/21/taxeOrduresMenageres/5845a17f48177ea2098b4567/34/send <span class="se">\</span>
+  --header <span class="s1">'cache-control: no-cache'</span> <span class="se">\</span>
+  --header <span class="s1">'content-type: application/x-www-form-urlencoded'</span> <span class="se">\</span>
+  --header <span class="s1">'x-api-key: secretkey'</span> <span class="se">\</span>
+  --data <span class="s1">'username=boss&amp;password=password'</span>
+</code></pre>
+
+<h2 id="relance-loyer-impay">Relance Loyer impayé</h2>
+
+<p>Gets a &ldquo;relance loyers impayés&rdquo; document.</p>
+
+<blockquote>
+<p>Code to get the bien of a user</p>
+</blockquote>
+<pre class="highlight shell"><code>curl --data <span class="s2">"username=username&amp;password=password"</span>
+<span class="s2">"https://www.rendementlocatif.com/api/gestion/21/loyerImpaye/&lt;locataireId&gt;/&lt;total&gt;/&lt;anythingToSendEmail&gt;"</span>
+  -H <span class="s2">"X-API-KEY: secretkey"</span>
+</code></pre>
+
+<blockquote>
+<p>If success, it returns the PDF file (streamed over HTTP)
+Otherwise it returns an error as a json or success if sent by email</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"result"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">-10</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Missing or invalid locataireId (in url path)"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<blockquote>
+<p>If success and email send mode, it always returns a json</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"result"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Un email avec le document a été envoyé à votre locataire."</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<blockquote>
+<p>if error when seding email</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"result"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">-15</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Message non envoyé. Vous devez renseigner une adresse email pour votre locataire."</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">POST https://www.rendementlocatif.com/api/gestion/21/loyerImpaye/&lt;locataireId&gt;/&lt;total&gt;/&lt;anythingToSendEmail&gt;</code></p>
+
+<p>&ldquo;locataireId&rdquo; is mandatory and should correspond to the id of the locataire for which we want to edit the document.</p>
+
+<p>&ldquo;total&rdquo; (optional) is a number to set the amount due in the document. By default it is set to 0.</p>
+
+<p>&ldquo;anythingOnlyToSendEmail&rdquo; is optional.  Can be any non empty string. If given, the server will send an email to the locataire with the document PDF attached.</p>
+
+<h3 id="post-parameters">POST Parameters</h3>
+
+<p>Should be sent with the request in the body as &ldquo;application/x-www-form-urlencoded&rdquo;.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Mandatory</th>
+<th>Description</th>
+<th>Type</th>
+<th>default</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>username</td>
+<td>yes</td>
+<td>The user name or email address</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>password</td>
+<td>yes</td>
+<td>The user password</td>
+<td>string</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h3 id="returned-parameters">Returned parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>result</td>
+<td>boolean</td>
+<td>true if doc is generated ok or if email send ok, otherwise false</td>
+</tr>
+<tr>
+<td>code</td>
+<td>integer</td>
+<td>0 if ok otherwise error code of error</td>
+</tr>
+<tr>
+<td>message</td>
+<td>string</td>
+<td>error message if error, ok message of code=0 (success)</td>
+</tr>
+</tbody></table>
+
+<p>Examples:</p>
+
+<p>Send a pre-filled document &ldquo;relance loyers impayés&rdquo; to locataire &ldquo;5845a17f48177ea2098b4567&rdquo; with amount due 34€ (set in the document).</p>
+<pre class="highlight shell"><code>curl --request POST <span class="se">\</span>
+  --url https://www.rendementlocatif.com/api/gestion/21/loyerImpaye/5845a17f48177ea2098b4567/34/send <span class="se">\</span>
+  --header <span class="s1">'cache-control: no-cache'</span> <span class="se">\</span>
+  --header <span class="s1">'content-type: application/x-www-form-urlencoded'</span> <span class="se">\</span>
+  --header <span class="s1">'x-api-key: secretkey'</span> <span class="se">\</span>
+  --data <span class="s1">'username=boss&amp;password=/21/'</span>
+</code></pre>
+
+<h2 id="compte-locataire">Compte Locataire</h2>
+
+<p>Gets the detailled status of a locataire account. Can be returned as data (full data of account and lines) or as a PDF. Can also be sent by email to the locataire (when pdf).</p>
+
+<blockquote>
+<p>Code to get the bien of a user</p>
+</blockquote>
+<pre class="highlight shell"><code>curl --data <span class="s2">"username=username&amp;password=password"</span>
+<span class="s2">"https://www.rendementlocatif.com/api/gestion/21/compteLocataire/&lt;locataireId&gt;/&lt;mode&gt;/&lt;anythingToSendEmail&gt;"</span>
+  -H <span class="s2">"X-API-KEY: secretkey"</span>
+</code></pre>
+
+<blockquote>
+<p>If success, it returns the PDF file (streamed over HTTP)
+Otherwise it returns an error as a json or success if sent by email</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"result"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">-10</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Missing or invalid locataireId (in url path)"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<blockquote>
+<p>If success and data return (not pdf), it always returns a json like this</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"result"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"locataire"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"address1"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"address2"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"bienId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"580a81d348177eb0128b4568"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"bornDate"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"bornLocation"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"codepostal"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"dateCreated"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"sec"</span><span class="p">:</span><span class="w"> </span><span class="mi">1480958335</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"usec"</span><span class="p">:</span><span class="w"> </span><span class="mi">313000</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"dateLastModified"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"sec"</span><span class="p">:</span><span class="w"> </span><span class="mi">1491916791</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"usec"</span><span class="p">:</span><span class="w"> </span><span class="mi">704000</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"dayLoyer"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"depotGarantie"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bassouli@gmail.com"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"entryDate"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"sec"</span><span class="p">:</span><span class="w"> </span><span class="mi">1422745200</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"usec"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"immeubleId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"580a81d348177eb0128b4567"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"indiceRevision"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"loyer"</span><span class="p">:</span><span class="w"> </span><span class="mi">300</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"nationality"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"nom"</span><span class="p">:</span><span class="w"> </span><span class="s2">"testAPINom"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"precision"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"prenom"</span><span class="p">:</span><span class="w"> </span><span class="s2">"testAPIPrénom"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"provision"</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"quitDate"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"robot"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"signatureDate"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"sec"</span><span class="p">:</span><span class="w"> </span><span class="mi">1422745200</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"usec"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"typeLocation"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"23"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ville"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5845a17f48177ea2098b4567"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"immeuble"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5 Rue d'Alençon"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"address2"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"address_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"codepostal"</span><span class="p">:</span><span class="w"> </span><span class="s2">"75015"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"comagence"</span><span class="p">:</span><span class="w"> </span><span class="mf">3816.45</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"comcourtier"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FR"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"country_long"</span><span class="p">:</span><span class="w"> </span><span class="s2">"France"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"dateCreated"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"sec"</span><span class="p">:</span><span class="w"> </span><span class="mi">1477083603</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"usec"</span><span class="p">:</span><span class="w"> </span><span class="mi">168000</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"dateLastModified"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"sec"</span><span class="p">:</span><span class="w"> </span><span class="mi">1482254485</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"usec"</span><span class="p">:</span><span class="w"> </span><span class="mi">553000</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"fraisnotaire"</span><span class="p">:</span><span class="w"> </span><span class="mf">1688.59</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"investId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5729f23b48177eba408b4567"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"meubles"</span><span class="p">:</span><span class="w"> </span><span class="mi">277</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"milliemes"</span><span class="p">:</span><span class="w"> </span><span class="mi">554</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test immeuble 2"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"options"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"autoPaiement"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"place_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ChIJMR_W1DJw5kcRHxOw3-Nr5DE"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"place_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://maps.google.com/?q=5+Rue+d'Alençon,+75015+Paris,+France&amp;ftid=0x47e67032d4d61f31:0x31e46be3dfb0131f"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"prixnet"</span><span class="p">:</span><span class="w"> </span><span class="mf">47705.55</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"prixtoday"</span><span class="p">:</span><span class="w"> </span><span class="mf">47705.55</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"robot"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"surface"</span><span class="p">:</span><span class="w"> </span><span class="mi">23</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"travauxr"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"immeuble"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"23"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ville"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Paris|75015"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ville_niveau1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Île-de-France"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ville_niveau2"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Paris"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ville_seule"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Paris"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"villevalue"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Paris (75015)"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"imageURL"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://maps.googleapis.com/maps/api/streetview?size=640x400&amp;location=5+Rue+d%27Alen%C3%A7on%2C+Paris%2C+France&amp;key=AIzaSyC0bksAgpmpdGIZt4Ed3gj7yEes4RG7TZo"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"totalEmprunt"</span><span class="p">:</span><span class="w"> </span><span class="mi">91915</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"totalMensualite"</span><span class="p">:</span><span class="w"> </span><span class="mf">649.15</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"date_achat"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"sec"</span><span class="p">:</span><span class="w"> </span><span class="mi">1398895200</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"usec"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"580a81d348177eb0128b4567"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">-8910</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"lines"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"time"</span><span class="p">:</span><span class="w"> </span><span class="mi">1422745200</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"montant"</span><span class="p">:</span><span class="w"> </span><span class="mi">330</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Loyer + Provisions charges"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"positive"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"time"</span><span class="p">:</span><span class="w"> </span><span class="mi">1425337200</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"montant"</span><span class="p">:</span><span class="w"> </span><span class="mi">330</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Loyer + Provisions charges"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"positive"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"time"</span><span class="p">:</span><span class="w"> </span><span class="mi">1428012000</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"montant"</span><span class="p">:</span><span class="w"> </span><span class="mi">330</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Loyer + Provisions charges"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"positive"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"time"</span><span class="p">:</span><span class="w"> </span><span class="mi">1430604000</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"montant"</span><span class="p">:</span><span class="w"> </span><span class="mi">330</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Loyer + Provisions charges"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"positive"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"time"</span><span class="p">:</span><span class="w"> </span><span class="mi">1433282400</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"montant"</span><span class="p">:</span><span class="w"> </span><span class="mi">330</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Loyer + Provisions charges"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"positive"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"time"</span><span class="p">:</span><span class="w"> </span><span class="mi">1435874400</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"montant"</span><span class="p">:</span><span class="w"> </span><span class="mi">330</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Loyer + Provisions charges"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"positive"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"time"</span><span class="p">:</span><span class="w"> </span><span class="mi">1438552800</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"montant"</span><span class="p">:</span><span class="w"> </span><span class="mi">330</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Loyer + Provisions charges"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"positive"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"time"</span><span class="p">:</span><span class="w"> </span><span class="mi">1441231200</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"montant"</span><span class="p">:</span><span class="w"> </span><span class="mi">330</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Loyer + Provisions charges"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"positive"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"time"</span><span class="p">:</span><span class="w"> </span><span class="mi">1443823200</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"montant"</span><span class="p">:</span><span class="w"> </span><span class="mi">330</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Loyer + Provisions charges"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"positive"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"time"</span><span class="p">:</span><span class="w"> </span><span class="mi">1446505200</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"montant"</span><span class="p">:</span><span class="w"> </span><span class="mi">330</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Loyer + Provisions charges"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"positive"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"time"</span><span class="p">:</span><span class="w"> </span><span class="mi">1449097200</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"montant"</span><span class="p">:</span><span class="w"> </span><span class="mi">330</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Loyer + Provisions charges"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"positive"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"time"</span><span class="p">:</span><span class="w"> </span><span class="mi">1451775600</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"montant"</span><span class="p">:</span><span class="w"> </span><span class="mi">330</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Loyer + Provisions charges"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"positive"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"time"</span><span class="p">:</span><span class="w"> </span><span class="mi">1454454000</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"montant"</span><span class="p">:</span><span class="w"> </span><span class="mi">330</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Loyer + Provisions charges"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"positive"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"time"</span><span class="p">:</span><span class="w"> </span><span class="mi">1456959600</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"montant"</span><span class="p">:</span><span class="w"> </span><span class="mi">330</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Loyer + Provisions charges"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"positive"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"time"</span><span class="p">:</span><span class="w"> </span><span class="mi">1459634400</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"montant"</span><span class="p">:</span><span class="w"> </span><span class="mi">330</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Loyer + Provisions charges"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"positive"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"time"</span><span class="p">:</span><span class="w"> </span><span class="mi">1462226400</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"montant"</span><span class="p">:</span><span class="w"> </span><span class="mi">330</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Loyer + Provisions charges"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"positive"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"time"</span><span class="p">:</span><span class="w"> </span><span class="mi">1464904800</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"montant"</span><span class="p">:</span><span class="w"> </span><span class="mi">330</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Loyer + Provisions charges"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"positive"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"time"</span><span class="p">:</span><span class="w"> </span><span class="mi">1467496800</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"montant"</span><span class="p">:</span><span class="w"> </span><span class="mi">330</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Loyer + Provisions charges"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"positive"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"time"</span><span class="p">:</span><span class="w"> </span><span class="mi">1470175200</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"montant"</span><span class="p">:</span><span class="w"> </span><span class="mi">330</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Loyer + Provisions charges"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"positive"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"time"</span><span class="p">:</span><span class="w"> </span><span class="mi">1472853600</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"montant"</span><span class="p">:</span><span class="w"> </span><span class="mi">330</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Loyer + Provisions charges"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"positive"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"time"</span><span class="p">:</span><span class="w"> </span><span class="mi">1475445600</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"montant"</span><span class="p">:</span><span class="w"> </span><span class="mi">330</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Loyer + Provisions charges"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"positive"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"time"</span><span class="p">:</span><span class="w"> </span><span class="mi">1478127600</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"montant"</span><span class="p">:</span><span class="w"> </span><span class="mi">330</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Loyer + Provisions charges"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"positive"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"time"</span><span class="p">:</span><span class="w"> </span><span class="mi">1480719600</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"montant"</span><span class="p">:</span><span class="w"> </span><span class="mi">330</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Loyer + Provisions charges"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"positive"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"time"</span><span class="p">:</span><span class="w"> </span><span class="mi">1483398000</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"montant"</span><span class="p">:</span><span class="w"> </span><span class="mi">330</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Loyer + Provisions charges"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"positive"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"time"</span><span class="p">:</span><span class="w"> </span><span class="mi">1486076400</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"montant"</span><span class="p">:</span><span class="w"> </span><span class="mi">330</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Loyer + Provisions charges"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"positive"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"time"</span><span class="p">:</span><span class="w"> </span><span class="mi">1488495600</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"montant"</span><span class="p">:</span><span class="w"> </span><span class="mi">330</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Loyer + Provisions charges"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"positive"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"time"</span><span class="p">:</span><span class="w"> </span><span class="mi">1491170400</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"montant"</span><span class="p">:</span><span class="w"> </span><span class="mi">330</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Loyer + Provisions charges"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"positive"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<blockquote>
+<p>If success and email send mode, it always returns a json</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"result"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Un email avec le document a été envoyé à votre locataire."</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<blockquote>
+<p>if error when seding email</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"result"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">-15</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Message non envoyé. Vous devez renseigner une adresse email pour votre locataire."</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">POST https://www.rendementlocatif.com/api/gestion/21/compteLocataire/&lt;locataireId&gt;/&lt;mode&gt;/&lt;anythingToSendEmail&gt;</code></p>
+
+<p>&ldquo;locataireId&rdquo; is mandatory and should correspond to the id of the locataire for which we want to edit the account status.</p>
+
+<p>&ldquo;mode&rdquo; (optional) is a string to set wether or not we want the API to return a PDF document (<mode> = &#39;pdf&rsquo; , by default) or data as json (<mode> = &#39;data&rsquo;).</p>
+
+<p>&ldquo;anythingOnlyToSendEmail&rdquo; is optional.  Can be any non empty string. If given, the server will send an email to the locataire with the document PDF attached.</p>
+
+<h3 id="post-parameters">POST Parameters</h3>
+
+<p>Should be sent with the request in the body as &ldquo;application/x-www-form-urlencoded&rdquo;.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Mandatory</th>
+<th>Description</th>
+<th>Type</th>
+<th>default</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>username</td>
+<td>yes</td>
+<td>The user name or email address</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>password</td>
+<td>yes</td>
+<td>The user password</td>
+<td>string</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h3 id="returned-parameters">Returned parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>result</td>
+<td>boolean</td>
+<td>true if doc is generated ok or if email send ok, otherwise false</td>
+</tr>
+<tr>
+<td>code</td>
+<td>integer</td>
+<td>0 if ok otherwise error code of error</td>
+</tr>
+<tr>
+<td>locataire</td>
+<td>object</td>
+<td>details of the locataire for display</td>
+</tr>
+<tr>
+<td>immeuble</td>
+<td>object</td>
+<td>details of the immeuble (to get the adress and everything in case needed for display)</td>
+</tr>
+<tr>
+<td>amount</td>
+<td>float</td>
+<td>total amount due by the locataire (is negative) or due by the landlord (if positive)</td>
+</tr>
+<tr>
+<td>lines</td>
+<td>array</td>
+<td>an array of all the lines of the account to be usually displayed as a table. Every line is an object with &ldquo;time&rdquo; = timestamp of operation, &ldquo;montant&rdquo; = float, &ldquo;positive&rdquo; = false or true depending on whether it is a du amount (dette) or paid amount (by the locataire)</td>
+</tr>
+<tr>
+<td>message</td>
+<td>string</td>
+<td>error message if error, ok message of code=0 (success)</td>
+</tr>
+</tbody></table>
+
+<p>Examples:</p>
+
+<p>Returns the status of the account of locataire 5845a17f48177ea2098b4567 as json data.</p>
+<pre class="highlight shell"><code>curl --request POST <span class="se">\</span>
+  --url https://www.rendementlocatif.com/api/gestion/21/lcompteLocataire/5845a17f48177ea2098b4567/data <span class="se">\</span>
+  --header <span class="s1">'cache-control: no-cache'</span> <span class="se">\</span>
+  --header <span class="s1">'content-type: application/x-www-form-urlencoded'</span> <span class="se">\</span>
+  --header <span class="s1">'x-api-key: secretkey'</span> <span class="se">\</span>
+  --data <span class="s1">'username=boss&amp;password=/21/'</span>
+</code></pre>
+
+<h2 id="fiche-candidature">Fiche candidature</h2>
+
+<p>Gets a &ldquo;fiche de candidature&rdquo; document for a new locataire.</p>
+
+<blockquote>
+<p>Code to get the bien of a user</p>
+</blockquote>
+<pre class="highlight shell"><code>curl --data <span class="s2">"username=username&amp;password=password"</span>
+<span class="s2">"https://www.rendementlocatif.com/api/gestion/21/ficheCandidature/&lt;bienId&gt;/&lt;empty&gt;/&lt;anythingToSendEmail&gt;"</span>
+  -H <span class="s2">"X-API-KEY: secretkey"</span>
+</code></pre>
+
+<blockquote>
+<p>If success, it returns the PDF file (streamed over HTTP)
+Otherwise it returns an error as a json</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"result"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">-10</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Missing or invalid locataireId (in url path)"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<blockquote>
+<p>If success and email send mode, it always returns a json</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"result"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Un email avec le document a été envoyé à votre locataire."</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<blockquote>
+<p>if error when seding email</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"result"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">-15</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Message non envoyé. Vous devez renseigner une adresse email pour votre locataire."</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">POST https://www.rendementlocatif.com/api/gestion/21/etatDesLieux/&lt;bienId&gt;/&lt;empty&gt;/&lt;anythingToSendEmail&gt;</code></p>
+
+<p>&ldquo;bienId&rdquo; is mandatory and should correspond to the bien id for which we want to edit the document.</p>
+
+<p>&ldquo;empty&rdquo; (optional) can be anything to produce an empty document (not pre-filled with owner and locataire personal details). Set this to &ldquo;skip&rdquo; to keep the document pre-filled and set another next parameter in the URL.</p>
+
+<p>&ldquo;anythingOnlyToSendEmail&rdquo; is optional.  Can be any non empty string. If given, the server will send an email to the locataire with the document PDF attached.</p>
+
+<h3 id="post-parameters">POST Parameters</h3>
+
+<p>Should be sent with the request in the body as &ldquo;application/x-www-form-urlencoded&rdquo;.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Mandatory</th>
+<th>Description</th>
+<th>Type</th>
+<th>default</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>username</td>
+<td>yes</td>
+<td>The user name or email address</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>password</td>
+<td>yes</td>
+<td>The user password</td>
+<td>string</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h3 id="returned-parameters">Returned parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>result</td>
+<td>boolean</td>
+<td>true if doc is generated ok or if email send ok, otherwise false</td>
+</tr>
+<tr>
+<td>code</td>
+<td>integer</td>
+<td>0 if ok otherwise error code of error</td>
+</tr>
+<tr>
+<td>message</td>
+<td>string</td>
+<td>error message if error, ok message of code=0 (success)</td>
+</tr>
+</tbody></table>
+
+<p>Examples:</p>
+
+<p>Send a pre-filled document &ldquo;fiche candidature&rdquo; to locataire &ldquo;580a81d348177eb0128b4568&rdquo;</p>
+<pre class="highlight shell"><code>curl --request POST <span class="se">\</span>
+  --url https://www.rendementlocatif.com/api/gestion/21/ficheCandidature/580a81d348177eb0128b4568/skip/send <span class="se">\</span>
+  --header <span class="s1">'cache-control: no-cache'</span> <span class="se">\</span>
+  --header <span class="s1">'content-type: application/x-www-form-urlencoded'</span> <span class="se">\</span>
+  --header <span class="s1">'x-api-key: secretkey'</span> <span class="se">\</span>
+  --data <span class="s1">'username=boss&amp;password=password'</span>
+</code></pre>
+
+<h2 id="any-document">Any document</h2>
+
+<p>Gets other documents as PDF, can also be sent to a locataire by email.
+It can be used for documents that already have a specific endpoint (bail, ficheCandidature, etc) but it is not recommanded. Otherwise using the specific endpoint will pre-fill much more detailsand give more options.</p>
+
+<blockquote>
+<p>Code to get the bien of a user</p>
+</blockquote>
+<pre class="highlight shell"><code>curl --data <span class="s2">"username=username&amp;password=password"</span>
+<span class="s2">"https://www.rendementlocatif.com/api/gestion/21/doc/&lt;docType&gt;/&lt;locataireId&gt;/&lt;anythingToSendEmail&gt;"</span>
+  -H <span class="s2">"X-API-KEY: secretkey"</span>
+</code></pre>
+
+<blockquote>
+<p>If success, it returns the PDF file (streamed over HTTP)
+Otherwise it returns an error as a json</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"result"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">-10</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Missing or invalid docType (in url path, 1st parameter)"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<blockquote>
+<p>If success and email send mode, it always returns a json</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"result"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Un email avec le document a été envoyé à votre locataire."</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<blockquote>
+<p>if error when seding email</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"result"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">-15</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Message non envoyé. Vous devez renseigner une adresse email pour votre locataire."</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">POST https://www.rendementlocatif.com/api/gestion/21/doc/&lt;docType&gt;/&lt;locataireId&gt;/&lt;anythingToSendEmail&gt;</code></p>
+
+<p>&ldquo;docType&rdquo; is the id of the document to return (string). DocType can be one of :</p>
+
+<ul>
+<li>listeChargesRecuperables</li>
+<li>listeReparationsLocatives</li>
+</ul>
+
+<p>&ldquo;locataireId&rdquo; is mandatory and should correspond to the id of the locataire for which we want to edit the document.</p>
+
+<p>&ldquo;anythingOnlyToSendEmail&rdquo; is optional.  Can be any non empty string. If given, the server will send an email to the locataire with the document PDF attached.</p>
+
+<h3 id="post-parameters">POST Parameters</h3>
+
+<p>Should be sent with the request in the body as &ldquo;application/x-www-form-urlencoded&rdquo;.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Mandatory</th>
+<th>Description</th>
+<th>Type</th>
+<th>default</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>username</td>
+<td>yes</td>
+<td>The user name or email address</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>password</td>
+<td>yes</td>
+<td>The user password</td>
+<td>string</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h3 id="returned-parameters">Returned parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>result</td>
+<td>boolean</td>
+<td>true if doc is generated ok or if email send ok, otherwise false</td>
+</tr>
+<tr>
+<td>code</td>
+<td>integer</td>
+<td>0 if ok otherwise error code of error</td>
+</tr>
+<tr>
+<td>message</td>
+<td>string</td>
+<td>error message if error, ok message of code=0 (success)</td>
+</tr>
+</tbody></table>
+
+<p>Examples:</p>
+
+<p>Gets a &ldquo;liste des charges récupérables&rdquo; document as PDF.</p>
+<pre class="highlight shell"><code>curl --request POST <span class="se">\</span>
+  --url https://www.rendementlocatif.com/api/gestion/21/doc/listeChargesRecuperables <span class="se">\</span>
+  --header <span class="s1">'cache-control: no-cache'</span> <span class="se">\</span>
+  --header <span class="s1">'content-type: application/x-www-form-urlencoded'</span> <span class="se">\</span>
+  --header <span class="s1">'x-api-key: secretkey'</span> <span class="se">\</span>
+  --data <span class="s1">'username=boss&amp;password=password'</span>
+</code></pre>
 
           <h1 id="errors">Errors</h1>
 
