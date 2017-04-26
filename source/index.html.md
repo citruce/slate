@@ -3363,7 +3363,7 @@ Retreives all the data to generate a rapport of the user patrimoine immobilier.
 
 ```shell
 curl --data "username=username&password=password"
-"https://www.rendementlocatif.com/api/gestion/21/raport/"
+"https://www.rendementlocatif.com/api/gestion/21/rapport/"
   -H "X-API-KEY: secretkey"
 ```
 
@@ -4308,7 +4308,7 @@ curl --data "username=username&password=password"
 
 ### HTTP Request
 
-`POST https://www.rendementlocatif.com/api/gestion/21/raport/`
+`POST https://www.rendementlocatif.com/api/gestion/21/rapport/`
 
 
 ### POST Parameters
@@ -4324,3 +4324,248 @@ password | yes | The user password | string |
 ### Returned parameters
 
 TBD
+
+
+# Experts
+
+## Browse
+
+Gets the list of experts (browse).
+
+> Code to get the bien of a user
+
+```shell
+curl "https://www.rendementlocatif.com/api/experts/browse/<limit>"
+  -H "X-API-KEY: secretkey"
+```
+
+> Returns the following JSON:
+
+```json
+{
+  "experts": [
+    {
+      "active": true,
+      "bio": "Equipe composée de deux spécialistes en immobilier et en ingénierie fiscale et patrimoniale, à savoir d’un ancien Inspecteur vérificateur des impôts, et d’une titulaire du Diplôme Supérieur du Notariat. Je suis le créateur de http://rendementlocatif.com | https://www.rendementlocatif.com | https://rendementlocatif.com  | http://rendementlocatif.fr  | rendementlocatif.com  \nNous pouvons vous aider en vous donnant toutes les pistes adaptées à votre situation (chiffrées), en vous aidant à éviter les pièges, et à anticiper la transmission.\n",
+      "book": "https://livre.law",
+      "country": "FR",
+      "countryBilling": "FR",
+      "countrycode": "33",
+      "dateCreated": {
+        "sec": 1481377633,
+        "usec": 479000
+      },
+      "dateLastModified": {
+        "sec": 1491748644,
+        "usec": 689000
+      },
+      "facebook": "https://www.facebook.com/CMFCONSEIL/?fref=ts",
+      "favoriteVideoId": "",
+      "linkedin": "https://fr.linkedin.com/in/florianburnat",
+      "mobilephone": "0675887175",
+      "nom": "Tezuka",
+      "paused": false,
+      "photo_file_name": "photo.png",
+      "prenom": "Osamu",
+      "rating": 3.67,
+      "ratingCount": 6,
+      "requirements": [
+        "Vente de votre bien immobilier",
+        "Recherche d'un bien dans la région de Toulouse",
+        ""
+      ],
+      "shortbio": "Immobilier meublé étudiant testfd",
+      "stripeActive": true,
+      "tarifhoraire": 50,
+      "timezone": "Europe/Paris",
+      "topics": [
+        "LMNP",
+        "Location étudiant",
+        "Location saisonnière",
+        "Fiscalité optimisation",
+        "Gestion immobilière",
+        "Impôt revenus",
+        "Surélévation",
+        "Colocation"
+      ],
+      "twitter": "https://twitter.com/melina_solidas",
+      "user_id": "2",
+      "verified": false,
+      "ville": "Paris",
+      "villes": [
+        {
+          "name": "Marseillan",
+          "cp": "32170",
+          "id": "12322"
+        },
+        {
+          "name": "Paris",
+          "cp": "75000",
+          "id": "30438"
+        }
+      ],
+      "website": "https://cms.law/fr/FRA/Avocats/Florian-Burnat",
+      "youtube": "https://www.youtube.com/channel/UCN40KaSYFoDMcxL1xzSSA5w",
+      "id": "584c076148177ed5118b4567",
+      "image": "https://www.rendementlocatif.com/gestion/downloadDocument/MiUyRnBob3RvcyUyRnBob3RvXzUwMHg1MDAucG5n"
+    },
+    {
+      "active": true,
+      "bio": "sdfdsfsdfsd dsf dsf sdfsd sd fdsf dsfds f sdfd fdg sfdg fg sdfgdf sds fgd gfdg fsdgfdgscxbvcb cb cvb",
+      "book": "",
+      "country": "France",
+      "countrycode": "33",
+      "dateCreated": {
+        "sec": 1481298310,
+        "usec": 946000
+      },
+      "dateLastModified": {
+        "sec": 1492024241,
+        "usec": 741000
+      },
+      "facebook": "https://www.facebook.com/rendementlocatif",
+      "favoriteVideoId": "",
+      "free": true,
+      "linkedin": "https://fr.linkedin.com/in/bassel",
+      "mobilephone": "0675887175",
+      "nom": "Abedi",
+      "paused": false,
+      "photo_file_name": "photo.png",
+      "prenom": "Bassel",
+      "rating": 3,
+      "ratingCount": 3,
+      "requirements": [
+        "Vente d'un bien",
+        "Recherche d'un comptable",
+        ""
+      ],
+      "shortbio": "Immobilier Etudiant",
+      "stripeActive": true,
+      "tarifhoraire": 0,
+      "timezone": "Europe/Paris",
+      "topics": [
+        "Appartements",
+        "Fiscalité"
+      ],
+      "twitter": "https://twitter.com/rendementlocati",
+      "user_id": "23",
+      "verified": false,
+      "ville": "Paris",
+      "villes": "",
+      "website": "https://www.rendementlocatif.com",
+      "youtube": "https://www.youtube.com/channel/UCN40KaSYFoDMcxL1xzSSA5w",
+      "id": "584ad18648177e9a138b4567",
+      "image": "https://www.rendementlocatif.com/gestion/downloadDocument/MjMlMkZwaG90b3MlMkZwaG90b181MDB4NTAwLnBuZw=="
+    }
+  ],
+  "count": 2,
+  "result": true,
+  "code": 0
+}
+```
+
+### HTTP Request
+
+`GET https://www.rendementlocatif.com/api/experts/browse/<limit>`
+
+The "limit" parameter is the max number of experts to return. By default (if not present), it returns 10 experts.
+
+### Parameters
+
+None, except limit in the URI path.
+
+
+## Profile
+
+Gets the list of experts (browse).
+
+> Code to get the bien of a user
+
+```shell
+curl "https://www.rendementlocatif.com/api/experts/profile/<expertId>"
+  -H "X-API-KEY: secretkey"
+```
+
+> Returns the following JSON:
+
+```json
+{
+  "expert": {
+    "active": true,
+    "bio": "Equipe composée de deux spécialistes en immobilier et en ingénierie fiscale et patrimoniale, à savoir d’un ancien Inspecteur vérificateur des impôts, et d’une titulaire du Diplôme Supérieur du Notariat. Je suis le créateur de http://rendementlocatif.com | https://www.rendementlocatif.com | https://rendementlocatif.com  | http://rendementlocatif.fr  | rendementlocatif.com  \nNous pouvons vous aider en vous donnant toutes les pistes adaptées à votre situation (chiffrées), en vous aidant à éviter les pièges, et à anticiper la transmission.\n",
+    "book": "https://livre.law",
+    "country": "FR",
+    "countryBilling": "FR",
+    "countrycode": "33",
+    "dateCreated": {
+      "sec": 1481377633,
+      "usec": 479000
+    },
+    "dateLastModified": {
+      "sec": 1491748644,
+      "usec": 689000
+    },
+    "facebook": "https://www.facebook.com/CMFCONSEIL/?fref=ts",
+    "favoriteVideoId": "",
+    "linkedin": "https://fr.linkedin.com/in/florianburnat",
+    "mobilephone": "0675887175",
+    "nom": "Tezuka",
+    "paused": false,
+    "photo_file_name": "photo.png",
+    "prenom": "Osamu",
+    "rating": 3.67,
+    "ratingCount": 6,
+    "requirements": [
+      "Vente de votre bien immobilier",
+      "Recherche d'un bien dans la région de Toulouse",
+      ""
+    ],
+    "shortbio": "Immobilier meublé étudiant testfd",
+    "stripeActive": true,
+    "tarifhoraire": 50,
+    "timezone": "Europe/Paris",
+    "topics": [
+      "LMNP",
+      "Location étudiant",
+      "Location saisonnière",
+      "Fiscalité optimisation",
+      "Gestion immobilière",
+      "Impôt revenus",
+      "Surélévation",
+      "Colocation"
+    ],
+    "twitter": "https://twitter.com/melina_solidas",
+    "user_id": "2",
+    "verified": false,
+    "ville": "Paris",
+    "villes": [
+      {
+        "name": "Marseillan",
+        "cp": "32170",
+        "id": "12322"
+      },
+      {
+        "name": "Paris",
+        "cp": "75000",
+        "id": "30438"
+      }
+    ],
+    "website": "https://cms.law/fr/FRA/Avocats/Florian-Burnat",
+    "youtube": "https://www.youtube.com/channel/UCN40KaSYFoDMcxL1xzSSA5w",
+    "id": "584c076148177ed5118b4567",
+    "image": "https://www.rendementlocatif.com/gestion/downloadDocument/MiUyRnBob3RvcyUyRnBob3RvXzUwMHg1MDAucG5n"
+  },
+  "result": true,
+  "code": 0
+}
+```
+
+### HTTP Request
+
+`GET https://www.rendementlocatif.com/api/expert/profile/<expertId>`
+
+"expertId" is the Id of the expert to return.
+
+### Parameters
+
+None, except limit in the URI path.
