@@ -2603,7 +2603,7 @@ curl --data "username=username&password=password"
 
 ### HTTP Request
 
-`POST https://www.rendementlocatif.com/api/gestion/21/etatDesLieux/<locataireId>/<empty>/<collocation>/<anythingToSendEmail>`
+`POST https://www.rendementlocatif.com/api/gestion/21/cautionSolidaire/<locataireId>/<empty>/<collocation>/<anythingToSendEmail>`
 
 "locataireId" is mandatory and should correspond to the id of the locataire for which we want to edit the document.
 
