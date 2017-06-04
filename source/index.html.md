@@ -4562,7 +4562,7 @@ curl "https://www.rendementlocatif.com/api/experts/profile/<expertId>"
 
 ### HTTP Request
 
-`GET https://www.rendementlocatif.com/api/expert/profile/<expertId>`
+`GET https://www.rendementlocatif.com/api/experts/profile/<expertId>`
 
 "expertId" is the Id of the expert to return.
 
