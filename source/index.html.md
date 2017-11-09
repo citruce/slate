@@ -2085,8 +2085,8 @@ milliemes | yes | millièmes | integer (<= 1000)
 pieces | yes | nombre de pièces  | enum of ('T1', 'T1bis', 'T2', 'T2bis', 'T3', 'T3bis', 'T4', 'T4bis', 'T5', 'T5bis', 'T6', 'T6bis', 'T6+')
 etage | yes | Etage du bien | integer
 chambres | yes | nombre de chambres | integer
-energy | yes | Note energy | string (1 caracter)
-ges | yes| Not GES | string (1 caracter)
+energy | yes | Note energy | enum <option value="">----</option><option value="a">A (moins de 50)</option><option value="b">B (de 51 à 90)</option><option value="c">C (de 91 à 150)</option><option value="d" selected="selected">D (de 151 à 230)</option><option value="e">E (de 231 à 330)</option><option value="f">F (de 331 à 450)</option><option value="g">G (de 451 à 590)</option><option value="h">H (de 591 à 750)</option><option value="i">I (751 et plus)</option><option value="v">Vierge</option>
+ges | yes| Not GES | enum <option value="">----</option><option value="a">A (moins de 5)</option><option value="b" selected="selected">B (de 6 à 10)</option><option value="c">C (de 11 à 20)</option><option value="d">D (de 21 à 35)</option><option value="e">E (de 36 à 55)</option><option value="f">F (de 56 à 80)</option><option value="g">G (de 81 à 110)</option><option value="h">H (de 111 à 145)</option><option value="i">I (146 et plus)</option><option value="v">Vierge</option>
 infos | no | Any free text regarding the bien (max 100 caracters) | string
 
 Example of body with parameters:
