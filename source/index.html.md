@@ -1965,7 +1965,7 @@ curl --data "username=username&password=password"
 "bienId" is mandatory and should correspond to the id of the bien to which the locataire will be attached.
 
 "locataireId" is optional. If given, it tells the API to update the locataire with id <locataireId> instead of adding a new locataire.
-If "locataireId" is incorrect or empty, the operation will be added as a new one by default.
+If "locataireId" is incorrect or empty, the locataire will be added as a new one by default.
 
 ### Parameters
 
@@ -2021,6 +2021,89 @@ curl --request POST \
   --header 'content-type: application/x-www-form-urlencoded' \
   --header 'x-api-key: secretkey' \
   --data 'username=boss&password=password&nom=Dupont&prenom=jean&loyer=666&provision=20&indiceRevision=0&signatureDate=1422745200&entryDate=1422745200&dayLoyer=3&typeLocation=0&depotGarantie=1'
+```
+
+## Save a Bien
+
+Creates a new bien or update an existing bien (if bienId is given in the path).
+
+> Code to get the bien of a user
+
+```shell
+curl --data "username=username&password=password"
+"https://www.rendementlocatif.com/api/gestion/21/savebien/<immeubleId>/<bienId>"
+  -H "X-API-KEY: secretkey"
+```
+
+> <bienId> is mandatory and is the id of the bien to which the locataire will be attached
+> <locataireId> is optional and is the id of the locataire if
+> Returns the following JSON:
+
+>success
+
+```json
+{
+  "result": true,
+  "bienId": "5846e1e948177e30128b4567",
+  "message": "'L'ajout a bien été pris en compte.",
+  "code": 0
+}
+```
+
+>error
+
+```json
+{
+  "result": false,
+  "code": -4,
+  "message": "Some fields are incorrect or missing (see error for more details).",
+  "error": "\"Nom\" est obligatoire.\n"
+}
+```
+
+### HTTP Request
+
+`POST https://www.rendementlocatif.com/api/gestion/21/savebien/<immeubleId>/<bienId>`
+
+"immeubleId" is mandatory and should correspond to the id of the immeuble to which the bien will or is attached.
+
+"bienId" is optional. If given, it tells the API to update the bien with id <bienId> instead of adding a new bien.
+If "bienId" is incorrect or empty, the bien will be added as a new one by default.
+
+### Parameters
+
+Should be sent with the request in the body as "application/x-www-form-urlencoded".
+
+Parameter | Mandatory | Description | Type
+--------- | ------- | ------- | -------
+username | yes | The user name or email address | string
+password | yes | The user password | string
+nom | yes | Name of bien | string
+surface | yes | surface du bien | float
+type| yes | type of bien | enum of ('appartement', 'studio', 'maison', 'parking', 'local', 'cave', 'terrain')
+milliemes | yes | millièmes | integer (<= 1000)
+pieces | yes | nombre de pièces  | enum of ('T1', 'T1bis', 'T2', 'T2bis', 'T3', 'T3bis', 'T4', 'T4bis', 'T5', 'T5bis', 'T6', 'T6bis', 'T6+')
+etage | yes | Etage du bien | integer
+chambres | yes | nombre de chambres | integer
+energy | yes | Note energy | string (1 caracter)
+ges | yes| Not GES | string (1 caracter)
+infos | no | Any free text regarding the bien (max 100 caracters) | string
+
+Example of body with parameters:
+
+username:bob<br/>
+password:bobpassword<br/>
+nom:StudioGauche<br/>
+surface:20<br/>
+type:studio<br/>
+
+```shell
+curl --request POST \
+  --url https://www.rendementlocatif.com/api/gestion/21/saveBien/580a81d348177eb0128b4568 \
+  --header 'cache-control: no-cache' \
+  --header 'content-type: application/x-www-form-urlencoded' \
+  --header 'x-api-key: secretkey' \
+  --data 'username=boss&password=password&nom=StudioGauche&surface=20&type=studio'
 ```
 
 ## Split Loyer
@@ -3263,8 +3346,7 @@ curl --request POST \
 ```
 
 
-
-## Any document
+## Get any document
 
 Gets other documents as PDF, can also be sent to a locataire by email.
 It can be used for documents that already have a specific endpoint (bail, ficheCandidature, etc) but it is not recommanded. Otherwise using the specific endpoint will pre-fill much more detailsand give more options.
@@ -3353,6 +3435,177 @@ curl --request POST \
   --header 'x-api-key: secretkey' \
   --data 'username=boss&password=password'
 ```
+
+
+## Upload Document or Photo
+
+Uploads any type of document, including pictures.
+
+> Code to get the bien of a user
+
+```shell
+curl --data "username=username&password=password"
+"https://www.rendementlocatif.com/api/gestion/21/uploadDocument/<parentID>/<typeOfDocument>"
+  -H "X-API-KEY: secretkey"
+```
+
+> If success, it returns the PDF file (streamed over HTTP)
+> Otherwise it returns an error as a json
+
+```json
+{
+  "result": false,
+  "code": -1,
+  "message": "File should be less then 20Mb"
+}
+```
+
+> If success and email send mode, it always returns a json
+
+```json
+{
+  "result": true,
+  "code": 0,
+  "message": "Le fichier a bien été reçu"
+}
+```
+
+
+### HTTP Request
+
+`POST https://www.rendementlocatif.com/api/gestion/21/uploadDocument/<parentID>/<typeOfDocument>`
+
+"typeOfDocument" is the type document uploaded, can only be one of:
+
+* biensPhotos
+* biens
+* immeubles
+* locataires
+
+Only "biensPhotos" should be used for pictures of the bien.
+Other types should be used for any document uploaded concerning a bien, immeuble or particular locataire.
+
+"parentID" is the ID of the parent element :
+
+* if <typeOfDocument> = biensPhotos, should be the ID of the bien
+* if <typeOfDocument> = biens, should be the ID of the bien
+* if <typeOfDocument> = immeubles, should be the ID of the immeuble
+* if <typeOfDocument> = locataires, should be the ID of the locataire
+
+
+### POST Parameters
+
+Should be sent with the request in the body as "multipart/form-data".
+
+Parameter | Mandatory | Description | Type | default
+--------- | ------- | ------- | ------- | -------
+username | yes | The user name or email address | string |
+password | yes | The user password | string |
+userfile | yes | the content of the file | encoded string
+
+
+### Returned parameters
+
+Parameter | Type | Description
+--------- | ------- | -------
+result | boolean | true if doc is generated ok or if email send ok, otherwise false
+code | integer | 0 if ok otherwise error code of error
+message | string | error message if error, ok message of code=0 (success)
+
+
+## Emails Logs
+
+Gets all the emails sent history.
+
+> Code to get the bien of a user
+
+```shell
+curl --data "username=username&password=password"
+"https://www.rendementlocatif.com/api/gestion/21/emails/<locataireId>"
+  -H "X-API-KEY: secretkey"
+```
+
+> Returns the following JSON:
+
+```json
+{
+    "emails": [
+        {
+            "user_id": "23",
+            "sentOn": {
+                "sec": 1510238799,
+                "usec": 634000
+            },
+            "to": "bassouli@gmail.com",
+            "objet": "Votre quittance de loyer",
+            "message": "Bonjour Dupont Jean,\n\nJe vous adresse votre quittance mensuelle qui présente un solde débiteur de 1 248.39€.\nMerci de bien vouloir régulariser la situation rapidement et m'adresser votre règlement sous huitaine. A défaut de ce faire, je ne manquerais pas d’entreprendre d’autres démarches à votre égard.\nJ'espère cependant ne pas devoir en arriver là.\n\nBien cordialement,\nBoss Bo\n+33675887175",
+            "immeuble": {
+                "id": "5729f23b48177eba408b4568",
+                "name": "App. Angers, 93 000 euros"
+            },
+            "bien": {
+                "id": "5729f23b48177eba408b4569",
+                "name": "Bien Principal"
+            },
+            "locataire": {
+                "id": "5729f23b48177eba408b456a",
+                "nom": "Dupont",
+                "prenom": "Jean"
+            },
+            "montant": -1248.39,
+            "type": "quittance",
+            "description": "Quittance du 01/01/2017 au 23/01/2017. Montant final: -1 248.39€.",
+            "id": "5a046a4f48177e36098b4567"
+        },
+        {
+            "user_id": "23",
+            "sentOn": {
+                "sec": 1481032591,
+                "usec": 450000
+            },
+            "to": "bassouli@gmail.com",
+            "objet": "Votre quittance de loyer",
+            "message": "Bonjour Dupont Jean,\r\n\r\nJe vous adresse votre quittance mensuelle qui présente un solde débiteur de 870€.\r\nMerci de bien vouloir régulariser la situation rapidement et m'adresser votre règlement sous huitaine. A défaut de ce faire, je ne manquerais pas d’entreprendre d’autres démarches à votre égard.\r\nJ'espère cependant ne pas devoir en arriver là.\r\n\r\nBien cordialement,\r\nTest Nom Prénom\r\n",
+            "immeuble": {
+                "id": "5729f23b48177eba408b4568",
+                "name": "App. Angers, 93 000 euros"
+            },
+            "bien": {
+                "id": "5729f23b48177eba408b4569",
+                "name": "Bien Principal"
+            },
+            "locataire": {
+                "id": "5729f23b48177eba408b456a",
+                "nom": "Dupont",
+                "prenom": "Jean"
+            },
+            "montant": -870,
+            "type": "quittance",
+            "description": "Quittance du 01/12/2016 au 31/12/2016. Montant final: -870€.",
+            "id": "5846c38f48177e31128b4567"
+        }
+    ],
+    "result": true,
+    "code": 0,
+    "message": ""
+}
+```
+
+### HTTP Request
+
+`POST https://www.rendementlocatif.com/api/gestion/21/emails/<locataireId>`
+
+'locataireId' is the ID of the locataire.
+
+### Parameters
+
+Should be sent with the request as "application/x-www-form-urlencoded".
+
+Parameter | Description
+--------- | -------
+username | The user name or email address
+password | The user password
+
 
 
 ## Rapport Performance
