@@ -2372,7 +2372,7 @@ Returns the following JSON:</p>
 <p>&ldquo;bienId&rdquo; is mandatory and should correspond to the id of the bien to which the locataire will be attached.</p>
 
 <p>&ldquo;locataireId&rdquo; is optional. If given, it tells the API to update the locataire with id <locataireId> instead of adding a new locataire.
-If &ldquo;locataireId&rdquo; is incorrect or empty, the operation will be added as a new one by default.</p>
+If &ldquo;locataireId&rdquo; is incorrect or empty, the locataire will be added as a new one by default.</p>
 
 <h3 id="parameters">Parameters</h3>
 
@@ -2552,6 +2552,154 @@ depotGarantie:1<br/></p>
   --header <span class="s1">'content-type: application/x-www-form-urlencoded'</span> <span class="se">\</span>
   --header <span class="s1">'x-api-key: secretkey'</span> <span class="se">\</span>
   --data <span class="s1">'username=boss&amp;password=password&amp;nom=Dupont&amp;prenom=jean&amp;loyer=666&amp;provision=20&amp;indiceRevision=0&amp;signatureDate=1422745200&amp;entryDate=1422745200&amp;dayLoyer=3&amp;typeLocation=0&amp;depotGarantie=1'</span>
+</code></pre>
+
+<h2 id="save-a-bien">Save a Bien</h2>
+
+<p>Creates a new bien or update an existing bien (if bienId is given in the path).</p>
+
+<blockquote>
+<p>Code to get the bien of a user</p>
+</blockquote>
+<pre class="highlight shell"><code>curl --data <span class="s2">"username=username&amp;password=password"</span>
+<span class="s2">"https://www.rendementlocatif.com/api/gestion/21/savebien/&lt;immeubleId&gt;/&lt;bienId&gt;"</span>
+  -H <span class="s2">"X-API-KEY: secretkey"</span>
+</code></pre>
+
+<blockquote>
+<p><bienId> is mandatory and is the id of the bien to which the locataire will be attached
+<locataireId> is optional and is the id of the locataire if
+Returns the following JSON:</p>
+
+<p>success</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"result"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"bienId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5846e1e948177e30128b4567"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"'L'ajout a bien été pris en compte."</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<blockquote>
+<p>error</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"result"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">-4</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Some fields are incorrect or missing (see error for more details)."</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"\"Nom\" est obligatoire.\n"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">POST https://www.rendementlocatif.com/api/gestion/21/savebien/&lt;immeubleId&gt;/&lt;bienId&gt;</code></p>
+
+<p>&ldquo;immeubleId&rdquo; is mandatory and should correspond to the id of the immeuble to which the bien will or is attached.</p>
+
+<p>&ldquo;bienId&rdquo; is optional. If given, it tells the API to update the bien with id <bienId> instead of adding a new bien.
+If &ldquo;bienId&rdquo; is incorrect or empty, the bien will be added as a new one by default.</p>
+
+<h3 id="parameters">Parameters</h3>
+
+<p>Should be sent with the request in the body as &ldquo;application/x-www-form-urlencoded&rdquo;.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Mandatory</th>
+<th>Description</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>username</td>
+<td>yes</td>
+<td>The user name or email address</td>
+<td>string</td>
+</tr>
+<tr>
+<td>password</td>
+<td>yes</td>
+<td>The user password</td>
+<td>string</td>
+</tr>
+<tr>
+<td>nom</td>
+<td>yes</td>
+<td>Name of bien</td>
+<td>string</td>
+</tr>
+<tr>
+<td>surface</td>
+<td>yes</td>
+<td>surface du bien</td>
+<td>float</td>
+</tr>
+<tr>
+<td>type</td>
+<td>yes</td>
+<td>type of bien</td>
+<td>enum of (&#39;appartement&rsquo;, &#39;studio&rsquo;, &#39;maison&rsquo;, &#39;parking&rsquo;, &#39;local&rsquo;, &#39;cave&rsquo;, &#39;terrain&rsquo;)</td>
+</tr>
+<tr>
+<td>milliemes</td>
+<td>yes</td>
+<td>millièmes</td>
+<td>integer (&lt;= 1000)</td>
+</tr>
+<tr>
+<td>pieces</td>
+<td>yes</td>
+<td>nombre de pièces</td>
+<td>enum of (&#39;T1&rsquo;, &#39;T1bis&rsquo;, &#39;T2&rsquo;, &#39;T2bis&rsquo;, &#39;T3&rsquo;, &#39;T3bis&rsquo;, &#39;T4&rsquo;, &#39;T4bis&rsquo;, &#39;T5&rsquo;, &#39;T5bis&rsquo;, &#39;T6&rsquo;, &#39;T6bis&rsquo;, &#39;T6+&rsquo;)</td>
+</tr>
+<tr>
+<td>etage</td>
+<td>yes</td>
+<td>Etage du bien</td>
+<td>integer</td>
+</tr>
+<tr>
+<td>chambres</td>
+<td>yes</td>
+<td>nombre de chambres</td>
+<td>integer</td>
+</tr>
+<tr>
+<td>energy</td>
+<td>yes</td>
+<td>Note energy</td>
+<td>string (1 caracter)</td>
+</tr>
+<tr>
+<td>ges</td>
+<td>yes</td>
+<td>Not GES</td>
+<td>string (1 caracter)</td>
+</tr>
+<tr>
+<td>infos</td>
+<td>no</td>
+<td>Any free text regarding the bien (max 100 caracters)</td>
+<td>string</td>
+</tr>
+</tbody></table>
+
+<p>Example of body with parameters:</p>
+
+<p>username:bob<br/>
+password:bobpassword<br/>
+nom:StudioGauche<br/>
+surface:20<br/>
+type:studio<br/></p>
+<pre class="highlight shell"><code>curl --request POST <span class="se">\</span>
+  --url https://www.rendementlocatif.com/api/gestion/21/saveBien/580a81d348177eb0128b4568 <span class="se">\</span>
+  --header <span class="s1">'cache-control: no-cache'</span> <span class="se">\</span>
+  --header <span class="s1">'content-type: application/x-www-form-urlencoded'</span> <span class="se">\</span>
+  --header <span class="s1">'x-api-key: secretkey'</span> <span class="se">\</span>
+  --data <span class="s1">'username=boss&amp;password=password&amp;nom=StudioGauche&amp;surface=20&amp;type=studio'</span>
 </code></pre>
 
 <h2 id="split-loyer">Split Loyer</h2>
@@ -4278,7 +4426,7 @@ Otherwise it returns an error as a json</p>
   --data <span class="s1">'username=boss&amp;password=password'</span>
 </code></pre>
 
-<h2 id="any-document">Any document</h2>
+<h2 id="get-any-document">Get any document</h2>
 
 <p>Gets other documents as PDF, can also be sent to a locataire by email.
 It can be used for documents that already have a specific endpoint (bail, ficheCandidature, etc) but it is not recommanded. Otherwise using the specific endpoint will pre-fill much more detailsand give more options.</p>
@@ -4402,6 +4550,230 @@ Otherwise it returns an error as a json</p>
   --header <span class="s1">'x-api-key: secretkey'</span> <span class="se">\</span>
   --data <span class="s1">'username=boss&amp;password=password'</span>
 </code></pre>
+
+<h2 id="upload-document-or-photo">Upload Document or Photo</h2>
+
+<p>Uploads any type of document, including pictures.</p>
+
+<blockquote>
+<p>Code to get the bien of a user</p>
+</blockquote>
+<pre class="highlight shell"><code>curl --data <span class="s2">"username=username&amp;password=password"</span>
+<span class="s2">"https://www.rendementlocatif.com/api/gestion/21/uploadDocument/&lt;parentID&gt;/&lt;typeOfDocument&gt;"</span>
+  -H <span class="s2">"X-API-KEY: secretkey"</span>
+</code></pre>
+
+<blockquote>
+<p>If success, it returns the PDF file (streamed over HTTP)
+Otherwise it returns an error as a json</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"result"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">-1</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"File should be less then 20Mb"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<blockquote>
+<p>If success and email send mode, it always returns a json</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"result"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Le fichier a bien été reçu"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">POST https://www.rendementlocatif.com/api/gestion/21/uploadDocument/&lt;parentID&gt;/&lt;typeOfDocument&gt;</code></p>
+
+<p>&ldquo;typeOfDocument&rdquo; is the type document uploaded, can only be one of:</p>
+
+<ul>
+<li>biensPhotos</li>
+<li>biens</li>
+<li>immeubles</li>
+<li>locataires</li>
+</ul>
+
+<p>Only &ldquo;biensPhotos&rdquo; should be used for pictures of the bien.
+Other types should be used for any document uploaded concerning a bien, immeuble or particular locataire.</p>
+
+<p>&ldquo;parentID&rdquo; is the ID of the parent element :</p>
+
+<ul>
+<li>if <typeOfDocument> = biensPhotos, should be the ID of the bien</li>
+<li>if <typeOfDocument> = biens, should be the ID of the bien</li>
+<li>if <typeOfDocument> = immeubles, should be the ID of the immeuble</li>
+<li>if <typeOfDocument> = locataires, should be the ID of the locataire</li>
+</ul>
+
+<h3 id="post-parameters">POST Parameters</h3>
+
+<p>Should be sent with the request in the body as &ldquo;multipart/form-data&rdquo;.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Mandatory</th>
+<th>Description</th>
+<th>Type</th>
+<th>default</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>username</td>
+<td>yes</td>
+<td>The user name or email address</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>password</td>
+<td>yes</td>
+<td>The user password</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>userfile</td>
+<td>yes</td>
+<td>the content of the file</td>
+<td>encoded string</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h3 id="returned-parameters">Returned parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>result</td>
+<td>boolean</td>
+<td>true if doc is generated ok or if email send ok, otherwise false</td>
+</tr>
+<tr>
+<td>code</td>
+<td>integer</td>
+<td>0 if ok otherwise error code of error</td>
+</tr>
+<tr>
+<td>message</td>
+<td>string</td>
+<td>error message if error, ok message of code=0 (success)</td>
+</tr>
+</tbody></table>
+
+<h2 id="emails-logs">Emails Logs</h2>
+
+<p>Gets all the emails sent history.</p>
+
+<blockquote>
+<p>Code to get the bien of a user</p>
+</blockquote>
+<pre class="highlight shell"><code>curl --data <span class="s2">"username=username&amp;password=password"</span>
+<span class="s2">"https://www.rendementlocatif.com/api/gestion/21/emails/&lt;locataireId&gt;"</span>
+  -H <span class="s2">"X-API-KEY: secretkey"</span>
+</code></pre>
+
+<blockquote>
+<p>Returns the following JSON:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"emails"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"23"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"sentOn"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"sec"</span><span class="p">:</span><span class="w"> </span><span class="mi">1510238799</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"usec"</span><span class="p">:</span><span class="w"> </span><span class="mi">634000</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nt">"to"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bassouli@gmail.com"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"objet"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Votre quittance de loyer"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bonjour Dupont Jean,\n\nJe vous adresse votre quittance mensuelle qui présente un solde débiteur de 1 248.39€.\nMerci de bien vouloir régulariser la situation rapidement et m'adresser votre règlement sous huitaine. A défaut de ce faire, je ne manquerais pas d’entreprendre d’autres démarches à votre égard.\nJ'espère cependant ne pas devoir en arriver là.\n\nBien cordialement,\nBoss Bo\n+33675887175"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"immeuble"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5729f23b48177eba408b4568"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"App. Angers, 93 000 euros"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nt">"bien"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5729f23b48177eba408b4569"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bien Principal"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nt">"locataire"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5729f23b48177eba408b456a"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"nom"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Dupont"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"prenom"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jean"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nt">"montant"</span><span class="p">:</span><span class="w"> </span><span class="mf">-1248.39</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"quittance"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Quittance du 01/01/2017 au 23/01/2017. Montant final: -1 248.39€."</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5a046a4f48177e36098b4567"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"23"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"sentOn"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"sec"</span><span class="p">:</span><span class="w"> </span><span class="mi">1481032591</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"usec"</span><span class="p">:</span><span class="w"> </span><span class="mi">450000</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nt">"to"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bassouli@gmail.com"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"objet"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Votre quittance de loyer"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bonjour Dupont Jean,\r\n\r\nJe vous adresse votre quittance mensuelle qui présente un solde débiteur de 870€.\r\nMerci de bien vouloir régulariser la situation rapidement et m'adresser votre règlement sous huitaine. A défaut de ce faire, je ne manquerais pas d’entreprendre d’autres démarches à votre égard.\r\nJ'espère cependant ne pas devoir en arriver là.\r\n\r\nBien cordialement,\r\nTest Nom Prénom\r\n"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"immeuble"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5729f23b48177eba408b4568"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"App. Angers, 93 000 euros"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nt">"bien"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5729f23b48177eba408b4569"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bien Principal"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nt">"locataire"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5729f23b48177eba408b456a"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"nom"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Dupont"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"prenom"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jean"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nt">"montant"</span><span class="p">:</span><span class="w"> </span><span class="mi">-870</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"quittance"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Quittance du 01/12/2016 au 31/12/2016. Montant final: -870€."</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5846c38f48177e31128b4567"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nt">"result"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">POST https://www.rendementlocatif.com/api/gestion/21/emails/&lt;locataireId&gt;</code></p>
+
+<p>&#39;locataireId&rsquo; is the ID of the locataire.</p>
+
+<h3 id="parameters">Parameters</h3>
+
+<p>Should be sent with the request as &ldquo;application/x-www-form-urlencoded&rdquo;.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>username</td>
+<td>The user name or email address</td>
+</tr>
+<tr>
+<td>password</td>
+<td>The user password</td>
+</tr>
+</tbody></table>
 
 <h2 id="rapport-performance">Rapport Performance</h2>
 
