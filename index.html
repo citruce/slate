@@ -4671,6 +4671,97 @@ Other types should be used for any document uploaded concerning a bien, immeuble
 </tr>
 </tbody></table>
 
+<h2 id="delete-document-or-photo">Delete Document or Photo</h2>
+
+<p>Deletes any type of document, including pictures.</p>
+
+<blockquote>
+<p>Code to get the bien of a user</p>
+</blockquote>
+<pre class="highlight shell"><code>curl --data <span class="s2">"username=username&amp;password=password"</span>
+<span class="s2">"https://www.rendementlocatif.com/api/gestion/21/deleteDocument/&lt;documentID&gt;"</span>
+  -H <span class="s2">"X-API-KEY: secretkey"</span>
+</code></pre>
+
+<blockquote>
+<p>if issue</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"result"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">-5</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Un problème est survenu pendant la suppression."</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<blockquote>
+<p>If success, it always returns a json</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"result"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Document effacé"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">POST https://www.rendementlocatif.com/api/gestion/21/deleteDocument/&lt;documentID&gt;</code></p>
+
+<h3 id="post-parameters">POST Parameters</h3>
+
+<p>Should be sent with the request in the body as &ldquo;multipart/form-data&rdquo;.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Mandatory</th>
+<th>Description</th>
+<th>Type</th>
+<th>default</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>username</td>
+<td>yes</td>
+<td>The user name or email address</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>password</td>
+<td>yes</td>
+<td>The user password</td>
+<td>string</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h3 id="returned-parameters">Returned parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>result</td>
+<td>boolean</td>
+<td>true if doc is deleted ok, otherwise false</td>
+</tr>
+<tr>
+<td>code</td>
+<td>integer</td>
+<td>0 if ok otherwise error code of error</td>
+</tr>
+<tr>
+<td>message</td>
+<td>string</td>
+<td>error message if error, ok message of code=0 (success)</td>
+</tr>
+</tbody></table>
+
 <h2 id="emails-logs">Emails Logs</h2>
 
 <p>Gets all the emails sent history.</p>
